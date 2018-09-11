@@ -1,0 +1,185 @@
+import Html
+import SnapshotTesting
+import XCTest
+
+final class EventsTests: XCTestCase {
+  func testElementsSnapshot() {
+    let doc = [
+      audio(
+        [
+          onabort("alert('Abort');"),
+          onabort(unsafe: "alert('Abort');"),
+          oncanplay("alert();"),
+          oncanplay(unsafe: "alert();"),
+          oncanplaythrough("alert();"),
+          oncanplaythrough(unsafe: "alert();"),
+          ondurationchange("alert();"),
+          ondurationchange(unsafe: "alert();"),
+          onemptied("alert();"),
+          onemptied(unsafe: "alert();"),
+          onended("alert();"),
+          onended(unsafe: "alert();"),
+          onerror("alert();"),
+          onerror(unsafe: "alert();"),
+          onloadeddata("alert();"),
+          onloadeddata(unsafe: "alert();"),
+          onloadedmetadata("alert();"),
+          onloadedmetadata(unsafe: "alert();"),
+          onloadstart("alert();"),
+          onloadstart(unsafe: "alert();"),
+          onpause("alert();"),
+          onpause(unsafe: "alert();"),
+          onplay("alert();"),
+          onplay(unsafe: "alert();"),
+          onplaying("alert();"),
+          onplaying(unsafe: "alert();"),
+          onseeked("alert();"),
+          onseeked(unsafe: "alert();"),
+          onseeking("alert();"),
+          onseeking(unsafe: "alert();"),
+          onstalled("alert();"),
+          onstalled(unsafe: "alert();"),
+          onprogress("alert();"),
+          onprogress(unsafe: "alert();"),
+          onratechange("alert();"),
+          onratechange(unsafe: "alert();"),
+          onsuspend("alert();"),
+          onsuspend(unsafe: "alert();"),
+          ontimeupdate("alert();"),
+          ontimeupdate(unsafe: "alert();"),
+          onvolumechange("alert();"),
+          onvolumechange(unsafe: "alert();"),
+          onwaiting("alert();"),
+          onwaiting(unsafe: "alert();"),
+          ],
+        [
+          track(src: "track", [
+            oncuechange("alert();"),
+            oncuechange(unsafe: "alert();"),
+            ])
+        ]
+      ),
+      details(
+        [
+          ontoggle("alert();"),
+          ontoggle(unsafe: "alert();"),
+        ],
+        []
+      ),
+      div(
+        [
+          onblur("alert();"),
+          onblur(unsafe: "alert();"),
+          onclick("alert();"),
+          onclick(unsafe: "alert();"),
+          oncontextmenu("alert();"),
+          oncontextmenu(unsafe: "alert();"),
+          oncopy("alert();"),
+          oncopy(unsafe: "alert();"),
+          oncut("alert();"),
+          oncut(unsafe: "alert();"),
+          ondblclick("alert();"),
+          ondblclick(unsafe: "alert();"),
+          ondrag("alert();"),
+          ondrag(unsafe: "alert();"),
+          ondragend("alert();"),
+          ondragend(unsafe: "alert();"),
+          ondragenter("alert();"),
+          ondragenter(unsafe: "alert();"),
+          ondragover("alert();"),
+          ondragover(unsafe: "alert();"),
+          ondragstart("alert();"),
+          ondragstart(unsafe: "alert();"),
+          ondrop("alert();"),
+          ondrop(unsafe: "alert();"),
+          onfocus("alert();"),
+          onfocus(unsafe: "alert();"),
+          onkeydown("alert();"),
+          onkeydown(unsafe: "alert();"),
+          onkeypress("alert();"),
+          onkeypress(unsafe: "alert();"),
+          onkeyup("alert();"),
+          onkeyup(unsafe: "alert();"),
+          onmousedown("alert();"),
+          onmousedown(unsafe: "alert();"),
+          onmousemove("alert();"),
+          onmousemove(unsafe: "alert();"),
+          onmouseout("alert();"),
+          onmouseout(unsafe: "alert();"),
+          onmouseover("alert();"),
+          onmouseover(unsafe: "alert();"),
+          onmouseup("alert();"),
+          onmouseup(unsafe: "alert();"),
+          onpaste("alert();"),
+          onpaste(unsafe: "alert();"),
+          onscroll("alert();"),
+          onscroll(unsafe: "alert();"),
+          onwheel("alert();"),
+          onwheel(unsafe: "alert();"),
+        ],
+        []
+      ),
+      form(
+        [
+          onreset("alert();"),
+          onreset(unsafe: "alert();"),
+          onsubmit("alert();"),
+          onsubmit(unsafe: "alert();"),
+          ],
+        []
+      ),
+      html([
+        body(
+          [
+            onafterprint("alert();"),
+            onafterprint(unsafe: "alert();"),
+            onbeforeprint("alert();"),
+            onbeforeprint(unsafe: "alert();"),
+            onbeforeunload("alert();"),
+            onbeforeunload(unsafe: "alert();"),
+            onhashchange("alert();"),
+            onhashchange(unsafe: "alert();"),
+            onload("alert();"),
+            onload(unsafe: "alert();"),
+            onmessage("alert();"),
+            onmessage(unsafe: "alert();"),
+            onoffline("alert();"),
+            onoffline(unsafe: "alert();"),
+            ononline("alert();"),
+            ononline(unsafe: "alert();"),
+            onpagehide("alert();"),
+            onpagehide(unsafe: "alert();"),
+            onpageshow("alert();"),
+            onpageshow(unsafe: "alert();"),
+            onpopstate("alert();"),
+            onpopstate(unsafe: "alert();"),
+            onresize("alert();"),
+            onresize(unsafe: "alert();"),
+            onstorage("alert();"),
+            onstorage(unsafe: "alert();"),
+            onunload("alert();"),
+            onunload(unsafe: "alert();"),
+            ],
+          []
+        )
+        ]),
+      input(
+        [
+          onchange("alert();"),
+          onchange(unsafe: "alert();"),
+          oninput("alert();"),
+          oninput(unsafe: "alert();"),
+          oninvalid("alert();"),
+          oninvalid(unsafe: "alert();"),
+          onsearch("alert();"),
+          onsearch(unsafe: "alert();"),
+          onselect("alert();"),
+          onselect(unsafe: "alert();"),
+        ]
+      ),
+    ]
+
+    assertSnapshot(matching: render(doc), pathExtension: "html")
+  }
+}
+
