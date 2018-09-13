@@ -10,7 +10,7 @@ let package = Package(
       targets: ["Html"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", .revision("69b48c8")),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "0.0.1")
   ],
   targets: [
     .target(
