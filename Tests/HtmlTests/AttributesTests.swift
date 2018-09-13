@@ -14,6 +14,11 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<th scope=\"row\"/>", render(th([scope(.row)], [])))
     XCTAssertEqual("<th scope=\"rowgroup\"/>", render(th([scope(.rowgroup)], [])))
 
+    XCTAssertEqual(
+      "<a href=\"/user/foo&quot; onmouseover=&quot;alert(1)\">XSS</a>",
+      render(a([href("/user/foo\" onmouseover=\"alert(1)")], ["XSS"]))
+    )
+
     XCTAssertEqual("<a accesskey=\"a\"/>", render(a([accesskey("a")], [])))
 
     XCTAssertEqual(
