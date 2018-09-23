@@ -11,9 +11,9 @@ public func render(_ nodes: [Node]) -> String {
 public func render(_ node: Node) -> String {
   switch node {
   case let .comment(string):
-    return "<!-- \(string.replacingOccurrences(of: "-->", with: "--&gt;")) -->"
+    return "<!-- \(escapeHtmlComment(string)) -->"
   case let .doctype(string):
-    return "<!DOCTYPE \(string.replacingOccurrences(of: ">", with: "&gt;"))>"
+    return "<!DOCTYPE \(escapeDoctype(string))>"
   case let .element(tag, attribs, children):
     let renderedAttribs = render(attribs)
     guard !children.isEmpty else {
@@ -53,6 +53,14 @@ public func escapeTextNode(text: String) -> String {
   return text
     .replacingOccurrences(of: "&", with: "&amp;")
     .replacingOccurrences(of: "<", with: "&lt;")
+}
+
+public func escapeDoctype(_ doctype: String) -> String {
+  return doctype.replacingOccurrences(of: ">", with: "&gt;")
+}
+
+public func escapeHtmlComment(_ comment: String) -> String {
+  return comment.replacingOccurrences(of: "-->", with: "--&gt;")
 }
 
 /// A set of self-closing "void" elements that should not contain child nodes.
