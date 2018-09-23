@@ -34,7 +34,7 @@ code {
 /// A document built in the HTML DSL.
 let doc = html([
   head([
-    style(stylesheet)
+    style(unsafe: stylesheet)
     ]),
   body([
     h1(["🗺 HTML"]),
@@ -157,9 +157,11 @@ func redacted(node: Node) -> Node {
 }
 
 let webView = WKWebView(frame: .init(x: 0, y: 0, width: 370, height: 568))
+
 // Render a normal doc:
 let htmlString = render(doc)
-// Render a redacted doc:
+
+// or render a redacted doc:
 //let htmlString = render(redacted(node: doc))
 
 webView.loadHTMLString(htmlString, baseURL: nil)
