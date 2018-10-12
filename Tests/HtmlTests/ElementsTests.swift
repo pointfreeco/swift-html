@@ -1,5 +1,4 @@
 import Html
-import SnapshotTesting
 import XCTest
 
 final class ElementsTests: XCTestCase {
@@ -200,7 +199,12 @@ final class ElementsTests: XCTestCase {
       video([], []),
     ]
 
-    assertSnapshot(matching: render(doc), pathExtension: "html")
+    XCTAssertEqual(
+      """
+<a>foo1</a><abbr/><abbr/><address/><address/><map name="foo2"><area></map><article/><article/><aside/><aside/><audio/><audio/><audio><track src="track1">Fallback</audio><b/><b/><bdi/><bdi/><bdo dir="ltr"/><bdo dir="ltr"/><blockquote/><button/><canvas/><canvas/><cite/><cite/><code/><code/><del/><del/><details/><dfn/><dfn/><div/><dl><dd/><dd/><dt/><dt/></dl><dl/><em/><em/><embed><fieldset/><fieldset/><figure><figcaption/><figcaption/></figure><figure/><footer/><footer/><form/><h1/><h1/><h2/><h2/><h3/><h3/><h4/><h4/><h5/><h5/><h6/><h6/><header/><header/><hr><html><head><base><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="default-stype" content="foo"><meta http-equiv="refresh" content="1"><meta name="application-name" content="foo"><meta name="author" content="Blob"><meta name="description" content="Functional programming."><meta name="generator" content="foo"><meta name="keywords" content="math"><meta name="foo" content="bar"><meta property="foo" content="bar"><meta name="viewport" content="height=device-height"><script></script><script></script><script></script><style></style><style></style></head><body/></html><i/><i/><img src="data:image/svg+xml;base64,deadbeef" alt><ins/><ins/><kbd/><kbd/><label/><label/><main/><main/><mark/><mark/><meter value="1.0"/><meter value="2.0"/><nav/><nav/><object><param name="foo" value="bar"></object><ol><li/><li/></ol><ol/><optgroup><option>foo</option><option>foo</option></optgroup><optgroup/><output/><output/><p/><p/><pre/><pre/><q/><q/><s/><s/><samp/><samp/><script></script><script></script><script></script><section/><section/><select/><select/><small/><small/><span/><span/><strong/><strong/><sub/><sub/><sup/><sup/><svg></svg><svg></svg><table><caption/><caption/><colgroup><col></colgroup><colgroup/><tbody/><tbody/><tfoot/><tfoot/><thead/><thead/><tr><th/><th/><td/><td/></tr><tr/></table><textarea></textarea><time/><u/><u/><ul><li/><li/></ul><ul/><var/><var/><video/>
+""",
+      render(doc)
+    )
   }
 }
 
