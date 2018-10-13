@@ -1390,7 +1390,7 @@ public func script(_ attribs: [Attribute<Tag.Script>], _ content: StaticString) 
 ///
 /// - Parameter attribs: Attributes.
 public func script(_ attribs: [Attribute<Tag.Script>]) -> Node {
-  return element("script", attribs, [""])
+  return element("script", attribs, [])
 }
 
 /// The `<script>` element allows authors to include dynamic script and data blocks in their documents. The element does not represent content for the user.

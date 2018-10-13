@@ -16,10 +16,10 @@ public func render(_ node: Node) -> String {
     return "<!DOCTYPE \(escapeDoctype(string))>"
   case let .element(tag, attribs, children):
     let renderedAttribs = render(attribs)
-    guard !children.isEmpty else {
-      return "<" + tag + renderedAttribs + (voidElements.contains(tag) ? ">" : "/>")
-    }
-    return "<" + tag + renderedAttribs + ">" + render(children) + "</" + tag + ">"
+    let openTag = "<" + tag + renderedAttribs + ">"
+    return children.isEmpty && voidElements.contains(tag)
+      ? openTag
+      : openTag + render(children) + "</" + tag + ">"
   case let .text(string):
     return escapeTextNode(text: string)
   case let .raw(string):

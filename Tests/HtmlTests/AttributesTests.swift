@@ -5,31 +5,31 @@ final class AttributesTests: XCTestCase {
   func testAttributes() {
     XCTAssertEqual(
       """
-      <th abbr="blob" colspan="1" headers="blob" rowspan="1" scope/>
+      <th abbr="blob" colspan="1" headers="blob" rowspan="1" scope></th>
       """,
       render(th([abbr("blob"), colspan(1), headers("blob"), rowspan(1), scope(.auto)], []))
     )
-    XCTAssertEqual("<th scope=\"col\"/>", render(th([scope(.col)], [])))
-    XCTAssertEqual("<th scope=\"colgroup\"/>", render(th([scope(.colgroup)], [])))
-    XCTAssertEqual("<th scope=\"row\"/>", render(th([scope(.row)], [])))
-    XCTAssertEqual("<th scope=\"rowgroup\"/>", render(th([scope(.rowgroup)], [])))
+    XCTAssertEqual("<th scope=\"col\"></th>", render(th([scope(.col)], [])))
+    XCTAssertEqual("<th scope=\"colgroup\"></th>", render(th([scope(.colgroup)], [])))
+    XCTAssertEqual("<th scope=\"row\"></th>", render(th([scope(.row)], [])))
+    XCTAssertEqual("<th scope=\"rowgroup\"></th>", render(th([scope(.rowgroup)], [])))
 
     XCTAssertEqual(
       "<a href=\"/user/foo&quot; onmouseover=&quot;alert(1)\">XSS</a>",
       render(a([href("/user/foo\" onmouseover=\"alert(1)")], ["XSS"]))
     )
 
-    XCTAssertEqual("<a accesskey=\"a\"/>", render(a([accesskey("a")], [])))
+    XCTAssertEqual("<a accesskey=\"a\"></a>", render(a([accesskey("a")], [])))
 
     XCTAssertEqual(
       """
-      <form action="/" name="blob" novalidate/>
+      <form action="/" name="blob" novalidate></form>
       """,
       render(form([action("/"), Html.method(.get), Html.name("blob"), novalidate(true)], []))
     )
     XCTAssertEqual(
       """
-      <form action="/" method="post"/>
+      <form action="/" method="post"></form>
       """,
       render(form([action("/"), Html.method(.post), novalidate(false)], []))
     )
@@ -124,13 +124,13 @@ final class AttributesTests: XCTestCase {
 
     XCTAssertEqual(
       """
-      <button autofocus disabled form="form" name="blob"/>
+      <button autofocus disabled form="form" name="blob"></button>
       """,
       render(button([autofocus(true), disabled(true), form("form"), Html.name("blob")], []))
     )
     XCTAssertEqual(
       """
-      <button/>
+      <button></button>
       """,
       render(button([autofocus(false), disabled(false)], []))
     )
@@ -222,159 +222,159 @@ final class AttributesTests: XCTestCase {
 
     XCTAssertEqual("<meta charset=\"utf-8\">", render(meta([charset(.utf8)])))
 
-    XCTAssertEqual("<blockquote cite=\"blob\"/>", render(blockquote([cite("blob")], [])))
+    XCTAssertEqual("<blockquote cite=\"blob\"></blockquote>", render(blockquote([cite("blob")], [])))
 
     let date = Date(timeIntervalSinceReferenceDate: 0)
 
     XCTAssertEqual(
       """
-      <del cite="blob" datetime="2001-01-01T00:00:00Z"/>
+      <del cite="blob" datetime="2001-01-01T00:00:00Z"></del>
       """,
       render(del([cite("blob"), datetime(date)], []))
     )
 
     XCTAssertEqual(
       """
-      <del cite="blob" datetime="2001-01-01T00:00:00Z"/>
+      <del cite="blob" datetime="2001-01-01T00:00:00Z"></del>
       """,
       render(del([cite("blob"), datetime(date)], []))
     )
 
-    XCTAssertEqual("<q cite=\"blob\"/>", render(q([cite("blob")], [])))
+    XCTAssertEqual("<q cite=\"blob\"></q>", render(q([cite("blob")], [])))
 
-    XCTAssertEqual("<div class=\"blob\"/>", render(div([Html.class("blob")], [])))
+    XCTAssertEqual("<div class=\"blob\"></div>", render(div([Html.class("blob")], [])))
 
     XCTAssertEqual(
       """
-      <td colspan="1" headers="blob" rowspan="1"/>
+      <td colspan="1" headers="blob" rowspan="1"></td>
       """,
       render(td([colspan(1), headers("blob"), rowspan(1)], []))
     )
 
-    XCTAssertEqual("<a contenteditable/>", render(a([contenteditable(true)], [])))
-    XCTAssertEqual("<a contenteditable=\"false\"/>", render(a([contenteditable(false)], [])))
-    XCTAssertEqual("<a/>", render(a([contenteditable(.inherit)], [])))
+    XCTAssertEqual("<a contenteditable></a>", render(a([contenteditable(true)], [])))
+    XCTAssertEqual("<a contenteditable=\"false\"></a>", render(a([contenteditable(false)], [])))
+    XCTAssertEqual("<a></a>", render(a([contenteditable(.inherit)], [])))
 
-    XCTAssertEqual("<a data-blob=\"deadbeef\"/>", render(a([data("blob", "deadbeef")], [])))
+    XCTAssertEqual("<a data-blob=\"deadbeef\"></a>", render(a([data("blob", "deadbeef")], [])))
 
-    XCTAssertEqual("<time datetime=\"2001-01-01T00:00:00Z\"/>", render(time([datetime(date)], [])))
+    XCTAssertEqual("<time datetime=\"2001-01-01T00:00:00Z\"></time>", render(time([datetime(date)], [])))
 
-    XCTAssertEqual("<a dir=\"ltr\"/>", render(a([dir(.ltr)], [])))
-    XCTAssertEqual("<a dir=\"rtl\"/>", render(a([dir(.rtl)], [])))
-    XCTAssertEqual("<a dir=\"auto\"/>", render(a([dir(.auto)], [])))
+    XCTAssertEqual("<a dir=\"ltr\"></a>", render(a([dir(.ltr)], [])))
+    XCTAssertEqual("<a dir=\"rtl\"></a>", render(a([dir(.rtl)], [])))
+    XCTAssertEqual("<a dir=\"auto\"></a>", render(a([dir(.auto)], [])))
 
     XCTAssertEqual(
       """
-      <fieldset disabled name="blob"/>
+      <fieldset disabled name="blob"></fieldset>
       """,
       render(fieldset([disabled(true), Html.name("blob")], []))
     )
-    XCTAssertEqual("<fieldset/>", render(fieldset([disabled(false)], [])))
+    XCTAssertEqual("<fieldset></fieldset>", render(fieldset([disabled(false)], [])))
 
-    XCTAssertEqual("<optgroup disabled/>", render(optgroup([disabled(true)], [])))
-    XCTAssertEqual("<optgroup/>", render(optgroup([disabled(false)], [])))
+    XCTAssertEqual("<optgroup disabled></optgroup>", render(optgroup([disabled(true)], [])))
+    XCTAssertEqual("<optgroup></optgroup>", render(optgroup([disabled(false)], [])))
 
-    XCTAssertEqual("<a draggable=\"true\"/>", render(a([draggable(true)], [])))
-    XCTAssertEqual("<a draggable=\"false\"/>", render(a([draggable(false)], [])))
-    XCTAssertEqual("<a/>", render(a([draggable(.auto)], [])))
+    XCTAssertEqual("<a draggable=\"true\"></a>", render(a([draggable(true)], [])))
+    XCTAssertEqual("<a draggable=\"false\"></a>", render(a([draggable(false)], [])))
+    XCTAssertEqual("<a></a>", render(a([draggable(.auto)], [])))
 
     XCTAssertEqual(
       """
-      <label for="blob" form="form"/>
+      <label for="blob" form="form"></label>
       """,
       render(label([`for`("blob"), form("form")], []))
     )
 
     XCTAssertEqual(
       """
-      <output for="blob" name="blob name"/>
+      <output for="blob" name="blob name"></output>
       """,
       render(output([`for`("blob"), Html.name("blob name")], []))
     )
 
-    XCTAssertEqual("<canvas height=\"42\" width=\"43\"/>", render(canvas([height(42), width(43)], [])))
+    XCTAssertEqual("<canvas height=\"42\" width=\"43\"></canvas>", render(canvas([height(42), width(43)], [])))
     XCTAssertEqual(
       """
-      <iframe height="42" name="blob" sandbox src="src" srcdoc="srcdoc" width="43"/>
+      <iframe height="42" name="blob" sandbox src="src" srcdoc="srcdoc" width="43"></iframe>
       """,
       render(iframe([height(42), Html.name("blob"), sandbox(true), src("src"), srcdoc("srcdoc"), width(43)], []))
     )
     XCTAssertEqual(
       """
-      <iframe/>
+      <iframe></iframe>
       """,
       render(iframe([sandbox(false)], []))
     )
     XCTAssertEqual(
       """
-      <iframe sandbox="allow-forms allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation"/>
+      <iframe sandbox="allow-forms allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation"></iframe>
       """,
       render(iframe([sandbox([.allowForms, .allowPointerLock, .allowPopups, .allowPresentation, .allowSameOrigin, .allowScripts, .allowTopNavigation])], []))
     )
     XCTAssertEqual(
       """
-      <object height="42" name="blob" width="43"/>
+      <object height="42" name="blob" width="43"></object>
       """,
       render(object([height(42), Html.name("blob"), width(43)], []))
     )
     XCTAssertEqual("<svg height=\"42\" width=\"43\"></svg>", render(svg([height(42), width(43)], "")))
 
-    XCTAssertEqual("<a hidden/>", render(a([hidden(true)], [])))
-    XCTAssertEqual("<a/>", render(a([hidden(false)], [])))
+    XCTAssertEqual("<a hidden></a>", render(a([hidden(true)], [])))
+    XCTAssertEqual("<a></a>", render(a([hidden(false)], [])))
 
-    XCTAssertEqual("<a href=\"blob\" rel=\"alternate\"/>", render(a([href("blob"), rel(.alternate)], [])))
+    XCTAssertEqual("<a href=\"blob\" rel=\"alternate\"></a>", render(a([href("blob"), rel(.alternate)], [])))
     XCTAssertEqual("<area href=\"blob\" rel=\"alternate\">", render(area([href("blob"), rel(.alternate)])))
     XCTAssertEqual("<base href=\"blob\">", render(base([href("blob")])))
     XCTAssertEqual("<link href=\"blob\" rel=\"alternate\">", render(link([href("blob"), rel(.alternate)])))
 
-    XCTAssertEqual("<a href=\"mailto:blob@pointfree.co\"/>", render(a([mailto("blob@pointfree.co")], [])))
+    XCTAssertEqual("<a href=\"mailto:blob@pointfree.co\"></a>", render(a([mailto("blob@pointfree.co")], [])))
 
-    XCTAssertEqual("<a id=\"blob\"/>", render(a([id("blob")], [])))
+    XCTAssertEqual("<a id=\"blob\"></a>", render(a([id("blob")], [])))
 
-    XCTAssertEqual("<a lang=\"en\"/>", render(a([lang(.en)], [])))
+    XCTAssertEqual("<a lang=\"en\"></a>", render(a([lang(.en)], [])))
 
-    XCTAssertEqual("<details open/>", render(details([open(true)], [])))
-    XCTAssertEqual("<details/>", render(details([open(false)], [])))
+    XCTAssertEqual("<details open></details>", render(details([open(true)], [])))
+    XCTAssertEqual("<details></details>", render(details([open(false)], [])))
 
-    XCTAssertEqual("<ol reversed start=\"1\"/>", render(ol([reversed(true), start(1)], [])))
-    XCTAssertEqual("<ol/>", render(ol([reversed(false)], [])))
+    XCTAssertEqual("<ol reversed start=\"1\"></ol>", render(ol([reversed(true), start(1)], [])))
+    XCTAssertEqual("<ol></ol>", render(ol([reversed(false)], [])))
 
     XCTAssertEqual("<area shape=\"circle\">", render(area([shape(.circle)])))
     XCTAssertEqual("<area shape=\"poly\">", render(area([shape(.poly)])))
     XCTAssertEqual("<area>", render(area([shape(.rect)])))
 
     XCTAssertEqual("<col span=\"1\">", render(col([span(1)])))
-    XCTAssertEqual("<colgroup span=\"1\"/>", render(colgroup([span(1)], [])))
+    XCTAssertEqual("<colgroup span=\"1\"></colgroup>", render(colgroup([span(1)], [])))
 
-    XCTAssertEqual("<a spellcheck=\"true\"/>", render(a([spellcheck(true)], [])))
-    XCTAssertEqual("<a spellcheck=\"false\"/>", render(a([spellcheck(false)], [])))
+    XCTAssertEqual("<a spellcheck=\"true\"></a>", render(a([spellcheck(true)], [])))
+    XCTAssertEqual("<a spellcheck=\"false\"></a>", render(a([spellcheck(false)], [])))
 
     XCTAssertEqual("<embed src=\"src\">", render(embed([src("src")])))
 
-    XCTAssertEqual("<a style=\"display: none\"/>", render(a([style("display: none")], [])))
+    XCTAssertEqual("<a style=\"display: none\"></a>", render(a([style("display: none")], [])))
 
-    XCTAssertEqual("<a tabindex=\"1\"/>", render(a([tabindex(1)], [])))
+    XCTAssertEqual("<a tabindex=\"1\"></a>", render(a([tabindex(1)], [])))
 
-    XCTAssertEqual("<a target=\"_blank\"/>", render(a([target(.blank)], [])))
-    XCTAssertEqual("<a/>", render(a([target(.self)], [])))
-    XCTAssertEqual("<a target=\"_parent\"/>", render(a([target(.parent)], [])))
-    XCTAssertEqual("<a target=\"_top\"/>", render(a([target(.top)], [])))
-    XCTAssertEqual("<a target=\"custom\"/>", render(a([target(.init(rawValue: "custom"))], [])))
+    XCTAssertEqual("<a target=\"_blank\"></a>", render(a([target(.blank)], [])))
+    XCTAssertEqual("<a></a>", render(a([target(.self)], [])))
+    XCTAssertEqual("<a target=\"_parent\"></a>", render(a([target(.parent)], [])))
+    XCTAssertEqual("<a target=\"_top\"></a>", render(a([target(.top)], [])))
+    XCTAssertEqual("<a target=\"custom\"></a>", render(a([target(.init(rawValue: "custom"))], [])))
 
-    XCTAssertEqual("<a title=\"blob\"/>", render(a([title("blob")], [])))
+    XCTAssertEqual("<a title=\"blob\"></a>", render(a([title("blob")], [])))
 
-    XCTAssertEqual("<a translate=\"yes\"/>", render(a([translate(true)], [])))
-    XCTAssertEqual("<a translate=\"no\"/>", render(a([translate(false)], [])))
+    XCTAssertEqual("<a translate=\"yes\"></a>", render(a([translate(true)], [])))
+    XCTAssertEqual("<a translate=\"no\"></a>", render(a([translate(false)], [])))
 
-    XCTAssertEqual("<button type=\"button\"/>", render(button([type(.button)], [])))
-    XCTAssertEqual("<button type=\"reset\"/>", render(button([type(.reset)], [])))
-    XCTAssertEqual("<button type=\"submit\"/>", render(button([type(.submit)], [])))
+    XCTAssertEqual("<button type=\"button\"></button>", render(button([type(.button)], [])))
+    XCTAssertEqual("<button type=\"reset\"></button>", render(button([type(.reset)], [])))
+    XCTAssertEqual("<button type=\"submit\"></button>", render(button([type(.submit)], [])))
 
-    XCTAssertEqual("<ol type=\"1\"/>", render(ol([type(.decimal)], [])))
-    XCTAssertEqual("<ol type=\"a\"/>", render(ol([type(.lowerAlpha)], [])))
-    XCTAssertEqual("<ol type=\"A\"/>", render(ol([type(.upperAlpha)], [])))
-    XCTAssertEqual("<ol type=\"i\"/>", render(ol([type(.lowerRoman)], [])))
-    XCTAssertEqual("<ol type=\"I\"/>", render(ol([type(.upperRoman)], [])))
+    XCTAssertEqual("<ol type=\"1\"></ol>", render(ol([type(.decimal)], [])))
+    XCTAssertEqual("<ol type=\"a\"></ol>", render(ol([type(.lowerAlpha)], [])))
+    XCTAssertEqual("<ol type=\"A\"></ol>", render(ol([type(.upperAlpha)], [])))
+    XCTAssertEqual("<ol type=\"i\"></ol>", render(ol([type(.lowerRoman)], [])))
+    XCTAssertEqual("<ol type=\"I\"></ol>", render(ol([type(.upperRoman)], [])))
   }
 }
 
