@@ -870,7 +870,7 @@ public func img(src: String, alt: String, _ attribs: [Attribute<Tag.Img>] = []) 
 public func img(base64: String, type: MediaType, alt: String, _ attribs: [Attribute<Tag.Img>])
   -> Node {
 
-    return img(src: "data:\(type.description);base64,\(base64)", alt: alt)
+    return img(src: "data:\(type.description);base64,\(base64)", alt: alt, attribs)
 }
 
 /// The `<input>` element represents a typed data field, usually with a form control to allow the user to edit the data.

@@ -205,6 +205,13 @@ final class ElementsTests: XCTestCase {
 """,
       render(doc)
     )
+
+    XCTAssertEqual(
+      """
+<img src="data:image/png;base64,ZnVuY3Rpb25z" alt class="fun">
+""",
+      render(img(base64: "ZnVuY3Rpb25z", type: .image(.png), alt: "", [Html.class("fun")]))
+    )
   }
 }
 
