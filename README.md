@@ -190,7 +190,7 @@ If you want to use swift-html in a project that uses [SwiftPM](https://swift.org
 
 ``` swift
 dependencies: [
-  .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.1.2")
+  .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.1.3")
 ]
 ```
 
