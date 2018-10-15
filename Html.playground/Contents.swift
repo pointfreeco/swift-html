@@ -34,7 +34,7 @@ code {
 /// A document built in the HTML DSL.
 let doc = html([
   head([
-    style(stylesheet)
+    style(unsafe: stylesheet)
     ]),
   body([
     h1(["🗺 HTML"]),
