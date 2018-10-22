@@ -1115,6 +1115,13 @@ public func step(_ value: Int) -> Attribute<Tag.Input> {
 ///
 /// - Parameter value: A CSS style.
 public func style<T>(_ value: StaticString) -> Attribute<T> {
+  return style(unsafe: String(describing: value))
+}
+
+/// This is a style attribute as defined by the _CSS Style Attributes_ specification.
+///
+/// - Parameter value: A CSS style.
+public func style<T>(unsafe value: String) -> Attribute<T> {
   return .init("style", String(describing: value))
 }
 
