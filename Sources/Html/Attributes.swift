@@ -293,6 +293,19 @@ public func draggable<T>(_ value: Draggable) -> Attribute<T> {
   return .init("draggable", value == .auto ? nil : value.rawValue)
 }
 
+public enum Enctype: String {
+  case formURLEncoded = "application/x-www-form-urlencoded"
+  case multipartFormData = "multipart/form-data"
+  case plainText = "text/plain"
+}
+
+/// The type of form encoding.
+///
+/// - Parameter value: Enctype to use for form encoding.
+public func enctype(_ value: Enctype) -> Attribute<Tag.Form> {
+  return .init("enctype", value.rawValue)
+}
+
 /// Conforming elements can have a `for` attribute. Includes `<label>` and `<output>` elements.
 public protocol HasFor {}
 
