@@ -293,6 +293,25 @@ public func draggable<T>(_ value: Draggable) -> Attribute<T> {
   return .init("draggable", value == .auto ? nil : value.rawValue)
 }
 
+public struct Enctype: RawRepresentable {
+  public let rawValue: String
+
+  public init(rawValue: String) {
+    self.rawValue = rawValue
+  }
+
+  public static let applicationXWwwFormUrlencoded = Enctype(rawValue: "application/x-www-form-urlencoded")
+  public static let multipartFormData = Enctype(rawValue: "multipart/form-data")
+  public static let textPlain = Enctype(rawValue: "text/plain")
+}
+
+/// The type of form encoding.
+///
+/// - Parameter value: Enctype to use for form encoding.
+public func enctype(_ value: Enctype) -> Attribute<Tag.Form> {
+  return .init("enctype", value.rawValue)
+}
+
 /// Conforming elements can have a `for` attribute. Includes `<label>` and `<output>` elements.
 public protocol HasFor {}
 

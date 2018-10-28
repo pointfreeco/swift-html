@@ -649,6 +649,25 @@ public func footer(_ content: [Node]) -> Node {
 /// The `<form>` element represents a collection of form-associated elements, some of which can represent editable values that can be submitted to a server for processing.
 ///
 /// - Parameters:
+///   - enctype: Enctype to use for form encoding.
+///   - attribs: Attributes.
+///   - content: Child nodes.
+public func form(enctype: Enctype, _ attribs: [Attribute<Tag.Form>], _ content: [Node]) -> Node {
+  return form([method(.post), .init("enctype", enctype.rawValue)] + attribs, content)
+}
+
+/// The `<form>` element represents a collection of form-associated elements, some of which can represent editable values that can be submitted to a server for processing.
+///
+/// - Parameters:
+///   - enctype: Enctype to use for form encoding.
+///   - content: Child nodes.
+public func form(enctype: Enctype, _ content: [Node]) -> Node {
+  return form(enctype: enctype, [], content)
+}
+
+/// The `<form>` element represents a collection of form-associated elements, some of which can represent editable values that can be submitted to a server for processing.
+///
+/// - Parameters:
 ///   - attribs: Attributes.
 ///   - content: Child nodes.
 public func form(_ attribs: [Attribute<Tag.Form>], _ content: [Node]) -> Node {
