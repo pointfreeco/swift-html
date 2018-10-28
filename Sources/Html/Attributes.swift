@@ -293,10 +293,16 @@ public func draggable<T>(_ value: Draggable) -> Attribute<T> {
   return .init("draggable", value == .auto ? nil : value.rawValue)
 }
 
-public enum Enctype: String {
-  case formURLEncoded = "application/x-www-form-urlencoded"
-  case multipartFormData = "multipart/form-data"
-  case plainText = "text/plain"
+public struct Enctype: RawRepresentable {
+  public let rawValue: String
+
+  public init(rawValue: String) {
+    self.rawValue = rawValue
+  }
+
+  public static let applicationXWwwFormUrlencoded = Enctype(rawValue: "application/x-www-form-urlencoded")
+  public static let multipartFormData = Enctype(rawValue: "multipart/form-data")
+  public static let textPlain = Enctype(rawValue: "text/plain")
 }
 
 /// The type of form encoding.

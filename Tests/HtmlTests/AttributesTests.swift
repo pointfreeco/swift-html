@@ -278,6 +278,22 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<a draggable=\"false\"></a>", render(a([draggable(false)], [])))
     XCTAssertEqual("<a></a>", render(a([draggable(.auto)], [])))
 
+    XCTAssertEqual("""
+      <form enctype=\"application/x-www-form-urlencoded\"></form>
+      """,
+      render(form([enctype(.applicationXWwwFormUrlencoded)], []))
+    )
+    XCTAssertEqual("""
+      <form enctype=\"multipart/form-data\"></form>
+      """,
+      render(form([enctype(.multipartFormData)], []))
+    )
+    XCTAssertEqual("""
+      <form enctype=\"text/plain\"></form>
+      """,
+      render(form([enctype(.textPlain)], []))
+    )
+
     XCTAssertEqual(
       """
       <label for="blob" form="form"></label>
