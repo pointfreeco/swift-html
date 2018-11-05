@@ -207,7 +207,7 @@ The ideas for this library were explored in the following episodes:
 - [Episode 26](https://www.pointfree.co/episodes/ep26-domain-specific-languages-part-1): Domain Specific Languages: Part 1
 - [Episode 27](https://www.pointfree.co/episodes/ep27-domain-specific-languages-part-2): Domain Specific Languages: Part 2
 - [Episode 28](https://www.pointfree.co/episodes/ep28-an-html-dsl): An HTML DSL
-- [Episode 29](https://www.pointfree.co/episodes/ep29-dsls-vs-templating-languages): DSLs vs. Templating Languages
+- [Episode 29](https://www.pointfree.co/episodes/ep29-dsls-vs-templating-languages): 🆓 DSLs vs. Templating Languages
 
 <a href="https://www.pointfree.co/episodes/ep26-domain-specific-languages-part-1">
   <img alt="video poster image" src="https://d1hf1soyumxcgv.cloudfront.net/0026-dsl-pt1/poster.jpg" width="480">
