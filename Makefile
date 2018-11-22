@@ -1,5 +1,6 @@
 xcodeproj:
-	swift package generate-xcodeproj
+	@command -v xcodegen >/dev/null 2>&1 || { echo >&2 "Required tool missing: XcodeGen. Try 'brew install xcodegen' perhaps?"; exit 1; }
+	xcodegen
 
 test-linux:
 	docker build --tag html . \
