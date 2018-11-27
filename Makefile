@@ -23,7 +23,7 @@ test-ios: xcodeproj
 linux-main:
 	swift test --generate-linuxmain
 
-test-swift: xcodeproj
+test-swift:
 	swift test --generate-linuxmain \
 	  && swift test
 
