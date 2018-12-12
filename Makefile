@@ -9,14 +9,14 @@ test-linux:
 test-macos: xcodeproj
 	set -o pipefail && \
 	xcodebuild test \
-		-scheme Html-Package \
+		-scheme Html_macOS \
 		-destination platform="macOS" \
 		| xcpretty
 
 test-ios: xcodeproj
 	set -o pipefail && \
 	xcodebuild test \
-		-scheme Html-Package \
+		-scheme Html_iOS \
 		-destination platform="iOS Simulator,name=iPhone 8,OS=11.4" \
 		| xcpretty
 

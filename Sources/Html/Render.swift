@@ -65,13 +65,13 @@ private func render(_ node: Node, output: inout String) {
   case let .doctype(string):
     output.append("<!DOCTYPE \(escapeDoctype(string))>")
   case let .element(tag, attribs, children):
-    let renderedAttribs = render(attribs)
-    let openTag = "<" + tag + renderedAttribs + ">"
-    output.append(
-      children.isEmpty && voidElements.contains(tag)
-        ? openTag
-        : openTag + render(children) + "</" + tag + ">"
-    )
+    output.append("<")
+    output.append(tag)
+    render(attribs, into: &output)
+    output.append(">")
+    if !children.isEmpty || !voidElements.contains(tag) {
+      output.append(render(children) + "</" + tag + ">")
+    }
   case let .text(string):
     output.append(escapeTextNode(text: string))
   case let .raw(string):
@@ -79,12 +79,12 @@ private func render(_ node: Node, output: inout String) {
   }
 }
 
-private func render(_ attribs: [(String, String?)]) -> String {
-  return attribs
-    .compactMap { key, value in
-      value.map {
-        " " + key + ($0.isEmpty ? "" : "=\"\(escapeAttributeValue($0))\"")
-      }
+private func render(_ attribs: [(String, String?)], into output: inout String) {
+  attribs
+    .forEach { key, value in
+      guard let value = value else { return }
+      output.append(" ")
+      output.append(key)
+      output.append(value.isEmpty ? "" : "=\"\(escapeAttributeValue(value))\"")
     }
-    .joined()
 }
