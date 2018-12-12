@@ -2,7 +2,7 @@
 ///
 /// - Parameter nodes: An array of nodes.
 public func render(_ nodes: [Node]) -> String {
-  return nodes.map(render).joined()
+  return nodes.reduce(into: "") { $0.append(render($1)) }
 }
 
 /// Renders a node to an HTML string.
