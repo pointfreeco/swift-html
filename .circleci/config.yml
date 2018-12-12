@@ -17,6 +17,10 @@ jobs:
           command: instruments -s devices
 
       - run:
+          name: Install xcodegen
+          command: brew install xcodegen
+
+      - run:
           name: Run macOS tests
           command: make test-macos
           environment:
