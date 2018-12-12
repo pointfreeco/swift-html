@@ -67,9 +67,11 @@ private func render(_ node: Node, output: inout String) {
   case let .element(tag, attribs, children):
     let renderedAttribs = render(attribs)
     let openTag = "<" + tag + renderedAttribs + ">"
-    output.append(children.isEmpty && voidElements.contains(tag)
-      ? openTag
-      : openTag + render(children) + "</" + tag + ">")
+    output.append(
+      children.isEmpty && voidElements.contains(tag)
+        ? openTag
+        : openTag + render(children) + "</" + tag + ">"
+    )
   case let .text(string):
     output.append(escapeTextNode(text: string))
   case let .raw(string):
