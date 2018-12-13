@@ -10,7 +10,7 @@ public func render(_ nodes: [Node]) -> String {
 /// - Parameter node: A node.
 public func render(_ node: Node) -> String {
   var rendered = ""
-  render(node, output: &rendered)
+  render(node, into: &rendered)
   return rendered
 }
 
@@ -58,7 +58,7 @@ public let voidElements: Set<String> = [
   "wbr"
 ]
 
-private func render(_ node: Node, output: inout String) {
+private func render(_ node: Node, into output: inout String) {
   switch node {
   case let .comment(string):
     output.append("<!-- \(escapeHtmlComment(string)) -->")
