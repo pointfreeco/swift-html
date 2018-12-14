@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     macos:
-      xcode: "9.4.1"
+      xcode: "10.1.0"
 
     steps:
       - checkout
@@ -15,12 +15,6 @@ jobs:
       - run:
           name: Print Devices
           command: instruments -s devices
-
-      - run:
-          name: Run macOS tests
-          command: make test-macos
-          environment:
-            SNAPSHOT_ARTIFACTS: $CIRCLE_ARTIFACTS
 
       - run:
           name: Run Swift tests
