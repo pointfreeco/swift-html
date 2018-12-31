@@ -29,12 +29,12 @@ HTML documents can be created in a tree-like fashion, much like you might create
 ```swift 
 import Html
 
-let document = html([
+let document = html(
   body([
-    h1(["Welcome!"]),
-    p(["You’ve found our site!"])
+    h1("Welcome!"),
+    p("You’ve found our site!")
     ])
-  ])
+)
 ```
 
 Underneath the hood these tag functions `html`, `body`, `h1`, etc., are just creating and nesting instances of a `Node` type, which is a simple Swift enum. Because `Node` is just a simple Swift type, we can transform it in all kinds of interesting ways. For a silly example, what if we wanted to remove all instances of exclamation marks from our document?
@@ -117,7 +117,7 @@ div([
 
 ## Design
 
-The core of the library is a single enum with 5 cases:
+The core of the library is a single enum with 6 cases:
 
 ```swift
 public enum Node {
