@@ -153,9 +153,10 @@ func redacted(node: Node) -> Node {
   // All other elements will have their children redacted.
   case let .element(tag, attrs, children):
     return .element(tag, attrs, children.map(redacted(node:)))
-  // Text nodes will be redacted
+  // All fragments will have their children redacted.
   case let .fragment(children):
     return .fragment(children.map(redacted(node:)))
+  // Text nodes will be redacted
   case let .text(string):
     return .text(redacted(string: string))
   }
