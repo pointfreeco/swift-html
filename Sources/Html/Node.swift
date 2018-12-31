@@ -6,6 +6,9 @@ public enum Node {
   /// Represents an HTML DOCTYPE.
   case doctype(String)
 
+  /// Represents an array of nodes.
+  indirect case fragment([Node])
+
   /// Represents an element node with a tag name, an array of attributes, and an array of child nodes.
   indirect case element(String, [(key: String, value: String?)], [Node])
 

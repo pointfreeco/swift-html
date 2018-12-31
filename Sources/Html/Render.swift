@@ -72,6 +72,8 @@ private func render(_ node: Node, into output: inout String) {
     if !children.isEmpty || !voidElements.contains(tag) {
       output.append(render(children) + "</" + tag + ">")
     }
+  case let .fragment(children):
+    output.append(render(children))
   case let .text(string):
     output.append(escapeTextNode(text: string))
   case let .raw(string):
