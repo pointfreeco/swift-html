@@ -100,18 +100,18 @@ For a more advanced example, `<li>` tags can only be placed inside `<ol>` and `<
 
 ```swift
 let listTag = ul([
-  li(["Cat"]),
-  li(["Dog"]),
-  li(["Rabbit"])
+  li("Cat"),
+  li("Dog"),
+  li("Rabbit")
   ]) // ✅ Compiles!
 
 render(listTag)
 // <ul><li>Cat</li><li>Dog</li><li>Rabbit</li></ul>
 
 div([
-  li(["Cat"]),
-  li(["Dog"]),
-  li(["Rabbit"])
+  li("Cat"),
+  li("Dog"),
+  li("Rabbit")
   ]) // 🛑 Compile error
 ```
 
@@ -124,6 +124,7 @@ public enum Node {
   case comment(String)
   case doctype(String)
   indirect case element(String, [(key: String, value: String?)], [Node])
+  indirect case fragment([Node])
   case raw(String)
   case text(String)
 }
@@ -144,8 +145,8 @@ Node.element("html", [], [
 // Using helper functions
 html([
   body([
-    h1(["Welcome!"]),
-    p(["You’ve found our site!"])
+    h1("Welcome!"),
+    p("You’ve found our site!")
   ])
 ```
 
@@ -153,16 +154,12 @@ This makes the “Swiftification” of an HTML document looks very similar to th
 
 ## FAQ
 
-<!--
-
 ### Can I use this with existing Swift web frameworks like Kitura and Vapor?
 
 Yes! We even provide plug-in libraries that reduce the friction of using this library with Kitura and Vapor. Find out more information at the following repos:
 
 - [swift-html-kitura](https://github.com/pointfreeco/swift-html-kitura)
 - [swift-html-vapor](https://github.com/pointfreeco/swift-html-vapor)
-
--->
  
 ### Why would I use this over a templating language?
 

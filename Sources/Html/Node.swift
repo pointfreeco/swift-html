@@ -6,17 +6,23 @@ public enum Node {
   /// Represents an HTML DOCTYPE.
   case doctype(String)
 
-  /// Represents an array of nodes.
-  indirect case fragment([Node])
-
   /// Represents an element node with a tag name, an array of attributes, and an array of child nodes.
   indirect case element(String, [(key: String, value: String?)], [Node])
+
+  /// Represents an array of nodes.
+  indirect case fragment([Node])
 
   /// An unsafe escape hatch: represents raw text that should not be escaped by a renderer.
   case raw(String)
 
   /// Represents a text node that can be escaped when rendered.
   case text(String)
+}
+
+extension Node: ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Node...) {
+    self = .fragment(elements)
+  }
 }
 
 extension Node: ExpressibleByStringLiteral {
@@ -27,3 +33,8 @@ extension Node: ExpressibleByStringLiteral {
 
 /// Default HTML DOCTYPE.
 public let doctype: Node = .doctype("html")
+
+/// A root document node including the default HTML DOCTYPE.
+public func document(_ children: [Node]) -> Node {
+  return .fragment([doctype] + children)
+}
