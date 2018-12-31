@@ -123,7 +123,7 @@ The core of the library is a single enum with 5 cases:
 public enum Node {
   case comment(String)
   case doctype(String)
-  indirect case element(String, [(key: String, value: String?)], [Node])
+  indirect case element(String, [(key: String, value: String?)], Node)
   indirect case fragment([Node])
   case raw(String)
   case text(String)

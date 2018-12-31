@@ -7,7 +7,7 @@ public enum Node {
   case doctype(String)
 
   /// Represents an element node with a tag name, an array of attributes, and an array of child nodes.
-  indirect case element(String, [(key: String, value: String?)], [Node])
+  indirect case element(String, [(key: String, value: String?)], Node)
 
   /// Represents an array of nodes.
   indirect case fragment([Node])
