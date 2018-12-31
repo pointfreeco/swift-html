@@ -117,7 +117,7 @@ div([
 
 ## Design
 
-The core of the library is a single enum with 5 cases:
+The core of the library is a single enum with 6 cases:
 
 ```swift
 public enum Node {
