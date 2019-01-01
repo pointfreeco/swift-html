@@ -99,20 +99,20 @@ Here the `src` attribute takes a string, but `width` and `height` take integers,
 For a more advanced example, `<li>` tags can only be placed inside `<ol>` and `<ul>` tags, and we can represent this fact so that it’s impossible to construct an invalid document:
 
 ```swift
-let listTag = ul([
+let listTag = ul(
   li("Cat"),
   li("Dog"),
   li("Rabbit")
-  ]) // ✅ Compiles!
+) // ✅ Compiles!
 
 render(listTag)
 // <ul><li>Cat</li><li>Dog</li><li>Rabbit</li></ul>
 
-div([
+div(
   li("Cat"),
   li("Dog"),
   li("Rabbit")
-  ]) // 🛑 Compile error
+) // 🛑 Compile error
 ```
 
 ## Design
@@ -143,11 +143,12 @@ Node.element("html", [], [
 // versus
 
 // Using helper functions
-html([
-  body([
+html(
+  body(
     h1("Welcome!"),
     p("You’ve found our site!")
-  ])
+  )
+)
 ```
 
 This makes the “Swiftification” of an HTML document looks very similar to the original document.

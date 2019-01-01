@@ -32,19 +32,18 @@ code {
 """
 
 /// A document built in the HTML DSL.
-let doc = Node.fragment([
-  .doctype("HTML"),
-  html([
+let doc = ...[
+  doctype,
+  html(
     head(
       style(unsafe: stylesheet)
     ),
-    body([
+    body(
       h1("🗺 HTML"),
       p("""
 A Swift DSL for type-safe, extensible, and transformable HTML documents.
 """
       ),
-
       h2("Motivation"),
       p("""
 When building server-side application in Swift it is important to be able to render HTML documents. The current best practice in the community is to use templating languages like Stencil, Mustache, Handlebars, Leaf and others. However, templating languages are inherently unsafe due to the API being stringly typed. The vast majority of errors that can arise in creating a template happen only at runtime, including typos and type mismatches.
@@ -68,7 +67,7 @@ let document = html([
   ])
 """),
 
-      p([
+      p(
         "Underneath the hood these tag functions ",
         code("html"),
         ", ", code("body"),
@@ -78,8 +77,7 @@ let document = html([
         " type, which is a simple Swift enum. The cool part is that because ",
         code("Node"),
         " is just a simple Swift type, we can transform it in all types of intersting ways. For a silly example, what if we wanted to remove all instances of exclamation marks from our document?"
-        ]),
-
+      ),
       pre("""
 func unexclaim(_ node: Node) -> Node {
   switch node {
@@ -105,19 +103,18 @@ unexclaim(document) // Node
 """
       ),
 
-      p([
-        "And of course you can first run the document through the ", code(["unexlaim"]), " transformation, and then render it:"
-        ]),
+      p(
+        "And of course you can first run the document through the ", code("unexclaim"), " transformation, and then render it:"
+      ),
 
       pre("""
 render(unexclaim(document))
 // <html><body><h1>Welcome.</h1><p>You’ve found our site.</p></body></html>
 """
-      ),
-
-      ])
-    ])
-  ])
+      )
+    )
+  )
+]
 
 /// A function that "redacts" an HTML document by transforming all text nodes
 /// into █-sequences of characters.
@@ -171,3 +168,8 @@ let htmlString = render(doc)
 webView.loadHTMLString(htmlString, baseURL: nil)
 print(htmlString)
 PlaygroundPage.current.liveView = webView
+
+let users = ["a", "b", "c"]
+ol(
+  ...users.map { li(.text($0)) }
+)

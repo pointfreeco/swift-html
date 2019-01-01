@@ -25,6 +25,10 @@ extension Node: ExpressibleByArrayLiteral {
   }
 }
 
+public prefix func ... (nodes: [Node]) -> Node {
+  return .fragment(nodes)
+}
+
 extension Node: ExpressibleByStringLiteral {
   public init(stringLiteral value: String) {
     self = .text(value)
