@@ -19,14 +19,27 @@ public enum Node {
   case text(String)
 }
 
-extension Node: ExpressibleByArrayLiteral {
-  public init(arrayLiteral elements: Node...) {
-    self = .fragment(elements)
+extension Node {
+  public var isEmpty: Bool {
+    switch self {
+    case let .comment(string), let .doctype(string), let .raw(string), let .text(string):
+      return string.isEmpty
+    case .element:
+      return false
+    case let .fragment(children):
+      return children.isEmpty || children.allSatisfy { $0.isEmpty }
+    }
   }
 }
 
 public prefix func ... (nodes: [Node]) -> Node {
-  return .fragment(nodes)
+  return .fragment(nodes.filter { !$0.isEmpty })
+}
+
+extension Node: ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Node...) {
+    self = ...elements
+  }
 }
 
 extension Node: ExpressibleByStringLiteral {

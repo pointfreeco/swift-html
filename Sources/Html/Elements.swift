@@ -19,14 +19,14 @@ extension ChildOf {
   }
 }
 
-extension ChildOf: ExpressibleByArrayLiteral {
-  public init(arrayLiteral elements: ChildOf...) {
-    self = .fragment(elements)
-  }
-}
-
 public prefix func ... <T>(nodes: [ChildOf<T>]) -> ChildOf<T> {
   return .fragment(nodes)
+}
+
+extension ChildOf: ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: ChildOf...) {
+    self = ...elements
+  }
 }
 
 public enum Tag {
@@ -1880,7 +1880,7 @@ public func `var`(_ content: Node...) -> Node {
 public func video(
   _ attribs: [Attribute<Tag.Video>],
   _ content: ChildOf<Tag.Video>...,
-  transparent: Node
+  transparent: Node = []
   )
   -> Node {
 
@@ -1891,7 +1891,7 @@ public func video(
 ///
 ///   - content: Child nodes.
 ///   - transparent: Additional child nodes that render as content for older Web browsers which do not support `<video>`
-public func video(_ content: ChildOf<Tag.Video>..., transparent: Node) -> Node {
+public func video(_ content: ChildOf<Tag.Video>..., transparent: Node = []) -> Node {
   return video([], ...content, transparent: transparent)
 }
 
