@@ -30,10 +30,10 @@ HTML documents can be created in a tree-like fashion, much like you might create
 import Html
 
 let document = html(
-  body([
+  body(
     h1("Welcome!"),
     p("You’ve found our site!")
-    ])
+  )
 )
 ```
 
