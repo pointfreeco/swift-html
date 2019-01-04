@@ -1732,14 +1732,14 @@ public func th(_ content: [Node]) -> ChildOf<Tag.Tr> {
 /// - Parameters:
 ///   - attribs: Attributes.
 ///   - content: Child nodes.
-public func thead(_ attribs: [Attribute<Tag.Thead>], _ content: [Node]) -> ChildOf<Tag.Table> {
-  return .init(element("thead", attribs, content))
+public func thead(_ attribs: [Attribute<Tag.Thead>], _ content: [ChildOf<Tag.Thead>]) -> ChildOf<Tag.Table> {
+  return .init(element("thead", attribs, content.map { $0.rawValue }))
 }
 
 /// The `<thead>` element represents the block of rows that consist of the column labels (headers) for the parent `<table>` element, if the `<thead>` element has a parent and it is a `<table>`.
 ///
 /// - Parameter content: Child nodes.
-public func thead(_ content: [Node]) -> ChildOf<Tag.Table> {
+public func thead(_ content: [ChildOf<Tag.Thead>]) -> ChildOf<Tag.Table> {
   return thead([], content)
 }
 
