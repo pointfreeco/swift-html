@@ -1650,14 +1650,14 @@ public func table(_ content: [ChildOf<Tag.Table>]) -> Node {
 /// - Parameters:
 ///   - attribs: Attributes.
 ///   - content: Child nodes.
-public func tbody(_ attribs: [Attribute<Tag.Tbody>], _ content: [Node]) -> ChildOf<Tag.Table> {
-  return .init(element("tbody", attribs, content))
+public func tbody(_ attribs: [Attribute<Tag.Tbody>], _ content: [ChildOf<Tag.Tbody>]) -> ChildOf<Tag.Table> {
+  return .init(element("tbody", attribs, content.map { $0.rawValue }))
 }
 
 /// The `<tbody>` element represents a block of rows that consist of a body of data for the parent `<table>` element, if the `<tbody>` element has a parent and it is a `<table>`.
 ///
 /// - Parameter content: Child nodes.
-public func tbody(_ content: [Node]) -> ChildOf<Tag.Table> {
+public func tbody(_ content: [ChildOf<Tag.Tbody>]) -> ChildOf<Tag.Table> {
   return tbody([], content)
 }
 
