@@ -15,6 +15,8 @@ targets:
       FRAMEWORK_SEARCH_PATHS: $(inherited) $(PLATFORM_DIR)/Developer/Library/Frameworks
     scheme:
       testTargets: [HtmlTests_$platform]
+    info:
+      path: Info.plist
     sources: [Sources]
     type: framework
   HtmlTests:
