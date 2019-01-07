@@ -18,8 +18,6 @@ targets:
     platform: [macOS, iOS, tvOS, watchOS]
     scheme:
       testTargets: [HtmlTests_$platform]
-    info:
-      path: Info.plist
     sources: [Sources]
     type: framework
   HtmlTests:
