@@ -1,27 +1,28 @@
 name: Html
+fileGroups:
+  - Html.playground
 options:
   bundleIdPrefix: co.pointfree
   deploymentTarget:
-    iOS: 10.0
-    macOS: '10.10'
-    tvOS: 10.0
+    iOS: 8.0
+    macOS: 10.9
+    tvOS: 9.0
+    watchOS: 2.0
   indentWidth: 2
   tabWidth: 2
   usesTabs: false
 targets:
   Html:
-    platform: [macOS, iOS, tvOS]
-    settings:
-      FRAMEWORK_SEARCH_PATHS: $(inherited) $(PLATFORM_DIR)/Developer/Library/Frameworks
-    scheme:
-      testTargets: [HtmlTests_$platform]
     info:
       path: Info.plist
+    platform: [macOS, iOS, tvOS, watchOS]
+    scheme:
+      testTargets: [HtmlTests_$platform]
     sources: [Sources]
     type: framework
   HtmlTests:
     dependencies: [{target: HtmlTests_$platform}]
-    platform: [macOS, iOS, tvOS]
+    platform: [macOS, iOS, tvOS, watchOS]
     sources:
       - path: Tests
         excludes:
