@@ -212,7 +212,7 @@ dependencies: [
 
 ### Xcode Sub-project
 
-Submodule, clone, or download Validated, and drag `Html.xcodeproj` into your project.
+Submodule, clone, or download Html, and drag `Html.xcodeproj` into your project.
 
 ## Interested in learning more?
 
