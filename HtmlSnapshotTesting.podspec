@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "HtmlSnapshotTesting"
-  s.version = "0.1.3"
+  s.version = "0.2.0"
   s.summary = "SnapshotTesting strategies for Html."
 
   s.description = <<-DESC
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
   s.tvos.deployment_target = "10.0"
 
-  s.dependency "Html", "~> 0.1"
+  s.dependency "Html", "~> 0.2"
   s.dependency "SnapshotTesting", "~> 1.1"
 
   s.source_files = "Sources/HtmlSnapshotTesting/**/*.swift"

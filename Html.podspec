@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "Html"
-  s.version = "0.1.3"
+  s.version = "0.2.0"
   s.summary = "A Swift DSL for type-safe, extensible, and transformable HTML documents."
 
   s.description = <<-DESC
