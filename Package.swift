@@ -9,9 +9,6 @@ let package = Package(
       name: "Html",
       targets: ["Html"]),
     .library(
-      name: "HtmlDebugRender",
-      targets: ["HtmlDebugRender"]),
-    .library(
       name: "HtmlSnapshotTesting",
       targets: ["HtmlSnapshotTesting"]),
   ],
@@ -28,16 +25,10 @@ let package = Package(
       name: "HtmlTests",
       dependencies: ["Html"]),
     .target(
-      name: "HtmlDebugRender",
-      dependencies: ["Html"]),
-    .testTarget(
-      name: "HtmlTests",
-      dependencies: ["HtmlDebugRender"]),
-    .target(
       name: "HtmlSnapshotTesting",
-      dependencies: ["HtmlDebugRender"]),
+      dependencies: ["Html", "SnapshotTesting"]),
     .testTarget(
-      name: "HtmlTests",
+      name: "HtmlSnapshotTestingTests",
       dependencies: ["HtmlSnapshotTesting"]),
     ]
 )
