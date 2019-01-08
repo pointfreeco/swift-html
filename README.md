@@ -206,7 +206,7 @@ If you want to use Html in a project that uses [SwiftPM](https://swift.org/packa
 
 ``` swift
 dependencies: [
-  .package(url: "https://github.com/pointfreeco/swift-validated.git", from: "0.1.3")
+  .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.1.3")
 ]
 ```
 
