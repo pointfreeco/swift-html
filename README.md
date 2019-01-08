@@ -202,7 +202,7 @@ pod 'Html', '~> 0.1.3'
 
 ### SwiftPM
 
-If you want to use Html in a project that uses [SwiftPM](https://swift.org/package-manager/), it's as simple as adding a `dependencies` clause to your `Package.swift`:
+If you want to use swift-html in a project that uses [SwiftPM](https://swift.org/package-manager/), it's as simple as adding a `dependencies` clause to your `Package.swift`:
 
 ``` swift
 dependencies: [
@@ -212,7 +212,7 @@ dependencies: [
 
 ### Xcode Sub-project
 
-Submodule, clone, or download Html, and drag `Html.xcodeproj` into your project.
+Submodule, clone, or download swift-html, and drag `Html.xcodeproj` into your project.
 
 ## Interested in learning more?
 
