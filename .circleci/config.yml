@@ -13,11 +13,18 @@ jobs:
           command: system_profiler SPSoftwareDataType
 
       - run:
-          name: Print Devices
+          name: Simulator Info
           command: instruments -s devices
+
+      - run:
+          name: Check out dependencies
+          command: git submodule update --init --recursive
 
       - run:
           name: Run Swift tests
           command: make test-swift
           environment:
-            SNAPSHOT_ARTIFACTS: $CIRCLE_ARTIFACTS
+            SNAPSHOT_ARTIFACTS: /tmp/__SnapshotArtifacts__
+
+      - store_artifacts:
+          path: /tmp/__SnapshotArtifacts__
