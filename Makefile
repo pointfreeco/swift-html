@@ -1,3 +1,8 @@
+bootstrap: carthage xcodeproj
+
+carthage:
+	carthage update --no-build --use-submodules
+
 xcodeproj:
 	@command -v xcodegen >/dev/null 2>&1 || { echo >&2 "Required tool missing: XcodeGen. Try 'brew install xcodegen' perhaps?"; exit 1; }
 	xcodegen
