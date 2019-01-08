@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.10"
   s.tvos.deployment_target = "10.0"
 
-  s.dependency "SnapshotTesting', "~> 1.1"
+  s.dependency "SnapshotTesting", "~> 1.1"
 
   s.source_files = "Sources/HtmlSnapshotTesting/**/*.swift"
 end
