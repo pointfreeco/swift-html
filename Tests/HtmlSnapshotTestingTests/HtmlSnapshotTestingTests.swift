@@ -42,10 +42,10 @@ final class AriaTests: SnapshotTestCase {
       del([]),
       del([], []),
       details([
-        // todo: `summary` returns ChildOf<FieldSet> but `details` only wants Node. is that correct?
-        //        summary([]),
-        //        summary([], []),
-        ]),
+// todo: `summary` returns ChildOf<FieldSet> but `details` only wants Node. is that correct?
+//        summary([]),
+//        summary([], []),
+]),
       dfn([]),
       dfn([], []),
       div([]),
@@ -60,10 +60,10 @@ final class AriaTests: SnapshotTestCase {
       em([], []),
       embed([]),
       fieldset([
-        // todo: `legend` returns ChildOf<FieldSet> but `fieldset` only wants Node. is that correct?
-        //        legend([]),
-        //        legend([], []),
-        ]),
+// todo: `legend` returns ChildOf<FieldSet> but `fieldset` only wants Node. is that correct?
+//        legend([]),
+//        legend([], []),
+]),
       fieldset([], []),
       figure([
         figcaption([]),
