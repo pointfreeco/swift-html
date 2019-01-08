@@ -3,7 +3,11 @@ import HtmlSnapshotTesting
 import SnapshotTesting
 import XCTest
 
-final class AriaTests: XCTestCase {
+#if !os(Linux)
+typealias SnapshotTestCase = XCTestCase
+#endif
+
+final class AriaTests: SnapshotTestCase {
   func testSnapshots() {
     let doc = [
       a(["foo1"]),

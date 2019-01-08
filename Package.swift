@@ -29,6 +29,6 @@ let package = Package(
       dependencies: ["Html", "SnapshotTesting"]),
     .testTarget(
       name: "HtmlSnapshotTestingTests",
-      dependencies: ["Html", "HtmlSnapshotTesting", "SnapshotTesting"]),
+      dependencies: ["HtmlSnapshotTesting"]),
     ]
 )
