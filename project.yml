@@ -39,7 +39,7 @@ targets:
       tvOS: 10.0
     info:
       path: Info.plist
-    platform: [macOS, iOS, tvOS, watchOS]
+    platform: [macOS, iOS, tvOS]
     scheme:
       testTargets: [HtmlSnapshotTestingTests_$platform]
     sources: [Sources/HtmlSnapshotTesting]
@@ -50,7 +50,9 @@ targets:
       iOS: 10.0
       macOS: '10.10'
       tvOS: 10.0
-    platform: [macOS, iOS, tvOS, watchOS]
+    platform: [macOS, iOS, tvOS]
     sources:
       - path: Tests/HtmlSnapshotTestingTests
+        excludes:
+          - '__Snapshots__'
     type: bundle.unit-test

@@ -25,13 +25,11 @@
 		BF_278F2A9F9C6DB1BB09F1B128BEA90554 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_DCB027799D18D0FB625BD4612E72FAC3 /* XCTestManifests.swift */; };
 		BF_2B257D3CB2E9B81C247ADF381DBDB62B /* HtmlSnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_D0E4DB97B85C77E83808CFAA36086DFC /* HtmlSnapshotTesting.framework */; };
 		BF_2BA1B815F9EC78F22E1CCECFAEE5E44F /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_D02E69C3123E18DA31C95CCEF4F55FD0 /* Events.swift */; };
-		BF_2D4814A45B39B39B985F292CCEF86E0C /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_A851F66F18D71D07E129E4B1177B980C /* Html.framework */; };
 		BF_2FACF8DC1A08D554CABA3211CB6CA8CD /* Aria.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B83D9298FE6176D48170EF3E46F99CCA /* Aria.swift */; };
 		BF_347CC9F121F611817634BCED6EED5DC3 /* MediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_2773FDC63ECF9CA8CE40879B3B0EACC4 /* MediaType.swift */; };
 		BF_3B1027C6F72CA257FC500052522A4675 /* Aria.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B83D9298FE6176D48170EF3E46F99CCA /* Aria.swift */; };
 		BF_3F8D84AFFBE16A644F50F2B06BCBAAB6 /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_454B7862EFAF417284E587FDE4F417F7 /* Html.framework */; };
 		BF_46DD45E6A6D9ED65D8141EAD3EA343F8 /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_F23919B43A726458B14604B66DD07753 /* Render.swift */; };
-		BF_4BCB4B91197C3E6D33D8AA1B01697597 /* HtmlSnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_EF7D192E158611AA8AF39FBCD361FF90 /* HtmlSnapshotTesting.framework */; };
 		BF_4E262A2097369CAB0947E96FB0D20554 /* MediaTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_FD4A0701B482ECFD3AC801193749B828 /* MediaTypeTests.swift */; };
 		BF_55946568BD6A7CDF27D4FA633035BD5B /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_75E1F23756D2E133BA75C9CE7559FED4 /* Attributes.swift */; };
 		BF_563D57FE0B16C29A91247EBEEE9EC7B0 /* AttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_C37C9D4A3478D7A0906676B07410B4F5 /* AttributesTests.swift */; };
@@ -61,7 +59,6 @@
 		BF_8B861E44FDF640569DE8FF05357D3A70 /* EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_5B2816E603A1B4A51D2410FE860B6A73 /* EventsTests.swift */; };
 		BF_8EB2DECBE7B14C281F77000FC19AAD0B /* ElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_AF1B21A15DC5D681508C766490919BD1 /* ElementsTests.swift */; };
 		BF_935D0BFAB6123CD0DAFE7EE9E69DC063 /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_137ABCB525F73E48E9E0329EC90064AF /* Html.framework */; };
-		BF_93F2464E59B3ADA379D9AFD87EA5A3D2 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_5D868222BE76AE04E2B491E967A6F5F9 /* SnapshotTesting.framework */; };
 		BF_9A0B1A189B6074024418369D6B665DE3 /* Aria.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B83D9298FE6176D48170EF3E46F99CCA /* Aria.swift */; };
 		BF_9B72E8029CBB396C619144083CDEE8F5 /* Html4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_84247EDD4C722F051D26423EAF9556B4 /* Html4.swift */; };
 		BF_9DE76F9CFD7CE49ECAB4FB4A5C8DE42D /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_DCB027799D18D0FB625BD4612E72FAC3 /* XCTestManifests.swift */; };
@@ -85,7 +82,6 @@
 		BF_D164F90CEF6B6A5A9B50B0E4C819B853 /* AriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_EF813CC7FA4018FC2F9A50D2931DDA13 /* AriaTests.swift */; };
 		BF_D1E67FAB41094DD199979F735674B59C /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_454B7862EFAF417284E587FDE4F417F7 /* Html.framework */; };
 		BF_D1EC6634E48CAA46F330C4A722EC0337 /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_56BF69D04F58D631B62547910FBA29AB /* Html.framework */; };
-		BF_E2AAFD8781AFAF1B7C157B98F249B154 /* HtmlSnapshotTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_2C04ED2D80670BFA8174C411C3DCC50B /* HtmlSnapshotTesting.swift */; };
 		BF_E37CBCFB5EB106C9B0B47D83BD00501B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_D02E69C3123E18DA31C95CCEF4F55FD0 /* Events.swift */; };
 		BF_EA15C26493DFD83A59AB9BE8E0D7AA4A /* AriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_EF813CC7FA4018FC2F9A50D2931DDA13 /* AriaTests.swift */; };
 		BF_EDF30C936D87DB063C818C532B5BAF18 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_3AEC4DC02DA3D43270FEA9438A693C40 /* Elements.swift */; };
@@ -95,20 +91,11 @@
 		BF_F3FA3DF870D54FB9B46B80B6B90FA204 /* MediaTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_FD4A0701B482ECFD3AC801193749B828 /* MediaTypeTests.swift */; };
 		BF_F418B64B4E716428B1A60543E3BF53F0 /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_A851F66F18D71D07E129E4B1177B980C /* Html.framework */; };
 		BF_F990810FF37D0B351B5B147A29A983C4 /* HtmlSnapshotTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_705A9DFC1E550226909432DCEE159048 /* HtmlSnapshotTestingTests.swift */; };
-		BF_FAB9A7101A576B81DA765694DDD1E7F0 /* HtmlSnapshotTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FR_EF7D192E158611AA8AF39FBCD361FF90 /* HtmlSnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_FC2286DCB1EFFAF5878808FB40A6CDF0 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_DCB027799D18D0FB625BD4612E72FAC3 /* XCTestManifests.swift */; };
-		BF_FEE1BA53F95E6C76DB2259F41E6324DE /* HtmlSnapshotTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_705A9DFC1E550226909432DCEE159048 /* HtmlSnapshotTestingTests.swift */; };
 		BF_FFADB3958F2E3230AE1E012A0E69DC6A /* Render.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_F23919B43A726458B14604B66DD07753 /* Render.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CIP_2FFF7EBD6A96C8BF6A78B34E98991462 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = P_71156FC3BAF7CC8140053AE66992A365 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = NT_8EA36F62ECD00F9CE1ECDE410AEF3B47;
-			remoteInfo = HtmlSnapshotTesting_watchOS;
-		};
 		CIP_3F002AD65FB7CBF51126C49E45500E71 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = P_71156FC3BAF7CC8140053AE66992A365 /* Project object */;
@@ -150,13 +137,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = NT_3DAB1392843626D3536CA19914B502C8;
 			remoteInfo = Html_macOS;
-		};
-		CIP_C70A0E858EED17308C8D0B7B41C55FA0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = P_71156FC3BAF7CC8140053AE66992A365 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = NT_A56629B8583F524D8DABDEB1B3B5FCB8;
-			remoteInfo = Html_watchOS;
 		};
 		CIP_DA359FC6B1376BF6D720448BF666D52C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -244,17 +224,6 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CFBP_9D3D7737E859C27FB0906BFF00AB7FFC /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BF_FAB9A7101A576B81DA765694DDD1E7F0 /* HtmlSnapshotTesting.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CFBP_ED3D783EB6C94698CCB70104EB35CB95 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -302,7 +271,6 @@
 		FR_75E1F23756D2E133BA75C9CE7559FED4 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 		FR_84247EDD4C722F051D26423EAF9556B4 /* Html4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Html4.swift; sourceTree = "<group>"; };
 		FR_87FEDF3B848906588C41DBE9A6F6E75E /* HtmlTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HtmlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FR_A14BE52DDE555137E458741DECF9D4A7 /* HtmlSnapshotTestingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HtmlSnapshotTestingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_A851F66F18D71D07E129E4B1177B980C /* Html.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Html.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_AF1B21A15DC5D681508C766490919BD1 /* ElementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementsTests.swift; sourceTree = "<group>"; };
 		FR_B83D9298FE6176D48170EF3E46F99CCA /* Aria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria.swift; sourceTree = "<group>"; };
@@ -310,7 +278,6 @@
 		FR_D02E69C3123E18DA31C95CCEF4F55FD0 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		FR_D0E4DB97B85C77E83808CFAA36086DFC /* HtmlSnapshotTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HtmlSnapshotTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_DCB027799D18D0FB625BD4612E72FAC3 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		FR_EF7D192E158611AA8AF39FBCD361FF90 /* HtmlSnapshotTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HtmlSnapshotTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_EF813CC7FA4018FC2F9A50D2931DDA13 /* AriaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AriaTests.swift; sourceTree = "<group>"; };
 		FR_F23919B43A726458B14604B66DD07753 /* Render.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Render.swift; sourceTree = "<group>"; };
 		FR_FD4A0701B482ECFD3AC801193749B828 /* MediaTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeTests.swift; sourceTree = "<group>"; };
@@ -346,23 +313,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF_C1795F68D10F619DA2D7BCFB6F5F58BD /* Html.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBP_C1BB7FAAEBAA92390B1033ED91D8A117 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF_2D4814A45B39B39B985F292CCEF86E0C /* Html.framework in Frameworks */,
-				BF_93F2464E59B3ADA379D9AFD87EA5A3D2 /* SnapshotTesting.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FBP_D54298D141A5DD6FF50B021AA616C1B2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF_4BCB4B91197C3E6D33D8AA1B01697597 /* HtmlSnapshotTesting.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,11 +420,9 @@
 				FR_5C5B2F5B06548979136A244E4C89D95A /* HtmlSnapshotTesting.framework */,
 				FR_0738B551A3F66674027ADC5E96FB6433 /* HtmlSnapshotTesting.framework */,
 				FR_D0E4DB97B85C77E83808CFAA36086DFC /* HtmlSnapshotTesting.framework */,
-				FR_EF7D192E158611AA8AF39FBCD361FF90 /* HtmlSnapshotTesting.framework */,
 				FR_4024F32C566BA88E351F72CADE1F9287 /* HtmlSnapshotTestingTests.xctest */,
 				FR_426253E0818C46FC1DB97614AD713830 /* HtmlSnapshotTestingTests.xctest */,
 				FR_60FE2FD7DED430CDB41B57A0CAECD79A /* HtmlSnapshotTestingTests.xctest */,
-				FR_A14BE52DDE555137E458741DECF9D4A7 /* HtmlSnapshotTestingTests.xctest */,
 				FR_186C495A13918FA9B6DC64977C0BEF84 /* HtmlTests.xctest */,
 				FR_44D3298F923225BC3162818D9F543BBC /* HtmlTests.xctest */,
 				FR_87FEDF3B848906588C41DBE9A6F6E75E /* HtmlTests.xctest */,
@@ -619,24 +567,6 @@
 			productReference = FR_56BF69D04F58D631B62547910FBA29AB /* Html.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		NT_43C00AA903204A253D3B52C2D7DF3B32 /* HtmlSnapshotTestingTests_watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CL_1052C43454F3EB202316E05CE116714E /* Build configuration list for PBXNativeTarget "HtmlSnapshotTestingTests_watchOS" */;
-			buildPhases = (
-				SBP_1A5AE2B6AFE2DCC3875D5C8B6B584130 /* Sources */,
-				FBP_D54298D141A5DD6FF50B021AA616C1B2 /* Frameworks */,
-				CFBP_9D3D7737E859C27FB0906BFF00AB7FFC /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				TD_38DB46375AC17170E23DEE004B1A5AEE /* PBXTargetDependency */,
-			);
-			name = HtmlSnapshotTestingTests_watchOS;
-			productName = HtmlSnapshotTestingTests_watchOS;
-			productReference = FR_A14BE52DDE555137E458741DECF9D4A7 /* HtmlSnapshotTestingTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		NT_5881CD49A13FAFE4B62A050F5942B296 /* HtmlSnapshotTesting_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CL_945B5094C88A155540D2897E5A7EA6EC /* Build configuration list for PBXNativeTarget "HtmlSnapshotTesting_iOS" */;
@@ -669,23 +599,6 @@
 			name = HtmlSnapshotTesting_tvOS;
 			productName = HtmlSnapshotTesting_tvOS;
 			productReference = FR_D0E4DB97B85C77E83808CFAA36086DFC /* HtmlSnapshotTesting.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		NT_8EA36F62ECD00F9CE1ECDE410AEF3B47 /* HtmlSnapshotTesting_watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CL_DFFC1359CD093F890AC726048D2843BF /* Build configuration list for PBXNativeTarget "HtmlSnapshotTesting_watchOS" */;
-			buildPhases = (
-				SBP_F880A2137A7C22DEC3414B24ACDA6A7E /* Sources */,
-				FBP_C1BB7FAAEBAA92390B1033ED91D8A117 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				TD_8388282568FED5DDF5EF20ADCF3B0F05 /* PBXTargetDependency */,
-			);
-			name = HtmlSnapshotTesting_watchOS;
-			productName = HtmlSnapshotTesting_watchOS;
-			productReference = FR_EF7D192E158611AA8AF39FBCD361FF90 /* HtmlSnapshotTesting.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		NT_A56629B8583F524D8DABDEB1B3B5FCB8 /* Html_watchOS */ = {
@@ -812,11 +725,9 @@
 				NT_2DC28C2207FB2259D050202830AD64D1 /* HtmlSnapshotTestingTests_iOS */,
 				NT_2AB5827BD5D16BFB6725C893076C6FDF /* HtmlSnapshotTestingTests_macOS */,
 				NT_DD09D77AEA211941B06E7B13605F9DF1 /* HtmlSnapshotTestingTests_tvOS */,
-				NT_43C00AA903204A253D3B52C2D7DF3B32 /* HtmlSnapshotTestingTests_watchOS */,
 				NT_5881CD49A13FAFE4B62A050F5942B296 /* HtmlSnapshotTesting_iOS */,
 				NT_35F4D7F166DB6BD11B0FE52D126BA796 /* HtmlSnapshotTesting_macOS */,
 				NT_8DA0D6B0D3FB381C06CED88C8D8EB1F3 /* HtmlSnapshotTesting_tvOS */,
-				NT_8EA36F62ECD00F9CE1ECDE410AEF3B47 /* HtmlSnapshotTesting_watchOS */,
 				NT_C8AB64528B429FF8C5E983E839B1E0BE /* HtmlTests_iOS */,
 				NT_0EC5D5A0415352CD656BDFBBA012F05F /* HtmlTests_macOS */,
 				NT_E3FE8A7E649940DA2207FA60E84BE68D /* HtmlTests_tvOS */,
@@ -843,14 +754,6 @@
 				BF_EF48C76BDF60C8580D714F851E5D88B0 /* MediaType.swift in Sources */,
 				BF_C26E0033107220651F282052426503F6 /* Node.swift in Sources */,
 				BF_46DD45E6A6D9ED65D8141EAD3EA343F8 /* Render.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		SBP_1A5AE2B6AFE2DCC3875D5C8B6B584130 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF_FEE1BA53F95E6C76DB2259F41E6324DE /* HtmlSnapshotTestingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,14 +905,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		SBP_F880A2137A7C22DEC3414B24ACDA6A7E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BF_E2AAFD8781AFAF1B7C157B98F249B154 /* HtmlSnapshotTesting.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1017,11 +912,6 @@
 			isa = PBXTargetDependency;
 			target = NT_391C0E1A822D646F708827B001EB83D2 /* Html_iOS */;
 			targetProxy = CIP_FD6FA1F02F1A1056267C6CC6ABD3BC79 /* PBXContainerItemProxy */;
-		};
-		TD_38DB46375AC17170E23DEE004B1A5AEE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = NT_8EA36F62ECD00F9CE1ECDE410AEF3B47 /* HtmlSnapshotTesting_watchOS */;
-			targetProxy = CIP_2FFF7EBD6A96C8BF6A78B34E98991462 /* PBXContainerItemProxy */;
 		};
 		TD_3D83B190D0212792CDFDDA92671C94AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1037,11 +927,6 @@
 			isa = PBXTargetDependency;
 			target = NT_A56629B8583F524D8DABDEB1B3B5FCB8 /* Html_watchOS */;
 			targetProxy = CIP_ED65AA7D2A04B134645AC114BE634B38 /* PBXContainerItemProxy */;
-		};
-		TD_8388282568FED5DDF5EF20ADCF3B0F05 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = NT_A56629B8583F524D8DABDEB1B3B5FCB8 /* Html_watchOS */;
-			targetProxy = CIP_C70A0E858EED17308C8D0B7B41C55FA0 /* PBXContainerItemProxy */;
 		};
 		TD_A8D1AB9B9D218884B7DEA066200142E4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1203,19 +1088,6 @@
 			};
 			name = Debug;
 		};
-		BC_3E65AE0F6FF2508F91E8A5CCAFAF01B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.pointfree.HtmlSnapshotTestingTests-watchOS";
-				PRODUCT_NAME = HtmlSnapshotTestingTests;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-			};
-			name = Release;
-		};
 		BC_4218F41AE9912BC20AC6C66FE88BEF80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1365,30 +1237,6 @@
 				PRODUCT_NAME = HtmlSnapshotTestingTests;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		BC_747239EF45E48AB724EF423FA65B0C49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\".\"",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.pointfree.HtmlSnapshotTesting-watchOS";
-				PRODUCT_NAME = HtmlSnapshotTesting;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1566,43 +1414,6 @@
 			};
 			name = Debug;
 		};
-		BC_A11F5C843E1C1360742BD6454A739552 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\".\"",
-				);
-				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.pointfree.HtmlSnapshotTesting-watchOS";
-				PRODUCT_NAME = HtmlSnapshotTesting;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
-		BC_B1E189473E29F7DE730CCD1CACBA6D4F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.pointfree.HtmlSnapshotTestingTests-watchOS";
-				PRODUCT_NAME = HtmlSnapshotTestingTests;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-			};
-			name = Debug;
-		};
 		BC_B4AF93FC0F3F4AD627A2BFA37DF45866 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1765,15 +1576,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "";
 		};
-		CL_1052C43454F3EB202316E05CE116714E /* Build configuration list for PBXNativeTarget "HtmlSnapshotTestingTests_watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BC_B1E189473E29F7DE730CCD1CACBA6D4F /* Debug */,
-				BC_3E65AE0F6FF2508F91E8A5CCAFAF01B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
-		};
 		CL_1CD299291AE0BFFA37367999CEB6F900 /* Build configuration list for PBXNativeTarget "Html_tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1869,15 +1671,6 @@
 			buildConfigurations = (
 				BC_258D71B113BB889A6F0C320CD092467F /* Debug */,
 				BC_28DF056C13A829EC3AAD2032ADF68436 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "";
-		};
-		CL_DFFC1359CD093F890AC726048D2843BF /* Build configuration list for PBXNativeTarget "HtmlSnapshotTesting_watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BC_747239EF45E48AB724EF423FA65B0C49 /* Debug */,
-				BC_A11F5C843E1C1360742BD6454A739552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "";
