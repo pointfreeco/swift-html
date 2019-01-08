@@ -1,30 +1,56 @@
 name: Html
-fileGroups:
-  - Html.playground
 options:
   bundleIdPrefix: co.pointfree
-  deploymentTarget:
-    iOS: 8.0
-    macOS: 10.9
-    tvOS: 9.0
-    watchOS: 2.0
   indentWidth: 2
   tabWidth: 2
   usesTabs: false
 targets:
   Html:
+    deploymentTarget:
+      iOS: 8.0
+      macOS: 10.9
+      tvOS: 9.0
+      watchOS: 2.0
     info:
       path: Info.plist
     platform: [macOS, iOS, tvOS, watchOS]
     scheme:
       testTargets: [HtmlTests_$platform]
-    sources: [Sources]
+    sources: [Sources/Html]
     type: framework
   HtmlTests:
-    dependencies: [{target: HtmlTests_$platform}]
+    dependencies: [{target: Html_$platform}]
+    deploymentTarget:
+      iOS: 10.0
+      macOS: '10.10'
+      tvOS: 10.0
     platform: [macOS, iOS, tvOS, watchOS]
     sources:
-      - path: Tests
-        excludes:
-          - LinuxMain.swift
+      - path: Tests/HtmlTests
+    type: bundle.unit-test
+  HtmlSnapshotTesting:
+    dependencies:
+      - target: Html_$platform
+      - framework: SnapshotTesting.framework
+        implicit: true
+    deploymentTarget:
+      iOS: 10.0
+      macOS: '10.10'
+      tvOS: 10.0
+    info:
+      path: Info.plist
+    platform: [macOS, iOS, tvOS, watchOS]
+    scheme:
+      testTargets: [HtmlSnapshotTestingTests_$platform]
+    sources: [Sources/HtmlSnapshotTesting]
+    type: framework
+  HtmlSnapshotTestingTests:
+    dependencies: [{target: HtmlSnapshotTesting_$platform}]
+    deploymentTarget:
+      iOS: 10.0
+      macOS: '10.10'
+      tvOS: 10.0
+    platform: [macOS, iOS, tvOS, watchOS]
+    sources:
+      - path: Tests/HtmlSnapshotTestingTests
     type: bundle.unit-test
