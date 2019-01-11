@@ -56,6 +56,8 @@ public func debugRender(_ node: Node, config: Config = .pretty) -> String {
       return indentation + "<" + tag + renderedAttrs + ">" + config.newline
         + children.map { debugRenderHelp($0, config: config, indentation: indentation + config.indentation) }.joined()
         + indentation + "</" + tag + ">" + config.newline
+    case let .fragment(children):
+      return children.map { debugRenderHelp($0, config: config, indentation: indentation + config.indentation) }.joined()
     case let .raw(string):
       return indentation + string + config.newline
     case let .text(string):
