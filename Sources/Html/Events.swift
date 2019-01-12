@@ -70,7 +70,7 @@ extension Attribute {
   /// Execute JavaScript when a user leaves an input field.
   ///
   /// - Parameter javascript: JavaScript to execute.
-  public static func onblur(_ javascript: StaticString) -> Attribute {
+  public static func onblur(safe javascript: StaticString) -> Attribute {
     return onblur(unsafe: String(describing: javascript))
   }
 
@@ -440,7 +440,7 @@ extension Attribute where Element: HasOninput {
   /// Execute JavaScript when a user writes something in a text field.
   ///
   /// - Parameter javascript: JavaScript to execute.
-  public static func oninput(_ javascript: StaticString) -> Attribute {
+  public static func oninput(safe javascript: StaticString) -> Attribute {
     return oninput(unsafe: String(describing: javascript))
   }
 
@@ -1016,7 +1016,7 @@ extension Attribute where Element == Tag.Form {
   /// Execute JavaScript when a form is submitted.
   ///
   /// - Parameter javascript: JavaScript to execute.
-  public static func onsubmit(_ javascript: StaticString) -> Attribute {
+  public static func onsubmit(safe javascript: StaticString) -> Attribute {
     return onsubmit(unsafe: String(describing: javascript))
   }
 

@@ -82,8 +82,10 @@ extension Role: ExpressibleByStringLiteral {
   }
 }
 
-public func role<T>(_ value: Role) -> Attribute<T> {
-  return .init("role", value.rawValue)
+extension Attribute {
+  public static func role(_ value: Role) -> Attribute {
+    return .init("role", value.rawValue)
+  }
 }
 
 public enum AriaBoolean: String {

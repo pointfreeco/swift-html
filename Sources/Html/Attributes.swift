@@ -721,7 +721,7 @@ extension Tag.Audio: HasLoop {}
 extension Tag.Video: HasLoop {}
 
 extension Attribute where Element: HasLoop {
-  public static func loop<T: HasLoop>(_ value: Bool) -> Attribute<T> {
+  public static func loop(_ value: Bool) -> Attribute {
     return .init("loop", value ? "" : nil)
   }
 }
@@ -1276,16 +1276,17 @@ extension Attribute {
   /// This is a style attribute as defined by the _CSS Style Attributes_ specification.
   ///
   /// - Parameter value: A CSS style.
-  public static func style(_ value: StaticString) -> Attribute {
-    return style(unsafe: String(describing: value))
-  }
-
-  /// This is a style attribute as defined by the _CSS Style Attributes_ specification.
-  ///
-  /// - Parameter value: A CSS style.
-  public static func style(unsafe value: String) -> Attribute {
+  public static func style(safe value: StaticString) -> Attribute {
+//    return style(unsafe: String(describing: value))
     return .init("style", String(describing: value))
   }
+
+//  /// This is a style attribute as defined by the _CSS Style Attributes_ specification.
+//  ///
+//  /// - Parameter value: A CSS style.
+//  public static func style(unsafe value: String) -> Attribute {
+//    return .init("style", String(describing: value))
+//  }
 
   /// The `tabindex` content attribute allows authors to indicate that an element is supposed to be focusable, whether it is supposed to be reachable using sequential focus navigation and, optionally, to suggest where in the sequential focus navigation order the element appears.
   ///
