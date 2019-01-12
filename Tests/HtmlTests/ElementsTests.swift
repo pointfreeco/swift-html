@@ -3,7 +3,7 @@ import XCTest
 
 final class ElementsTests: XCTestCase {
   func testElementsSnapshot() {
-    let doc = Node.fragment([
+    let doc: Node = [
       .doctype("html"),
       a(["foo1"]),
       abbr([]),
@@ -198,7 +198,7 @@ final class ElementsTests: XCTestCase {
       `var`([]),
       `var`([], []),
       video([], []),
-      ])
+      ]
 
     XCTAssertEqual(
       """

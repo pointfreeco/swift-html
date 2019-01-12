@@ -29,12 +29,12 @@ HTML documents can be created in a tree-like fashion, much like you might create
 ```swift
 import Html
 
-let document = html([
-  body([
-    h1(["Welcome!"]),
-    p(["You’ve found our site!"])
-    ])
-  ])
+let document = html(
+  body(
+    h1("Welcome!"),
+    p("You’ve found our site!")
+  )
+)
 ```
 
 Underneath the hood these tag functions `html`, `body`, `h1`, etc., are just creating and nesting instances of a `Node` type, which is a simple Swift enum. Because `Node` is just a simple Swift type, we can transform it in all kinds of interesting ways. For a silly example, what if we wanted to remove all instances of exclamation marks from our document?
@@ -99,20 +99,20 @@ Here the `src` attribute takes a string, but `width` and `height` take integers,
 For a more advanced example, `<li>` tags can only be placed inside `<ol>` and `<ul>` tags, and we can represent this fact so that it’s impossible to construct an invalid document:
 
 ```swift
-let listTag = ul([
+let listTag = ul(
   li("Cat"),
   li("Dog"),
   li("Rabbit")
-  ]) // ✅ Compiles!
+) // ✅ Compiles!
 
 render(listTag)
 // <ul><li>Cat</li><li>Dog</li><li>Rabbit</li></ul>
 
-div([
+div(
   li("Cat"),
   li("Dog"),
   li("Rabbit")
-  ]) // 🛑 Compile error
+) // 🛑 Compile error
 ```
 
 ## Design
@@ -123,7 +123,7 @@ The core of the library is a single enum with 6 cases:
 public enum Node {
   case comment(String)
   case doctype(String)
-  indirect case element(String, [(key: String, value: String?)], [Node])
+  indirect case element(String, [(key: String, value: String?)], Node)
   indirect case fragment([Node])
   case raw(String)
   case text(String)
@@ -143,11 +143,12 @@ Node.element("html", [], [
 // versus
 
 // Using helper functions
-html([
-  body([
+html(
+  body(
     h1("Welcome!"),
     p("You’ve found our site!")
-  ])
+  )
+)
 ```
 
 This makes the “Swiftification” of an HTML document looks very similar to the original document.
