@@ -2,18 +2,18 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:CODE_OF_CONDUCT.md">
+      location = "group:README.md">
    </FileRef>
    <FileRef
       location = "group:LICENSE">
    </FileRef>
    <FileRef
-      location = "group:README.md">
-   </FileRef>
-   <FileRef
       location = "group:Html.playground">
    </FileRef>
    <FileRef
-      location = "container:Html.xcodeproj">
+      location = "group:Html.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Carthage/Checkouts/swift-snapshot-testing/SnapshotTesting.xcodeproj">
    </FileRef>
 </Workspace>

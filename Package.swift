@@ -8,8 +8,14 @@ let package = Package(
     .library(
       name: "Html",
       targets: ["Html"]),
+    .library(
+      name: "HtmlSnapshotTesting",
+      targets: ["HtmlSnapshotTesting"]),
   ],
   dependencies: [
+    .package(
+      url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+      from: "1.1.0"),
   ],
   targets: [
     .target(
@@ -18,5 +24,11 @@ let package = Package(
     .testTarget(
       name: "HtmlTests",
       dependencies: ["Html"]),
+    .target(
+      name: "HtmlSnapshotTesting",
+      dependencies: ["Html", "SnapshotTesting"]),
+    .testTarget(
+      name: "HtmlSnapshotTestingTests",
+      dependencies: ["HtmlSnapshotTesting"]),
     ]
 )
