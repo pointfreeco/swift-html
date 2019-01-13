@@ -58,9 +58,8 @@ public func debugRender(_ node: Node, config: Config = .pretty) -> String {
         + indentation + "</" + tag + ">" + config.newline
     case let .fragment(children):
       return children.map { debugRenderHelp($0, config: config, indentation: indentation) }.joined()
-    case let .raw(string):
-      return indentation + string + config.newline
-    case let .text(string):
+    case let .raw(string), let .text(string):
+      guard !string.isEmpty else { return "" }
       return indentation + string + config.newline
     }
   }

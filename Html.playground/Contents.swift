@@ -32,7 +32,7 @@ code {
 """
 
 /// A document built in the HTML DSL.
-let doc = ...[
+let doc = document(
   doctype,
   html(
     head(
@@ -114,7 +114,7 @@ render(unexclaim(document))
       )
     )
   )
-]
+)
 
 /// A function that "redacts" an HTML document by transforming all text nodes
 /// into █-sequences of characters.
@@ -168,8 +168,3 @@ let htmlString = render(doc)
 webView.loadHTMLString(htmlString, baseURL: nil)
 print(htmlString)
 PlaygroundPage.current.liveView = webView
-
-let users = ["a", "b", "c"]
-ol(
-  ...users.map { li(.text($0)) }
-)

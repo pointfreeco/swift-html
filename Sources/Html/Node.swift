@@ -27,18 +27,14 @@ extension Node {
     case .element:
       return false
     case let .fragment(children):
-      return children.isEmpty || children.allSatisfy { $0.isEmpty }
+      return children.allSatisfy { $0.isEmpty }
     }
   }
 }
 
-public prefix func ... (nodes: [Node]) -> Node {
-  return .fragment(nodes.filter { !$0.isEmpty })
-}
-
 extension Node: ExpressibleByArrayLiteral {
   public init(arrayLiteral elements: Node...) {
-    self = ...elements
+    self = .fragment(elements)
   }
 }
 
@@ -53,5 +49,5 @@ public let doctype: Node = .doctype("html")
 
 /// A root document node including the default HTML DOCTYPE.
 public func document(_ children: Node...) -> Node {
-  return ...([doctype] + children)
+  return .fragment([doctype] + children)
 }
