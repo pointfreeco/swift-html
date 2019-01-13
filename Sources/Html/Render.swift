@@ -64,7 +64,7 @@ private func render(_ node: Node, into output: inout String) {
     output.append("<!-- \(escapeHtmlComment(string)) -->")
   case let .doctype(string):
     output.append("<!DOCTYPE \(escapeDoctype(string))>")
-  case let .element(tag, attribs, .fragment(children)):
+  case let .element(tag, attribs, children):
     output.append("<")
     output.append(tag)
     render(attribs, into: &output)
@@ -72,8 +72,6 @@ private func render(_ node: Node, into output: inout String) {
     if !children.isEmpty || !voidElements.contains(tag) {
       output.append(render(children) + "</" + tag + ">")
     }
-  case let .element(tag, attribs, node):
-    render(.element(tag, attribs, .fragment([node])), into: &output)
   case let .fragment(children):
     output.append(render(children))
   case let .text(string):
