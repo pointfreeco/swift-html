@@ -61,16 +61,23 @@ public let voidElements: Set<String> = [
 private func render(_ node: Node, into output: inout String) {
   switch node {
   case let .comment(string):
-    output.append("<!-- \(escapeHtmlComment(string)) -->")
+    output.append("<!--")
+    output.append(escapeHtmlComment(string))
+    output.append("-->")
   case let .doctype(string):
-    output.append("<!DOCTYPE \(escapeDoctype(string))>")
+    output.append("<!DOCTYPE ")
+    output.append(escapeDoctype(string))
+    output.append(">")
   case let .element(tag, attribs, children):
     output.append("<")
     output.append(tag)
     render(attribs, into: &output)
     output.append(">")
     if !children.isEmpty || !voidElements.contains(tag) {
-      output.append(render(children) + "</" + tag + ">")
+      output.append(render(children))
+      output.append("</")
+      output.append(tag)
+      output.append(">")
     }
   case let .text(string):
     output.append(escapeTextNode(text: string))
@@ -85,6 +92,10 @@ private func render(_ attribs: [(String, String?)], into output: inout String) {
       guard let value = value else { return }
       output.append(" ")
       output.append(key)
-      output.append(value.isEmpty ? "" : "=\"\(escapeAttributeValue(value))\"")
+      if !value.isEmpty {
+        output.append("=\"")
+        output.append(escapeAttributeValue(value))
+        output.append("\"")
+      }
     }
 }
