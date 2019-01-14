@@ -17,12 +17,24 @@ public func debugRender(_ nodes: [Node], config: Config = .pretty) -> String {
 }
 
 public func debugRender(_ node: Node, config: Config = .pretty) -> String {
-  func debugRenderHelp(_ node: Node, config: Config, indentation: String) -> String {
-    func renderValues(_ values: String, separator: Character?, indentBy: Int) -> String {
-      guard let separator = separator else { return values }
-      return values
-        .split(separator: separator)
-        .joined(separator: (separator == " " ? "" : String(separator)) + config.newline + String(repeating: " ", count: indentBy + 1))
+  func debugRenderHelp(_ node: Node, into output: inout String, config: Config, indentation: String) {
+    func renderValues( _ values: String, into output: inout String, separator: Character?, indentBy: Int) {
+      guard let separator = separator else {
+        output.append(values)
+        return
+      }
+      let values = values.split(separator: separator)
+      if let v = values.first {
+        output.append(contentsOf: v)
+      }
+      for v in values.dropFirst() {
+        if separator != " " {
+          output.append(separator)
+        }
+        output.append(config.newline)
+        output.append(String(repeating: " ", count: indentBy + 1))
+        output.append(contentsOf: v)
+      }
     }
 
     func separator(forKey key: String) -> Character? {
@@ -38,30 +50,59 @@ public func debugRender(_ node: Node, config: Config = .pretty) -> String {
 
     switch node {
     case let .comment(string):
-      return indentation + "<!-- " + string + " -->" + config.newline
+      output.append(indentation)
+      output.append("<!-- ")
+      output.append(string)
+      output.append(" -->")
+      output.append(config.newline)
     case let .doctype(string):
-      return indentation + "<!DOCTYPE " + string + ">" + config.newline
+      output.append(indentation)
+      output.append("<!DOCTYPE ")
+      output.append(string)
+      output.append(">")
+      output.append(config.newline)
     case let .element(tag, attrs, children):
-      let renderedAttrs = attrs
-        .compactMap { k, v -> String? in
-          let indentBy = indentation.count + tag.count + k.count + 3
-          return v.map {
-            $0.isEmpty ? " \(k)" : " \(k)=\"\(renderValues($0, separator: separator(forKey: k), indentBy: indentBy))\""
-          }
+      output.append(indentation)
+      output.append("<")
+      output.append(tag)
+      var renderedAttr = false
+      let keyIndentation = String(repeating: " ", count: indentation.count + tag.count + 2)
+      for (k, v) in attrs {
+        guard let v = v else { continue }
+        if renderedAttr {
+          output.append(config.newline)
+          output.append(keyIndentation)
+        } else {
+          renderedAttr = true
+          output.append(" ")
         }
-        .joined(separator: config.newline + indentation + String(repeating: " ", count: tag.count + 1))
-      guard !children.isEmpty || !voidElements.contains(tag) else {
-        return indentation + "<" + tag + renderedAttrs + ">" + config.newline
+        output.append(k)
+        guard !v.isEmpty else { continue }
+        output.append("=\"")
+        let valueIndentation = keyIndentation.count + k.count + 1
+        renderValues(v, into: &output, separator: separator(forKey: k), indentBy: valueIndentation)
+        output.append("\"")
       }
-      return indentation + "<" + tag + renderedAttrs + ">" + config.newline
-        + children.map { debugRenderHelp($0, config: config, indentation: indentation + config.indentation) }.joined()
-        + indentation + "</" + tag + ">" + config.newline
-    case let .raw(string):
-      return indentation + string + config.newline
-    case let .text(string):
-      return indentation + string + config.newline
+      output.append(">")
+      output.append(config.newline)
+      guard !children.isEmpty || !voidElements.contains(tag) else { return }
+      for node in children {
+        debugRenderHelp(node, into: &output, config: config, indentation: indentation + config.indentation)
+      }
+      output.append(indentation)
+      output.append("</")
+      output.append(tag)
+      output.append(">")
+      output.append(config.newline)
+    case let .raw(string), let .text(string):
+      guard !string.isEmpty else { return }
+      output.append(indentation)
+      output.append(string)
+      output.append(config.newline)
     }
   }
 
-  return debugRenderHelp(node, config: config, indentation: "")
+  var string = ""
+  debugRenderHelp(node, into: &string, config: config, indentation: "")
+  return string
 }
