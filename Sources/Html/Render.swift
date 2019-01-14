@@ -15,7 +15,7 @@ public func render(_ node: Node) -> String {
 }
 
 public func render<T>(_ children: [ChildOf<T>]) -> String {
-  return children.map(render).joined()
+  return children.reduce(into: "") { $0.append(render($1)) }
 }
 
 public func render<T>(_ child: ChildOf<T>) -> String {
