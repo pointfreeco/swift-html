@@ -87,7 +87,7 @@ public func debugRender(_ node: Node, config: Config = .pretty) -> String {
       output.append(config.newline)
       guard !children.isEmpty || !voidElements.contains(tag) else { return }
       for node in children {
-        debugRenderHelp(node, into: &output, config: config, indentation: indentation)
+        debugRenderHelp(node, into: &output, config: config, indentation: indentation + config.indentation)
       }
       output.append(indentation)
       output.append("</")
