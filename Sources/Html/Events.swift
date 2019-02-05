@@ -438,7 +438,7 @@ public func oninvalid(unsafe javascript: String) -> Attribute<Tag.Input> {
 ///
 /// - Parameter javascript: JavaScript to execute.
 public func onkeydown<T>(_ javascript: StaticString) -> Attribute<T> {
-  return onkeyup(unsafe: String(describing: javascript))
+  return onkeydown(unsafe: String(describing: javascript))
 }
 
 /// Execute JavaScript when a user is pressing a key.
