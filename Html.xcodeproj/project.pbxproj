@@ -14,6 +14,7 @@
 		BF_0966C6144C56C0C83BBB56B5FA204AF7 /* Html.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FR_454B7862EFAF417284E587FDE4F417F7 /* Html.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_0BB5E97EDFED595635016E3EE7B8864E /* HtmlSnapshotTesting.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FR_D0E4DB97B85C77E83808CFAA36086DFC /* HtmlSnapshotTesting.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BF_0C554AC6B59BC603FB2F07579BE2E434 /* SnapshotTesting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_5D868222BE76AE04E2B491E967A6F5F9 /* SnapshotTesting.framework */; };
+		BF_0EF35346B972BAAE87EF93DAE9A11501 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_58555AFF1E96E4DE4F51D747882EF806 /* XCTestManifests.swift */; };
 		BF_1594ED178D46E0C388251F1E04CDE923 /* Aria.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B83D9298FE6176D48170EF3E46F99CCA /* Aria.swift */; };
 		BF_15A7BDEBF65A443739634DB5C582FC81 /* Html4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_84247EDD4C722F051D26423EAF9556B4 /* Html4.swift */; };
 		BF_167EC013FBB3444EB137981C73CB1087 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_D02E69C3123E18DA31C95CCEF4F55FD0 /* Events.swift */; };
@@ -59,6 +60,7 @@
 		BF_8B861E44FDF640569DE8FF05357D3A70 /* EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_5B2816E603A1B4A51D2410FE860B6A73 /* EventsTests.swift */; };
 		BF_8EB2DECBE7B14C281F77000FC19AAD0B /* ElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_AF1B21A15DC5D681508C766490919BD1 /* ElementsTests.swift */; };
 		BF_935D0BFAB6123CD0DAFE7EE9E69DC063 /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_137ABCB525F73E48E9E0329EC90064AF /* Html.framework */; };
+		BF_9710C3C0101C3DAF8E7446DED2AB23B6 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_58555AFF1E96E4DE4F51D747882EF806 /* XCTestManifests.swift */; };
 		BF_9A0B1A189B6074024418369D6B665DE3 /* Aria.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_B83D9298FE6176D48170EF3E46F99CCA /* Aria.swift */; };
 		BF_9B72E8029CBB396C619144083CDEE8F5 /* Html4.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_84247EDD4C722F051D26423EAF9556B4 /* Html4.swift */; };
 		BF_9DE76F9CFD7CE49ECAB4FB4A5C8DE42D /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_DCB027799D18D0FB625BD4612E72FAC3 /* XCTestManifests.swift */; };
@@ -82,6 +84,7 @@
 		BF_D164F90CEF6B6A5A9B50B0E4C819B853 /* AriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_EF813CC7FA4018FC2F9A50D2931DDA13 /* AriaTests.swift */; };
 		BF_D1E67FAB41094DD199979F735674B59C /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_454B7862EFAF417284E587FDE4F417F7 /* Html.framework */; };
 		BF_D1EC6634E48CAA46F330C4A722EC0337 /* Html.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FR_56BF69D04F58D631B62547910FBA29AB /* Html.framework */; };
+		BF_D6EFA4CEC590928E8746DAA42C8BE6E7 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_58555AFF1E96E4DE4F51D747882EF806 /* XCTestManifests.swift */; };
 		BF_E37CBCFB5EB106C9B0B47D83BD00501B /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_D02E69C3123E18DA31C95CCEF4F55FD0 /* Events.swift */; };
 		BF_EA15C26493DFD83A59AB9BE8E0D7AA4A /* AriaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_EF813CC7FA4018FC2F9A50D2931DDA13 /* AriaTests.swift */; };
 		BF_EDF30C936D87DB063C818C532B5BAF18 /* Elements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FR_3AEC4DC02DA3D43270FEA9438A693C40 /* Elements.swift */; };
@@ -263,6 +266,7 @@
 		FR_44D3298F923225BC3162818D9F543BBC /* HtmlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HtmlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_454B7862EFAF417284E587FDE4F417F7 /* Html.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Html.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_56BF69D04F58D631B62547910FBA29AB /* Html.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Html.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FR_58555AFF1E96E4DE4F51D747882EF806 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
 		FR_5B2816E603A1B4A51D2410FE860B6A73 /* EventsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTests.swift; sourceTree = "<group>"; };
 		FR_5C5B2F5B06548979136A244E4C89D95A /* HtmlSnapshotTesting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HtmlSnapshotTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FR_5D868222BE76AE04E2B491E967A6F5F9 /* SnapshotTesting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapshotTesting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -458,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				FR_705A9DFC1E550226909432DCEE159048 /* HtmlSnapshotTestingTests.swift */,
+				FR_58555AFF1E96E4DE4F51D747882EF806 /* XCTestManifests.swift */,
 			);
 			name = HtmlSnapshotTestingTests;
 			path = Tests/HtmlSnapshotTestingTests;
@@ -799,6 +804,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF_884C6D4C6BA035CF95DACEBE216B76E2 /* HtmlSnapshotTestingTests.swift in Sources */,
+				BF_0EF35346B972BAAE87EF93DAE9A11501 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +863,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF_F990810FF37D0B351B5B147A29A983C4 /* HtmlSnapshotTestingTests.swift in Sources */,
+				BF_9710C3C0101C3DAF8E7446DED2AB23B6 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +872,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF_6C8BBC64ECEFD8A269AF77E4BEDB870E /* HtmlSnapshotTestingTests.swift in Sources */,
+				BF_D6EFA4CEC590928E8746DAA42C8BE6E7 /* XCTestManifests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
