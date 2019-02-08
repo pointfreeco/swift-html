@@ -10,7 +10,7 @@ public enum Node {
   indirect case element(String, [(key: String, value: String?)], Node)
 
   /// Represents an array of nodes.
-  indirect case fragment([Node])
+  case fragment([Node])
 
   /// An unsafe escape hatch: represents raw text that should not be escaped by a renderer.
   case raw(String)
