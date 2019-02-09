@@ -1,389 +1,375 @@
-public struct Role: RawRepresentable {
-  public let rawValue: String
+extension Attribute {
+  public enum AriaBoolean: String, ExpressibleByBooleanLiteral {
+    case `false`
+    case `true`
+    case undefined
 
-  public init(rawValue: String) {
-    self.rawValue = rawValue
+    public init(booleanLiteral value: Bool) {
+      self = value ? .true : .false
+    }
   }
 
-  public static let alert: Role = "alert"
-  public static let alertdialog: Role = "alertdialog"
-  public static let application: Role = "application"
-  public static let article: Role = "article"
-  public static let banner: Role = "banner"
-  public static let button: Role = "button"
-  public static let cell: Role = "cell"
-  public static let checkbox: Role = "checkbox"
-  public static let columnheader: Role = "columnheader"
-  public static let combobox: Role = "combobox"
-  public static let complementary: Role = "complementary"
-  public static let contentinfo: Role = "contentinfo"
-  public static let definition: Role = "definition"
-  public static let dialog: Role = "dialog"
-  public static let directory: Role = "directory"
-  public static let document: Role = "document"
-  public static let feed: Role = "feed"
-  public static let figure: Role = "figure"
-  public static let form: Role = "form"
-  public static let grid: Role = "grid"
-  public static let gridcell: Role = "gridcell"
-  public static let group: Role = "group"
-  public static let heading: Role = "heading"
-  public static let img: Role = "img"
-  public static let link: Role = "link"
-  public static let list: Role = "list"
-  public static let listbox: Role = "listbox"
-  public static let listitem: Role = "listitem"
-  public static let log: Role = "log"
-  public static let main: Role = "main"
-  public static let marquee: Role = "marquee"
-  public static let math: Role = "math"
-  public static let menu: Role = "menu"
-  public static let menubar: Role = "menubar"
-  public static let menuitem: Role = "menuitem"
-  public static let menuitemcheckbox: Role = "menuitemcheckbox"
-  public static let menuitemradio: Role = "menuitemradio"
-  public static let navigation: Role = "navigation"
-  public static let none: Role = "none"
-  public static let note: Role = "note"
-  public static let option: Role = "option"
-  public static let presentation: Role = "presentation"
-  public static let progressbar: Role = "progressbar"
-  public static let radio: Role = "radio"
-  public static let radiogroup: Role = "radiogroup"
-  public static let region: Role = "region"
-  public static let row: Role = "row"
-  public static let rowgroup: Role = "rowgroup"
-  public static let rowheader: Role = "rowheader"
-  public static let scrollbar: Role = "scrollbar"
-  public static let search: Role = "search"
-  public static let searchbox: Role = "searchbox"
-  public static let separator: Role = "separator"
-  public static let slider: Role = "slider"
-  public static let spinbutton: Role = "spinbutton"
-  public static let status: Role = "status"
-  public static let `switch`: Role = "switch"
-  public static let tab: Role = "tab"
-  public static let table: Role = "table"
-  public static let tablist: Role = "tablist"
-  public static let tabpanel: Role = "tabpanel"
-  public static let term: Role = "term"
-  public static let textbox: Role = "textbox"
-  public static let timer: Role = "timer"
-  public static let toolbar: Role = "toolbar"
-  public static let tooltip: Role = "tooltip"
-  public static let tree: Role = "tree"
-  public static let treegrid: Role = "treegrid"
-  public static let treeitem: Role = "treeitem"
-}
+  public enum AriaToggled: String, ExpressibleByBooleanLiteral {
+    case `false`
+    case `true`
+    case mixed
+    case undefined
 
-extension Role: ExpressibleByStringLiteral {
-  public init(stringLiteral value: String) {
-    self = .init(rawValue: value)
+    public init(booleanLiteral value: Bool) {
+      self = value ? .true : .false
+    }
   }
-}
 
-public func role<T>(_ value: Role) -> Attribute<T> {
-  return .init("role", value.rawValue)
-}
+  public struct Role: RawRepresentable {
+    public let rawValue: String
 
-public enum AriaBoolean: String {
-  case `false`
-  case `true`
-  case undefined
-}
+    public init(rawValue: String) {
+      self.rawValue = rawValue
+    }
 
-extension AriaBoolean: ExpressibleByBooleanLiteral {
-  public init(booleanLiteral value: Bool) {
-    self = value ? .true : .false
+    public static var alert: Role { return Role(rawValue: "alert") }
+    public static var alertdialog: Role { return Role(rawValue: "alertdialog") }
+    public static var application: Role { return Role(rawValue: "application") }
+    public static var article: Role { return Role(rawValue: "article") }
+    public static var banner: Role { return Role(rawValue: "banner") }
+    public static var button: Role { return Role(rawValue: "button") }
+    public static var cell: Role { return Role(rawValue: "cell") }
+    public static var checkbox: Role { return Role(rawValue: "checkbox") }
+    public static var columnheader: Role { return Role(rawValue: "columnheader") }
+    public static var combobox: Role { return Role(rawValue: "combobox") }
+    public static var complementary: Role { return Role(rawValue: "complementary") }
+    public static var contentinfo: Role { return Role(rawValue: "contentinfo") }
+    public static var definition: Role { return Role(rawValue: "definition") }
+    public static var dialog: Role { return Role(rawValue: "dialog") }
+    public static var directory: Role { return Role(rawValue: "directory") }
+    public static var document: Role { return Role(rawValue: "document") }
+    public static var feed: Role { return Role(rawValue: "feed") }
+    public static var figure: Role { return Role(rawValue: "figure") }
+    public static var form: Role { return Role(rawValue: "form") }
+    public static var grid: Role { return Role(rawValue: "grid") }
+    public static var gridcell: Role { return Role(rawValue: "gridcell") }
+    public static var group: Role { return Role(rawValue: "group") }
+    public static var heading: Role { return Role(rawValue: "heading") }
+    public static var img: Role { return Role(rawValue: "img") }
+    public static var link: Role { return Role(rawValue: "link") }
+    public static var list: Role { return Role(rawValue: "list") }
+    public static var listbox: Role { return Role(rawValue: "listbox") }
+    public static var listitem: Role { return Role(rawValue: "listitem") }
+    public static var log: Role { return Role(rawValue: "log") }
+    public static var main: Role { return Role(rawValue: "main") }
+    public static var marquee: Role { return Role(rawValue: "marquee") }
+    public static var math: Role { return Role(rawValue: "math") }
+    public static var menu: Role { return Role(rawValue: "menu") }
+    public static var menubar: Role { return Role(rawValue: "menubar") }
+    public static var menuitem: Role { return Role(rawValue: "menuitem") }
+    public static var menuitemcheckbox: Role { return Role(rawValue: "menuitemcheckbox") }
+    public static var menuitemradio: Role { return Role(rawValue: "menuitemradio") }
+    public static var navigation: Role { return Role(rawValue: "navigation") }
+    public static var none: Role { return Role(rawValue: "none") }
+    public static var note: Role { return Role(rawValue: "note") }
+    public static var option: Role { return Role(rawValue: "option") }
+    public static var presentation: Role { return Role(rawValue: "presentation") }
+    public static var progressbar: Role { return Role(rawValue: "progressbar") }
+    public static var radio: Role { return Role(rawValue: "radio") }
+    public static var radiogroup: Role { return Role(rawValue: "radiogroup") }
+    public static var region: Role { return Role(rawValue: "region") }
+    public static var row: Role { return Role(rawValue: "row") }
+    public static var rowgroup: Role { return Role(rawValue: "rowgroup") }
+    public static var rowheader: Role { return Role(rawValue: "rowheader") }
+    public static var scrollbar: Role { return Role(rawValue: "scrollbar") }
+    public static var search: Role { return Role(rawValue: "search") }
+    public static var searchbox: Role { return Role(rawValue: "searchbox") }
+    public static var separator: Role { return Role(rawValue: "separator") }
+    public static var slider: Role { return Role(rawValue: "slider") }
+    public static var spinbutton: Role { return Role(rawValue: "spinbutton") }
+    public static var status: Role { return Role(rawValue: "status") }
+    public static var `switch`: Role { return Role(rawValue: "switch") }
+    public static var tab: Role { return Role(rawValue: "tab") }
+    public static var table: Role { return Role(rawValue: "table") }
+    public static var tablist: Role { return Role(rawValue: "tablist") }
+    public static var tabpanel: Role { return Role(rawValue: "tabpanel") }
+    public static var term: Role { return Role(rawValue: "term") }
+    public static var textbox: Role { return Role(rawValue: "textbox") }
+    public static var timer: Role { return Role(rawValue: "timer") }
+    public static var toolbar: Role { return Role(rawValue: "toolbar") }
+    public static var tooltip: Role { return Role(rawValue: "tooltip") }
+    public static var tree: Role { return Role(rawValue: "tree") }
+    public static var treegrid: Role { return Role(rawValue: "treegrid") }
+    public static var treeitem: Role { return Role(rawValue: "treeitem") }
   }
-}
 
-public enum AriaToggled: String {
-  case `false`
-  case `true`
-  case mixed
-  case undefined
-}
-
-extension AriaToggled: ExpressibleByBooleanLiteral {
-  public init(booleanLiteral value: Bool) {
-    self = value ? .true : .false
+  public static func role(_ value: Role) -> Attribute {
+    return .init("role", value.rawValue)
   }
-}
 
-public func ariaActivedescendant<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-activedescendant", value)
-}
-
-public func ariaAtomic<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-atomic", String(value))
-}
-
-public enum AriaAutocomplete: String {
-  case both
-  case inline
-  case list
-  case none
-}
-
-public func ariaAutocomplete<T>(_ value: AriaAutocomplete) -> Attribute<T> {
-  return .init("aria-autocomplete", value.rawValue)
-}
-
-public func ariaBusy<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-busy", String(value))
-}
-
-public func ariaChecked<T>(_ value: AriaToggled) -> Attribute<T> {
-  return .init("aria-checked", value.rawValue)
-}
-
-public func ariaColcount<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-colcount", String(value))
-}
-
-public func ariaColindex<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-colindex", String(value))
-}
-
-public func ariaColspan<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-colspan", String(value))
-}
-
-public func ariaControls<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-controls", value)
-}
-
-public enum AriaCurrent: String {
-  case date
-  case `false`
-  case location
-  case page
-  case step
-  case time
-  case `true`
-}
-
-extension AriaCurrent: ExpressibleByBooleanLiteral {
-  public init(booleanLiteral value: Bool) {
-    self = value ? .true : .false
+  public static func ariaActivedescendant(_ value: String) -> Attribute {
+    return .init("aria-activedescendant", value)
   }
-}
 
-public func ariaCurrent<T>(_ value: AriaCurrent) -> Attribute<T> {
-  return .init("aria-current", value.rawValue)
-}
-
-public func ariaDescribedby<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-describedby", value)
-}
-
-public func ariaDetails<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-details", value)
-}
-
-public func ariaDisabled<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-disabled", String(value))
-}
-
-public enum AriaDropeffect: String {
-  case copy
-  case execute
-  case link
-  case move
-  case none
-  case popup
-}
-
-public func ariaDropeffect<T>(_ value: AriaDropeffect) -> Attribute<T> {
-  return .init("aria-dropeffect", value.rawValue)
-}
-
-public func ariaErrormessage<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-errormessage", value)
-}
-
-public func ariaExpanded<T>(_ value: AriaBoolean) -> Attribute<T> {
-  return .init("aria-expanded", value.rawValue)
-}
-
-public func ariaFlowto<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-flowto", value)
-}
-
-public func ariaGrabbed<T>(_ value: AriaBoolean) -> Attribute<T> {
-  return .init("aria-grabbed", value.rawValue)
-}
-
-public enum AriaHaspopup: String {
-  case dialog
-  case `false`
-  case grid
-  case menu
-  case listbox
-  case tree
-}
-
-extension AriaHaspopup: ExpressibleByBooleanLiteral {
-  public init(booleanLiteral value: Bool) {
-    self = value ? .menu : .false
+  public static func ariaAtomic(_ value: Bool) -> Attribute {
+    return .init("aria-atomic", String(value))
   }
-}
-public func ariaHaspopup<T>(_ value: AriaHaspopup) -> Attribute<T> {
-  return .init("aria-haspopup", value.rawValue)
-}
 
-public func ariaHidden<T>(_ value: AriaBoolean) -> Attribute<T> {
-  return .init("aria-hidden", value.rawValue)
-}
-
-public enum AriaInvalid: String {
-  case `false`
-  case grammar
-  case spelling
-  case `true`
-}
-
-extension AriaInvalid: ExpressibleByBooleanLiteral {
-  public init(booleanLiteral value: Bool) {
-    self = value ? .true : .false
+  public enum AriaAutocomplete: String {
+    case both
+    case inline
+    case list
+    case none
   }
-}
 
-public func ariaInvalid<T>(_ value: AriaInvalid) -> Attribute<T> {
-  return .init("aria-invalid", value.rawValue)
-}
+  public static func ariaAutocomplete(_ value: AriaAutocomplete) -> Attribute {
+    return .init("aria-autocomplete", value.rawValue)
+  }
 
-public func ariaKeyshortcuts<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-keyshortcuts", value)
-}
+  public static func ariaBusy(_ value: Bool) -> Attribute {
+    return .init("aria-busy", String(value))
+  }
 
-public func ariaLabel<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-label", value)
-}
+  public static func ariaChecked(_ value: AriaToggled) -> Attribute {
+    return .init("aria-checked", value.rawValue)
+  }
 
-public func ariaLabelledby<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-labelledby", value)
-}
+  public static func ariaColcount(_ value: Int) -> Attribute {
+    return .init("aria-colcount", String(value))
+  }
 
-public func ariaLevel<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-level", String(value))
-}
+  public static func ariaColindex(_ value: Int) -> Attribute {
+    return .init("aria-colindex", String(value))
+  }
 
-public enum AriaLive: String {
-  case assertive
-  case off
-  case polite
-}
+  public static func ariaColspan(_ value: Int) -> Attribute {
+    return .init("aria-colspan", String(value))
+  }
 
-public func ariaLive<T>(_ value: AriaLive) -> Attribute<T> {
-  return .init("aria-live", value.rawValue)
-}
+  public static func ariaControls(_ value: String) -> Attribute {
+    return .init("aria-controls", value)
+  }
 
-public func ariaModal<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-modal", String(value))
-}
+  public enum AriaCurrent: String, ExpressibleByBooleanLiteral {
+    case date
+    case `false`
+    case location
+    case page
+    case step
+    case time
+    case `true`
 
-public func ariaMultiline<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-multiline", String(value))
-}
+    public init(booleanLiteral value: Bool) {
+      self = value ? .true : .false
+    }
+  }
 
-public func ariaMultiselectable<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-multiselectable", String(value))
-}
+  public static func ariaCurrent(_ value: AriaCurrent) -> Attribute {
+    return .init("aria-current", value.rawValue)
+  }
 
-public enum AriaOrientation: String {
-  case horizontal
-  case undefined
-  case vertical
-}
+  public static func ariaDescribedby(_ value: String) -> Attribute {
+    return .init("aria-describedby", value)
+  }
 
-public func ariaOrientation<T>(_ value: AriaOrientation) -> Attribute<T> {
-  return .init("aria-orientation", value.rawValue)
-}
+  public static func ariaDetails(_ value: String) -> Attribute {
+    return .init("aria-details", value)
+  }
 
-public func ariaOwns<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-owns", value)
-}
+  public static func ariaDisabled(_ value: Bool) -> Attribute {
+    return .init("aria-disabled", String(value))
+  }
 
-public func ariaPlaceholder<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-placeholder", value)
-}
+  public enum AriaDropeffect: String {
+    case copy
+    case execute
+    case link
+    case move
+    case none
+    case popup
+  }
 
-public func ariaPosinset<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-posinset", String(value))
-}
+  public static func ariaDropeffect(_ value: AriaDropeffect) -> Attribute {
+    return .init("aria-dropeffect", value.rawValue)
+  }
 
-public func ariaPressed<T>(_ value: AriaToggled) -> Attribute<T> {
-  return .init("aria-pressed", value.rawValue)
-}
+  public static func ariaErrormessage(_ value: String) -> Attribute {
+    return .init("aria-errormessage", value)
+  }
 
-public func ariaReadonly<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-readonly", String(value))
-}
+  public static func ariaExpanded(_ value: AriaBoolean) -> Attribute {
+    return .init("aria-expanded", value.rawValue)
+  }
 
-public enum AriaRelevant: String {
-  case additions
-  case all
-  case removals
-  case text
-}
+  public static func ariaFlowto(_ value: String) -> Attribute {
+    return .init("aria-flowto", value)
+  }
 
-public func ariaRelevant<T>(_ value: [AriaRelevant]) -> Attribute<T> {
-  return .init("aria-relevant", value.map { $0.rawValue }.joined(separator: " "))
-}
+  public static func ariaGrabbed(_ value: AriaBoolean) -> Attribute {
+    return .init("aria-grabbed", value.rawValue)
+  }
 
-public func ariaRequired<T>(_ value: Bool) -> Attribute<T> {
-  return .init("aria-required", String(value))
-}
+  public enum AriaHaspopup: String, ExpressibleByBooleanLiteral {
+    case dialog
+    case `false`
+    case grid
+    case menu
+    case listbox
+    case tree
 
-public func ariaRoledescription<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-roledescription", value)
-}
+    public init(booleanLiteral value: Bool) {
+      self = value ? .menu : .false
+    }
+  }
+  public static func ariaHaspopup(_ value: AriaHaspopup) -> Attribute {
+    return .init("aria-haspopup", value.rawValue)
+  }
 
-public func ariaRowcount<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-rowcount", String(value))
-}
+  public static func ariaHidden(_ value: AriaBoolean) -> Attribute {
+    return .init("aria-hidden", value.rawValue)
+  }
 
-public func ariaRowindex<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-rowindex", String(value))
-}
+  public enum AriaInvalid: String, ExpressibleByBooleanLiteral {
+    case `false`
+    case grammar
+    case spelling
+    case `true`
 
-public func ariaRowspan<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-rowspan", String(value))
-}
+    public init(booleanLiteral value: Bool) {
+      self = value ? .true : .false
+    }
+  }
 
-public func ariaSelected<T>(_ value: AriaBoolean) -> Attribute<T> {
-  return .init("aria-selected", value.rawValue)
-}
+  public static func ariaInvalid(_ value: AriaInvalid) -> Attribute {
+    return .init("aria-invalid", value.rawValue)
+  }
 
-public func ariaSetsize<T>(_ value: Int) -> Attribute<T> {
-  return .init("aria-setsize", String(value))
-}
+  public static func ariaKeyshortcuts(_ value: String) -> Attribute {
+    return .init("aria-keyshortcuts", value)
+  }
 
-public enum AriaSort: String {
-  case ascending
-  case descending
-  case none
-  case other
-}
+  public static func ariaLabel(_ value: String) -> Attribute {
+    return .init("aria-label", value)
+  }
 
-public func ariaSort<T>(_ value: AriaSort) -> Attribute<T> {
-  return .init("aria-sort", value.rawValue)
-}
+  public static func ariaLabelledby(_ value: String) -> Attribute {
+    return .init("aria-labelledby", value)
+  }
 
-public func ariaValuemax<T>(_ value: Double) -> Attribute<T> {
-  return .init("aria-valuemax", String(value))
-}
+  public static func ariaLevel(_ value: Int) -> Attribute {
+    return .init("aria-level", String(value))
+  }
 
-public func ariaValuemin<T>(_ value: Double) -> Attribute<T> {
-  return .init("aria-valuemin", String(value))
-}
+  public enum AriaLive: String {
+    case assertive
+    case off
+    case polite
+  }
 
-public func ariaValuenow<T>(_ value: Double) -> Attribute<T> {
-  return .init("aria-valuenow", String(value))
-}
+  public static func ariaLive(_ value: AriaLive) -> Attribute {
+    return .init("aria-live", value.rawValue)
+  }
 
-public func ariaValuetext<T>(_ value: String) -> Attribute<T> {
-  return .init("aria-valuetext", value)
+  public static func ariaModal(_ value: Bool) -> Attribute {
+    return .init("aria-modal", String(value))
+  }
+
+  public static func ariaMultiline(_ value: Bool) -> Attribute {
+    return .init("aria-multiline", String(value))
+  }
+
+  public static func ariaMultiselectable(_ value: Bool) -> Attribute {
+    return .init("aria-multiselectable", String(value))
+  }
+
+  public enum AriaOrientation: String {
+    case horizontal
+    case undefined
+    case vertical
+  }
+
+  public static func ariaOrientation(_ value: AriaOrientation) -> Attribute {
+    return .init("aria-orientation", value.rawValue)
+  }
+
+  public static func ariaOwns(_ value: String) -> Attribute {
+    return .init("aria-owns", value)
+  }
+
+  public static func ariaPlaceholder(_ value: String) -> Attribute {
+    return .init("aria-placeholder", value)
+  }
+
+  public static func ariaPosinset(_ value: Int) -> Attribute {
+    return .init("aria-posinset", String(value))
+  }
+
+  public static func ariaPressed(_ value: AriaToggled) -> Attribute {
+    return .init("aria-pressed", value.rawValue)
+  }
+
+  public static func ariaReadonly(_ value: Bool) -> Attribute {
+    return .init("aria-readonly", String(value))
+  }
+
+  public enum AriaRelevant: String {
+    case additions
+    case all
+    case removals
+    case text
+  }
+
+  public static func ariaRelevant(_ value: [AriaRelevant]) -> Attribute {
+    return .init("aria-relevant", value.map { $0.rawValue }.joined(separator: " "))
+  }
+
+  public static func ariaRequired(_ value: Bool) -> Attribute {
+    return .init("aria-required", String(value))
+  }
+
+  public static func ariaRoledescription(_ value: String) -> Attribute {
+    return .init("aria-roledescription", value)
+  }
+
+  public static func ariaRowcount(_ value: Int) -> Attribute {
+    return .init("aria-rowcount", String(value))
+  }
+
+  public static func ariaRowindex(_ value: Int) -> Attribute {
+    return .init("aria-rowindex", String(value))
+  }
+
+  public static func ariaRowspan(_ value: Int) -> Attribute {
+    return .init("aria-rowspan", String(value))
+  }
+
+  public static func ariaSelected(_ value: AriaBoolean) -> Attribute {
+    return .init("aria-selected", value.rawValue)
+  }
+
+  public static func ariaSetsize(_ value: Int) -> Attribute {
+    return .init("aria-setsize", String(value))
+  }
+
+  public enum AriaSort: String {
+    case ascending
+    case descending
+    case none
+    case other
+  }
+
+  public static func ariaSort(_ value: AriaSort) -> Attribute {
+    return .init("aria-sort", value.rawValue)
+  }
+
+  public static func ariaValuemax(_ value: Double) -> Attribute {
+    return .init("aria-valuemax", String(value))
+  }
+
+  public static func ariaValuemin(_ value: Double) -> Attribute {
+    return .init("aria-valuemin", String(value))
+  }
+
+  public static func ariaValuenow(_ value: Double) -> Attribute {
+    return .init("aria-valuenow", String(value))
+  }
+
+  public static func ariaValuetext(_ value: String) -> Attribute {
+    return .init("aria-valuetext", value)
+  }
 }

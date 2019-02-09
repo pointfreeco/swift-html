@@ -44,10 +44,12 @@ extension Node: ExpressibleByStringLiteral {
   }
 }
 
-/// Default HTML DOCTYPE.
-public let doctype: Node = .doctype("html")
+extension Node {
+  /// Default HTML DOCTYPE.
+  public static let doctype: Node = .doctype("html")
 
-/// A root document node including the default HTML DOCTYPE.
-public func document(_ children: Node...) -> Node {
-  return .fragment([doctype] + children)
+  /// A root document node including the default HTML DOCTYPE.
+  public static func document(_ children: Node...) -> Node {
+    return .fragment([doctype] + children)
+  }
 }
