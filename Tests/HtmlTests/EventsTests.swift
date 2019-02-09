@@ -2,7 +2,7 @@ import Html
 import XCTest
 
 final class EventsTests: XCTestCase {
-  func testElementsSnapshot() {
+  func testEventsSnapshot() {
     let doc = [
       audio(
         [
@@ -186,4 +186,3 @@ final class EventsTests: XCTestCase {
     )
   }
 }
-

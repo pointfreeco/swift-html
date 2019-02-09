@@ -79,6 +79,8 @@ private func render(_ node: Node, into output: inout String) {
       output.append(tag)
       output.append(">")
     }
+  case let .fragment(children):
+    output.append(render(children))
   case let .text(string):
     output.append(escapeTextNode(text: string))
   case let .raw(string):

@@ -32,30 +32,31 @@ code {
 """
 
 /// A document built in the HTML DSL.
-let doc = html([
-  head([
-    style(unsafe: stylesheet)
-    ]),
-  body([
-    h1(["🗺 HTML"]),
-    p(["""
+let doc = document(
+  doctype,
+  html(
+    head(
+      style(unsafe: stylesheet)
+    ),
+    body(
+      h1("🗺 HTML"),
+      p("""
 A Swift DSL for type-safe, extensible, and transformable HTML documents.
 """
-      ]),
-
-    h2(["Motivation"]),
-    p(["""
+      ),
+      h2("Motivation"),
+      p("""
 When building server-side application in Swift it is important to be able to render HTML documents. The current best practice in the community is to use templating languages like Stencil, Mustache, Handlebars, Leaf and others. However, templating languages are inherently unsafe due to the API being stringly typed. The vast majority of errors that can arise in creating a template happen only at runtime, including typos and type mismatches.
-"""]),
-    p(["""
+"""),
+      p("""
 That’s unfortunate because we are used to working in Swift, which is strongly typed, and many potential bugs are discovered at compile time rather than runtime. Our approach is to instead embed HTML documents directly into Swift types so that we immediately get all of the features and safety Swift has to offer.
-"""]),
-
-    h2(["Examples"]),
-    p(["""
+"""
+      ),
+      h2("Examples"),
+      p("""
 HTML documents can be created with this library in a tree-like fashion, much like how you might create a nested JSON document:
-"""]),
-    pre(["""
+"""),
+      pre("""
 import Html
 
 let document = html([
@@ -64,21 +65,20 @@ let document = html([
     p(["You’ve found our site!"])
     ])
   ])
-"""]),
+"""),
 
-    p([
-      "Underneath the hood these tag functions ",
-      code(["html"]),
-      ", ", code(["body"]),
-      ", ", code(["h1"]),
-      "etc. are just creating and nesting instances of a ",
-      code(["Node"]),
-      " type, which is a simple Swift enum. The cool part is that because ",
-      code(["Node"]),
-      " is just a simple Swift type, we can transform it in all types of intersting ways. For a silly example, what if we wanted to remove all instances of exclamation marks from our document?"
-      ]),
-
-    pre(["""
+      p(
+        "Underneath the hood these tag functions ",
+        code("html"),
+        ", ", code("body"),
+        ", ", code("h1"),
+        "etc. are just creating and nesting instances of a ",
+        code("Node"),
+        " type, which is a simple Swift enum. The cool part is that because ",
+        code("Node"),
+        " is just a simple Swift type, we can transform it in all types of intersting ways. For a silly example, what if we wanted to remove all instances of exclamation marks from our document?"
+      ),
+      pre("""
 func unexclaim(_ node: Node) -> Node {
   switch node {
   case .comment:
@@ -101,25 +101,25 @@ func unexclaim(_ node: Node) -> Node {
 
 unexclaim(document) // Node
 """
-      ]),
+      ),
 
-    p([
-      "And of course you can first run the document through the ", code(["unexlaim"]), " transformation, and then render it:"
-      ]),
+      p(
+        "And of course you can first run the document through the ", code("unexclaim"), " transformation, and then render it:"
+      ),
 
-    pre(["""
+      pre("""
 render(unexclaim(document))
 // <html><body><h1>Welcome.</h1><p>You’ve found our site.</p></body></html>
 """
-      ]),
-
-    ])
-  ])
+      )
+    )
+  )
+)
 
 /// A function that "redacts" an HTML document by transforming all text nodes
 /// into █-sequences of characters.
 func redacted(node: Node) -> Node {
-  func redacted(string: String) -> String {
+  func redact(string: String) -> String {
     return string
       .split(separator: " ")
       .map { String(repeating: "█", count: $0.count )}
@@ -135,7 +135,7 @@ func redacted(node: Node) -> Node {
     return .comment("")
   // Raw strings will be redacted
   case let .raw(string):
-    return .raw(redacted(string: string))
+    return .raw(redact(string: string))
   // Style tags will not be redacted
   case .element("style", _, _):
     return node
@@ -148,11 +148,14 @@ func redacted(node: Node) -> Node {
       children
     )
   // All other elements will have their children redacted.
-  case let .element(tag, attrs, children):
-    return .element(tag, attrs, children.map(redacted(node:)))
+  case let .element(tag, attrs, child):
+    return .element(tag, attrs, redacted(node: child))
+  // All fragments will have their children redacted.
+  case let .fragment(children):
+    return .fragment(children.map(redacted(node:)))
   // Text nodes will be redacted
   case let .text(string):
-    return .text(redacted(string: string))
+    return .text(redact(string: string))
   }
 }
 

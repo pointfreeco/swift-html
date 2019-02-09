@@ -86,14 +86,16 @@ public func debugRender(_ node: Node, config: Config = .pretty) -> String {
       output.append(">")
       output.append(config.newline)
       guard !children.isEmpty || !voidElements.contains(tag) else { return }
-      for node in children {
-        debugRenderHelp(node, into: &output, config: config, indentation: indentation + config.indentation)
-      }
+      debugRenderHelp(children, into: &output, config: config, indentation: indentation + config.indentation)
       output.append(indentation)
       output.append("</")
       output.append(tag)
       output.append(">")
       output.append(config.newline)
+    case let .fragment(children):
+      for node in children {
+        debugRenderHelp(node, into: &output, config: config, indentation: indentation)
+      }
     case let .raw(string), let .text(string):
       guard !string.isEmpty else { return }
       output.append(indentation)

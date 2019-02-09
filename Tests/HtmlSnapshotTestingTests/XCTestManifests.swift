@@ -1,7 +1,8 @@
 import XCTest
 
-extension AriaTests {
+extension SnapshotTestingTests {
     static let __allTests = [
+        ("testComplexHtml", testComplexHtml),
         ("testSnapshots", testSnapshots),
     ]
 }
@@ -9,7 +10,7 @@ extension AriaTests {
 #if !os(macOS)
 public func __allTests() -> [XCTestCaseEntry] {
     return [
-        testCase(AriaTests.__allTests),
+        testCase(SnapshotTestingTests.__allTests),
     ]
 }
 #endif

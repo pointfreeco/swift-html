@@ -20,7 +20,7 @@ extension ElementsTests {
 
 extension EventsTests {
     static let __allTests = [
-        ("testElementsSnapshot", testElementsSnapshot),
+        ("testEventsSnapshot", testEventsSnapshot),
     ]
 }
 
