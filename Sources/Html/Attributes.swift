@@ -345,12 +345,57 @@ extension Attribute {
 }
 
 extension Attribute where Element == Tag.A {
-  // TODO: Add subject and other parameters
   /// Email address of a hyperlink.
   ///
-  /// - Parameter address: Address of a hyperlink.
-  public static func mailto(_ address: String) -> Attribute {
-    return href("mailto:" + address)
+  /// - Parameters:
+  ///   - address: One or more email addresses for the "to" field.
+  ///   - cc: Zero or more email addresses for the "cc" field.
+  ///   - bcc: Zero or more email addresses for the "bcc" field.
+  ///   - subject: An optional email subject.
+  ///   - body: An optional email body.
+  /// - Returns: A "mailto" URL for hyperlinks.
+  public static func mailto(
+    _ addresses: String...,
+    cc: [String] = [],
+    bcc: [String] = [],
+    subject: String = "",
+    body: String = ""
+    )
+    -> Attribute {
+
+      return .mailto(addresses, cc: cc, bcc: bcc, subject: subject, body: body)
+  }
+
+  /// Email address of a hyperlink.
+  ///
+  /// - Parameters:
+  ///   - address: One or more email addresses for the "to" field.
+  ///   - cc: Zero or more email addresses for the "cc" field.
+  ///   - bcc: Zero or more email addresses for the "bcc" field.
+  ///   - subject: An optional email subject.
+  ///   - body: An optional email body.
+  /// - Returns: A "mailto" URL for hyperlinks.
+  public static func mailto(
+    _ addresses: [String],
+    cc: [String] = [],
+    bcc: [String] = [],
+    subject: String = "",
+    body: String = ""
+    )
+    -> Attribute {
+
+      var urlComponents = URLComponents()
+      urlComponents.scheme = "mailto"
+      urlComponents.path = addresses.joined(separator: ",")
+      let queryItems = [
+        cc.isEmpty ? nil : URLQueryItem(name: "cc", value: cc.joined(separator: ",")),
+        bcc.isEmpty ? nil : URLQueryItem(name: "bcc", value: bcc.joined(separator: ",")),
+        subject.isEmpty ? nil : URLQueryItem(name: "subject", value: subject),
+        body.isEmpty ? nil : URLQueryItem(name: "body", value: body)
+        ]
+        .compactMap { $0 }
+      urlComponents.queryItems = queryItems.isEmpty ? nil : queryItems
+      return href(urlComponents.string ?? "")
   }
 }
 

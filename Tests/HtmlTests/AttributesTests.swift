@@ -390,6 +390,28 @@ final class AttributesTests: XCTestCase {
 
     XCTAssertEqual("<a href=\"mailto:blob@pointfree.co\"></a>", render(.a(attributes: [.mailto("blob@pointfree.co")])))
 
+    XCTAssertEqual(
+      """
+      <a href="\
+      mailto:blob@pointfree.co,blob2@pointfree.co\
+      ?cc=blob3@pointfree.co&bcc=blob4@pointfree.co&subject=Help!&body=I%20need%20somebody!\
+      "></a>
+      """,
+      render(
+        .a(
+          attributes: [
+            .mailto(
+              ["blob@pointfree.co", "blob2@pointfree.co"],
+              cc: ["blob3@pointfree.co"],
+              bcc: ["blob4@pointfree.co"],
+              subject: "Help!",
+              body: "I need somebody!"
+            )
+          ]
+        )
+      )
+    )
+
     XCTAssertEqual("<a id=\"blob\"></a>", render(.a(attributes: [.id("blob")])))
 
     XCTAssertEqual("<a lang=\"en\"></a>", render(.a(attributes: [.lang(.en)])))
