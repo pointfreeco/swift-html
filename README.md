@@ -29,10 +29,12 @@ HTML documents can be created in a tree-like fashion, much like you might create
 ```swift
 import Html
 
-let document = html(
-  body(
-    h1("Welcome!"),
-    p("You’ve found our site!")
+let document: Node = .document(
+  .html(
+    .body(
+      .h1("Welcome!"),
+      .p("You’ve found our site!")
+    )
   )
 )
 ```
@@ -71,14 +73,14 @@ Once your document is created you can render it using the `render` function:
 
 ```swift
 render(document)
-// <html><body><h1>Welcome!</h1><p>You’ve found our site!</p></body></html>
+// <!doctype html><html><body><h1>Welcome!</h1><p>You’ve found our site!</p></body></html>
 ```
 
 And of course you can first run the document through the `unexlaim` transformation, and then render it:
 
 ```swift
 render(unexclaim(document))
-// <html><body><h1>Welcome.</h1><p>You’ve found our site.</p></body></html>
+// <!doctype html><html><body><h1>Welcome.</h1><p>You’ve found our site.</p></body></html>
 ```
 
 Now the document is very stern and serious 😂.
@@ -88,7 +90,7 @@ Now the document is very stern and serious 😂.
 Because we are embedding our DSL in Swift we can take advantage of some advanced Swift features to add an extra layer of safety when constructing HTML documents. For a simple example, we can strengthen many HTML APIs to force their true types rather than just relying on strings. 
 
 ```swift 
-let imgTag = img([src("cat.jpg"), width(400), height(300)])
+let imgTag = Node.img(attributes: [.src("cat.jpg"), .width(400), .height(300)])
 
 render(imgTag)
 // <img src="cat.jpg" width="400" height="300">
@@ -99,19 +101,19 @@ Here the `src` attribute takes a string, but `width` and `height` take integers,
 For a more advanced example, `<li>` tags can only be placed inside `<ol>` and `<ul>` tags, and we can represent this fact so that it’s impossible to construct an invalid document:
 
 ```swift
-let listTag = ul(
-  li("Cat"),
-  li("Dog"),
-  li("Rabbit")
+let listTag = Node.ul(
+  .li("Cat"),
+  .li("Dog"),
+  .li("Rabbit")
 ) // ✅ Compiles!
 
 render(listTag)
 // <ul><li>Cat</li><li>Dog</li><li>Rabbit</li></ul>
 
-div(
-  li("Cat"),
-  li("Dog"),
-  li("Rabbit")
+Node.div(
+  .li("Cat"),
+  .li("Dog"),
+  .li("Rabbit")
 ) // 🛑 Compile error
 ```
 
@@ -143,10 +145,10 @@ Node.element("html", [], [
 // versus
 
 // Using helper functions
-html(
-  body(
-    h1("Welcome!"),
-    p("You’ve found our site!")
+Node.html(
+  .body(
+    .h1("Welcome!"),
+    .p("You’ve found our site!")
   )
 )
 ```

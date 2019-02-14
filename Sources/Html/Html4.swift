@@ -1,55 +1,59 @@
-public enum Html4Size {
-  case px(Int)
-  case pct(Int)
+extension Attribute {
+  public enum Html4Size {
+    case px(Int)
+    case pct(Int)
 
-  public var rawValue: String {
-    switch self {
-    case let .px(size):
-      return "\(size)"
-    case let .pct(size):
-      return "\(size)%"
+    public var rawValue: String {
+      switch self {
+      case let .px(size):
+        return "\(size)"
+      case let .pct(size):
+        return "\(size)%"
+      }
     }
+  }
+
+  public enum Alignment: String {
+    case left
+    case right
+    case center
+    case justify
+  }
+
+  public static func align(_ value: Alignment) -> Attribute {
+    return .init("align", value.rawValue)
+  }
+
+  public static func border(_ value: Int) -> Attribute {
+    return .init("border", String(value))
+  }
+
+  public static func height(_ value: Html4Size) -> Attribute {
+    return .init("height", value.rawValue)
+  }
+
+  public enum VerticalAlignment: String {
+    case top
+    case middle
+    case bottom
+    case baseline
+  }
+
+  public static func valign(_ value: VerticalAlignment) -> Attribute {
+    return .init("valign", value.rawValue)
+  }
+
+  public static func width(_ value: Html4Size) -> Attribute {
+    return .init("width", value.rawValue)
   }
 }
 
-public enum Alignment: String {
-  case left
-  case right
-  case center
-  case justify
-}
+extension Attribute where Element == Tag.Table {
+  public static func cellpadding(_ value: Int) -> Attribute {
+    return .init("cellpadding", String(value))
+  }
 
-public func align<T>(_ value: Alignment) -> Attribute<T> {
-  return .init("align", value.rawValue)
-}
-
-public func border<T>(_ value: Int) -> Attribute<T> {
-  return .init("border", String(value))
-}
-
-public func cellpadding(_ value: Int) -> Attribute<Tag.Table> {
-  return .init("cellpadding", String(value))
-}
-
-public func cellspacing(_ value: Int) -> Attribute<Tag.Table> {
-  return .init("cellspacing", String(value))
-}
-
-public func height<T>(_ value: Html4Size) -> Attribute<T> {
-  return .init("height", value.rawValue)
-}
-
-public enum VerticalAlignment: String {
-  case top
-  case middle
-  case bottom
-  case baseline
-}
-
-public func valign<T>(_ value: VerticalAlignment) -> Attribute<T> {
-  return .init("valign", value.rawValue)
-}
-
-public func width<T>(_ value: Html4Size) -> Attribute<T> {
-  return .init("width", value.rawValue)
+  public static func cellspacing(_ value: Int) -> Attribute {
+    return .init("cellspacing", String(value))
+  }
 }

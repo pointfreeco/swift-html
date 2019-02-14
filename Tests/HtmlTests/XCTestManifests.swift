@@ -14,7 +14,7 @@ extension AttributesTests {
 
 extension ElementsTests {
     static let __allTests = [
-        ("testElementsSnapshot", testElementsSnapshot),
+        ("testBase64Snapshot", testBase64Snapshot),
     ]
 }
 
