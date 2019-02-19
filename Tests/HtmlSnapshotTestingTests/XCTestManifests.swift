@@ -1,16 +1,16 @@
 import XCTest
 
 extension SnapshotTestingTests {
-    static let __allTests = [
-        ("testComplexHtml", testComplexHtml),
-        ("testSnapshots", testSnapshots),
+  static let __allTests = [
+    ("testComplexHtml", testComplexHtml),
+    ("testSnapshots", testSnapshots),
     ]
 }
 
-#if !os(macOS)
+#if os(Linux)
 public func __allTests() -> [XCTestCaseEntry] {
-    return [
-        testCase(SnapshotTestingTests.__allTests),
-    ]
+  return [
+    testCase(SnapshotTestingTests.__allTests),
+  ]
 }
 #endif

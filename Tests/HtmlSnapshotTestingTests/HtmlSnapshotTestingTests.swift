@@ -444,9 +444,16 @@ final class SnapshotTestingTests: SnapshotTestCase {
       .cite(),
       .code(),
       .del(),
+      .details(),
       .details(
-// TODO: `summary` returns ChildOf<FieldSet> but `details` only wants Node. is that correct?
-//        .summary(),
+        .summary()
+      ),
+      .details(
+        .summary(),
+        .div()
+      ),
+      .details(
+        .div()
       ),
       .dfn(),
       .div(),
@@ -456,9 +463,16 @@ final class SnapshotTestingTests: SnapshotTestCase {
       ),
       .em(),
       .embed(),
+      .fieldset(),
       .fieldset(
-// TODO: `legend` returns ChildOf<FieldSet> but `fieldset` only wants Node. is that correct?
-//        .legend(),
+        .legend()
+      ),
+      .fieldset(
+        .legend(),
+        .div()
+      ),
+      .fieldset(
+        .div()
       ),
       .figure(
         .figcaption()

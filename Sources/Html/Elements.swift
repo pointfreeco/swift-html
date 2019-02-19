@@ -157,14 +157,34 @@ extension Node {
     return .element("del", attributes: attributes, .fragment(content))
   }
 
-  // TODO: required first child element "summary"
+  /// The `<details>` element represents a disclosure widget from which the user can obtain additional information or controls.
+  ///
+  /// - Parameters:
+  ///   - attributes: Attributes.
+  ///   - summary: A summary.
+  ///   - content: Child nodes.
+  public static func details(
+    attributes: [Attribute<Tag.Details>] = [],
+    _ summary: ChildOf<Tag.Details>,
+    _ content: Node...
+    )
+    -> Node {
+
+      return details(attributes: attributes, summary.rawValue, .fragment(content))
+  }
+
   /// The `<details>` element represents a disclosure widget from which the user can obtain additional information or controls.
   ///
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func details(attributes: [Attribute<Tag.Details>] = [], _ content: Node...) -> Node {
-    return .element("details", attributes: attributes, .fragment(content))
+  public static func details(
+    attributes: [Attribute<Tag.Details>] = [],
+    _ content: Node...
+    )
+    -> Node {
+
+      return .element("details", attributes: attributes, .fragment(content))
   }
 
   /// The `<dfn>` element represents the defining instance of a term. The term-description group, `<p>`, `<li>` or `<section>` element that is the nearest ancestor of the `<dfn>` element must also contain the definition(s) for the term given by the `<dfn>` element.
@@ -214,9 +234,30 @@ extension Node {
   ///
   /// - Parameters:
   ///   - attributes: Attributes.
+  ///   - legend: A legend.
   ///   - content: Child nodes.
-  public static func fieldset(attributes: [Attribute<Tag.Fieldset>] = [], _ content: Node...) -> Node {
-    return .element("fieldset", attributes: attributes, .fragment(content))
+  public static func fieldset(
+    attributes: [Attribute<Tag.Fieldset>] = [],
+    _ legend: ChildOf<Tag.Fieldset>,
+    _ content: Node...
+    )
+    -> Node {
+
+      return .fieldset(attributes: attributes, legend.rawValue, .fragment(content))
+  }
+
+  /// The `<fieldset>` element represents a set of form controls optionally grouped under a common name.
+  ///
+  /// - Parameters:
+  ///   - attributes: Attributes.
+  ///   - content: Child nodes.
+  public static func fieldset(
+    attributes: [Attribute<Tag.Fieldset>] = [],
+    _ content: Node...
+    )
+    -> Node {
+
+      return .element("fieldset", attributes: attributes, .fragment(content))
   }
 
   /// The `<figure>` element represents some flow content, optionally with a caption, that is self-contained (like a complete sentence) and is typically referenced as a single unit from the main flow of the document.
