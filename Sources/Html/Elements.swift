@@ -161,12 +161,16 @@ extension Node {
   ///
   /// - Parameters:
   ///   - attributes: Attributes.
+  ///   - summary: A summary.
   ///   - content: Child nodes.
   public static func details(
     attributes: [Attribute<Tag.Details>] = [],
+    _ summary: ChildOf<Tag.Details>? = nil,
     _ content: Node...
-    ) -> Node {
-    return .element("details", attributes: attributes, .fragment(content))
+    )
+    -> Node {
+
+      return .element("details", attributes: attributes, summary.map { $0.rawValue } ?? [], .fragment(content))
   }
 
   /// The `<dfn>` element represents the defining instance of a term. The term-description group, `<p>`, `<li>` or `<section>` element that is the nearest ancestor of the `<dfn>` element must also contain the definition(s) for the term given by the `<dfn>` element.
@@ -216,9 +220,16 @@ extension Node {
   ///
   /// - Parameters:
   ///   - attributes: Attributes.
+  ///   - legend: A legend.
   ///   - content: Child nodes.
-  public static func fieldset(attributes: [Attribute<Tag.Fieldset>] = [], _ content: Node...) -> Node {
-    return .element("fieldset", attributes: attributes, .fragment(content))
+  public static func fieldset(
+    attributes: [Attribute<Tag.Fieldset>] = [],
+    _ legend: ChildOf<Tag.Fieldset>? = nil,
+    _ content: Node...
+    )
+    -> Node {
+
+      return .element("fieldset", attributes: attributes, legend.map { $0.rawValue } ?? [], .fragment(content))
   }
 
   /// The `<figure>` element represents some flow content, optionally with a caption, that is self-contained (like a complete sentence) and is typically referenced as a single unit from the main flow of the document.
@@ -430,15 +441,6 @@ extension Node {
   ///   - content: Child nodes.
   public static func label(attributes: [Attribute<Tag.Label>] = [], _ content: Node...) -> Node {
     return .element("label", attributes: attributes, .fragment(content))
-  }
-
-  /// The `<legend>` element represents a caption for the rest of the contents of the `<legend>` element's parent `<fieldset>` element, if any.
-  ///
-  /// - Parameters:
-  ///   - attributes: Attributes.
-  ///   - content: Child nodes.
-  public static func legend(attributes: [Attribute<Tag.Legend>] = [], _ content: Node...) -> Node {
-    return .element("legend", attributes: attributes, .fragment(content))
   }
 
   /// The `<main>` element represents the main content of the `<body>` of a document or application.
@@ -672,15 +674,6 @@ extension Node {
   ///   - content: Child nodes.
   public static func sub(attributes: [Attribute<Tag.Sub>] = [], _ content: Node...) -> Node {
     return .element("sub", attributes: attributes, .fragment(content))
-  }
-
-  /// The first `<summary>` child element of a `<details>` element represents a summary, caption, or legend for the rest of the contents of the parent `<details>` element, if any.
-  ///
-  /// - Parameters:
-  ///   - attributes: Attributes.
-  ///   - content: Child nodes.
-  public static func summary(attributes: [Attribute<Tag.Summary>] = [], _ content: Node...) -> Node {
-    return .element("summary", attributes: attributes, .fragment(content))
   }
 
   /// The `<sup>` element represents a superscript.

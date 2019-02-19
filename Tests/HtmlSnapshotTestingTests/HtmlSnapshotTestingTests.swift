@@ -444,6 +444,7 @@ final class SnapshotTestingTests: SnapshotTestCase {
       .cite(),
       .code(),
       .del(),
+      .details(),
       .details(
         .summary()
       ),
@@ -455,6 +456,7 @@ final class SnapshotTestingTests: SnapshotTestCase {
       ),
       .em(),
       .embed(),
+      .fieldset(),
       .fieldset(
         .legend()
       ),
