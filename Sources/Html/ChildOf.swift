@@ -42,6 +42,10 @@ extension ChildOf {
   public static func script(attributes: [Attribute<Tag.Script>] = [], unsafe content: String = "") -> ChildOf {
     return .init(.script(attributes: attributes, unsafe: content))
   }
+
+  public static func template(attributes: [Attribute<Tag.Template>] = [], _ content: Node...) -> ChildOf {
+    return .init(.template(attributes: attributes, .fragment(content)))
+  }
 }
 
 extension ChildOf where Element == Tag.Colgroup {

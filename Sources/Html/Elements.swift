@@ -730,6 +730,10 @@ extension Node {
     return .element("table", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
+  public static func template(attributes: [Attribute<Tag.Template>] = [], _ content: Node...) -> Node {
+    return .element("template", attributes: attributes, .fragment(content))
+  }
+
   /// The `<textarea>` element represents a multiline plain text edit control for the element's raw value. The contents of the control represent the control's default value.
   ///
   /// - Parameters:
