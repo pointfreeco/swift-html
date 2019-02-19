@@ -448,6 +448,9 @@ final class SnapshotTestingTests: SnapshotTestCase {
       .details(
         .summary()
       ),
+      .details(
+        .div()
+      ),
       .dfn(),
       .div(),
       .dl(
@@ -459,6 +462,9 @@ final class SnapshotTestingTests: SnapshotTestCase {
       .fieldset(),
       .fieldset(
         .legend()
+      ),
+      .fieldset(
+        .div()
       ),
       .figure(
         .figcaption()
