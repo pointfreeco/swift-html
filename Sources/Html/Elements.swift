@@ -157,13 +157,15 @@ extension Node {
     return .element("del", attributes: attributes, .fragment(content))
   }
 
-  // TODO: required first child element "summary"
   /// The `<details>` element represents a disclosure widget from which the user can obtain additional information or controls.
   ///
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func details(attributes: [Attribute<Tag.Details>] = [], _ content: Node...) -> Node {
+  public static func details(
+    attributes: [Attribute<Tag.Details>] = [],
+    _ content: Node...
+    ) -> Node {
     return .element("details", attributes: attributes, .fragment(content))
   }
 
@@ -430,6 +432,15 @@ extension Node {
     return .element("label", attributes: attributes, .fragment(content))
   }
 
+  /// The `<legend>` element represents a caption for the rest of the contents of the `<legend>` element's parent `<fieldset>` element, if any.
+  ///
+  /// - Parameters:
+  ///   - attributes: Attributes.
+  ///   - content: Child nodes.
+  public static func legend(attributes: [Attribute<Tag.Legend>] = [], _ content: Node...) -> Node {
+    return .element("legend", attributes: attributes, .fragment(content))
+  }
+
   /// The `<main>` element represents the main content of the `<body>` of a document or application.
   ///
   /// - Parameters:
@@ -661,6 +672,15 @@ extension Node {
   ///   - content: Child nodes.
   public static func sub(attributes: [Attribute<Tag.Sub>] = [], _ content: Node...) -> Node {
     return .element("sub", attributes: attributes, .fragment(content))
+  }
+
+  /// The first `<summary>` child element of a `<details>` element represents a summary, caption, or legend for the rest of the contents of the parent `<details>` element, if any.
+  ///
+  /// - Parameters:
+  ///   - attributes: Attributes.
+  ///   - content: Child nodes.
+  public static func summary(attributes: [Attribute<Tag.Summary>] = [], _ content: Node...) -> Node {
+    return .element("summary", attributes: attributes, .fragment(content))
   }
 
   /// The `<sup>` element represents a superscript.

@@ -54,17 +54,6 @@ extension ChildOf where Element == Tag.Colgroup {
   }
 }
 
-extension ChildOf where Element == Tag.Details {
-  /// The first `<summary>` child element of a `<details>` element represents a summary, caption, or legend for the rest of the contents of the parent `<details>` element, if any.
-  ///
-  /// - Parameters:
-  ///   - attributes: Attributes.
-  ///   - content: Child nodes.
-  public static func summary(attributes: [Attribute<Tag.Summary>] = [], _ content: Node...) -> ChildOf {
-    return .init(.element("summary", attributes: attributes, .fragment(content)))
-  }
-}
-
 extension ChildOf where Element == Tag.Dl {
   /// The `<dd>` element represents a description, part of a term-description group in a description list (`<dl>` element).
   ///
@@ -82,17 +71,6 @@ extension ChildOf where Element == Tag.Dl {
   ///   - content: Child nodes.
   public static func dt(attributes: [Attribute<Tag.Dt>] = [], _ content: Node...) -> ChildOf {
     return .init(.element("dt", attributes: attributes, .fragment(content)))
-  }
-}
-
-extension ChildOf where Element == Tag.Fieldset {
-  /// The `<legend>` element represents a caption for the rest of the contents of the `<legend>` element's parent `<fieldset>` element, if any.
-  ///
-  /// - Parameters:
-  ///   - attributes: Attributes.
-  ///   - content: Child nodes.
-  public static func legend(attributes: [Attribute<Tag.Legend>] = [], _ content: Node...) -> ChildOf {
-    return .init(.element("legend", attributes: attributes, .fragment(content)))
   }
 }
 
