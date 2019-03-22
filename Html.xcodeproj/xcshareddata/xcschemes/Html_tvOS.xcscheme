@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NT_E3DC39F33A9CC5CE33CBED0C7A0716AB"
+               BlueprintIdentifier = "875B8C7FB1A8896A28D7B853F513CFD6"
                BuildableName = "Html.framework"
                BlueprintName = "Html_tvOS"
                ReferencedContainer = "container:Html.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NT_E3FE8A7E649940DA2207FA60E84BE68D"
+               BlueprintIdentifier = "39FAF90AB05CB37935D4204A5BE017B8"
                BuildableName = "HtmlTests.xctest"
                BlueprintName = "HtmlTests_tvOS"
                ReferencedContainer = "container:Html.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_E3DC39F33A9CC5CE33CBED0C7A0716AB"
+            BlueprintIdentifier = "875B8C7FB1A8896A28D7B853F513CFD6"
             BuildableName = "Html.framework"
             BlueprintName = "Html_tvOS"
             ReferencedContainer = "container:Html.xcodeproj">
@@ -66,7 +66,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_E3DC39F33A9CC5CE33CBED0C7A0716AB"
+            BlueprintIdentifier = "875B8C7FB1A8896A28D7B853F513CFD6"
             BuildableName = "Html.framework"
             BlueprintName = "Html_tvOS"
             ReferencedContainer = "container:Html.xcodeproj">
@@ -87,7 +87,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_E3DC39F33A9CC5CE33CBED0C7A0716AB"
+            BlueprintIdentifier = "875B8C7FB1A8896A28D7B853F513CFD6"
             BuildableName = "Html.framework"
             BlueprintName = "Html_tvOS"
             ReferencedContainer = "container:Html.xcodeproj">

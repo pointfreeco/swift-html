@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NT_391C0E1A822D646F708827B001EB83D2"
+               BlueprintIdentifier = "F810FEAA71B0586D1B6CE7F412FF7D3E"
                BuildableName = "Html.framework"
                BlueprintName = "Html_iOS"
                ReferencedContainer = "container:Html.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NT_C8AB64528B429FF8C5E983E839B1E0BE"
+               BlueprintIdentifier = "B641E0069847CD6E1B6AC66EFDFE23AC"
                BuildableName = "HtmlTests.xctest"
                BlueprintName = "HtmlTests_iOS"
                ReferencedContainer = "container:Html.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_391C0E1A822D646F708827B001EB83D2"
+            BlueprintIdentifier = "F810FEAA71B0586D1B6CE7F412FF7D3E"
             BuildableName = "Html.framework"
             BlueprintName = "Html_iOS"
             ReferencedContainer = "container:Html.xcodeproj">
@@ -66,7 +66,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_391C0E1A822D646F708827B001EB83D2"
+            BlueprintIdentifier = "F810FEAA71B0586D1B6CE7F412FF7D3E"
             BuildableName = "Html.framework"
             BlueprintName = "Html_iOS"
             ReferencedContainer = "container:Html.xcodeproj">
@@ -87,7 +87,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_391C0E1A822D646F708827B001EB83D2"
+            BlueprintIdentifier = "F810FEAA71B0586D1B6CE7F412FF7D3E"
             BuildableName = "Html.framework"
             BlueprintName = "Html_iOS"
             ReferencedContainer = "container:Html.xcodeproj">
