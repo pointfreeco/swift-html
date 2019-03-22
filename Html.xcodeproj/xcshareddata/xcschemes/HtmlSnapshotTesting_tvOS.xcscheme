@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NT_8DA0D6B0D3FB381C06CED88C8D8EB1F3"
+               BlueprintIdentifier = "2BA1D0CC8309950F649BDD13CBCDE39B"
                BuildableName = "HtmlSnapshotTesting.framework"
                BlueprintName = "HtmlSnapshotTesting_tvOS"
                ReferencedContainer = "container:Html.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "NT_DD09D77AEA211941B06E7B13605F9DF1"
+               BlueprintIdentifier = "D66EE4CDA1674BC198B4235AA4485515"
                BuildableName = "HtmlSnapshotTestingTests.xctest"
                BlueprintName = "HtmlSnapshotTestingTests_tvOS"
                ReferencedContainer = "container:Html.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_8DA0D6B0D3FB381C06CED88C8D8EB1F3"
+            BlueprintIdentifier = "2BA1D0CC8309950F649BDD13CBCDE39B"
             BuildableName = "HtmlSnapshotTesting.framework"
             BlueprintName = "HtmlSnapshotTesting_tvOS"
             ReferencedContainer = "container:Html.xcodeproj">
@@ -66,7 +66,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_8DA0D6B0D3FB381C06CED88C8D8EB1F3"
+            BlueprintIdentifier = "2BA1D0CC8309950F649BDD13CBCDE39B"
             BuildableName = "HtmlSnapshotTesting.framework"
             BlueprintName = "HtmlSnapshotTesting_tvOS"
             ReferencedContainer = "container:Html.xcodeproj">
@@ -87,7 +87,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "NT_8DA0D6B0D3FB381C06CED88C8D8EB1F3"
+            BlueprintIdentifier = "2BA1D0CC8309950F649BDD13CBCDE39B"
             BuildableName = "HtmlSnapshotTesting.framework"
             BlueprintName = "HtmlSnapshotTesting_tvOS"
             ReferencedContainer = "container:Html.xcodeproj">

@@ -13,9 +13,8 @@ let package = Package(
       targets: ["HtmlSnapshotTesting"]),
   ],
   dependencies: [
-    .package(
-      url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
-      from: "1.1.0"),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.1.0"),
+    .package(url: "https://github.com/yonaskolb/XcodeGen.git", from: "2.2.0"),
   ],
   targets: [
     .target(
