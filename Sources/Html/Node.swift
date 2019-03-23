@@ -147,6 +147,10 @@ public struct NodeStringInterpolation: StringInterpolationProtocol {
     self.node.append(value)
   }
 
+  public mutating func appendInterpolation(_ value: String) {
+    self.node.append(.text(value))
+  }
+
   public mutating func appendLiteral(_ literal: String) {
     self.node.append(.text(literal))
   }
