@@ -40,6 +40,8 @@ targets:
     info:
       path: Info.plist
     platform: [macOS, iOS, tvOS]
+    settings:
+      ENABLE_BITCODE: false
     scheme:
       testTargets: [HtmlSnapshotTestingTests_$platform]
     sources: [Sources/HtmlSnapshotTesting]
