@@ -20,6 +20,39 @@ public enum Node {
 }
 
 extension Node {
+  /// Default HTML DOCTYPE.
+  public static let doctype: Node = .doctype("html")
+
+  /// A root document node including the default HTML DOCTYPE.
+  public static func document(_ children: Node...) -> Node {
+    return .fragment([doctype] + children)
+  }
+
+  public mutating func append(_ node: Node) {
+    switch (self, node) {
+    case (.fragment(var nodes), .fragment(let moreNodes)):
+      nodes.append(contentsOf: moreNodes)
+      self = .fragment(nodes)
+    case (.fragment(var nodes), let node):
+      nodes.append(node)
+      self = .fragment(nodes)
+    case (let node, .fragment(var nodes)):
+      nodes.insert(node, at: nodes.startIndex)
+      self = .fragment(nodes)
+    case (.comment(var comment), .comment(let anotherComment)):
+      comment.append(contentsOf: anotherComment)
+      self = .comment(comment)
+    case (.raw(var raw), .raw(let anotherRaw)):
+      raw.append(contentsOf: anotherRaw)
+      self = .raw(raw)
+    case (.text(var text), .text(let anotherText)):
+      text.append(contentsOf: anotherText)
+      self = .text(text)
+    default:
+      self = .fragment([self, node])
+    }
+  }
+
   public var isEmpty: Bool {
     switch self {
     case let .comment(string), let .doctype(string), let .raw(string), let .text(string):
@@ -102,9 +135,30 @@ extension Node: ExpressibleByStringLiteral {
   }
 }
 
+#if swift(>=5.0)
+public struct NodeStringInterpolation: StringInterpolationProtocol {
+  var node: Node
+
+  public init(literalCapacity: Int, interpolationCount: Int) {
+    self.node = .fragment([])
+  }
+
+  public mutating func appendInterpolation(_ value: Node) {
+    self.node.append(value)
+  }
+
+  public mutating func appendLiteral(_ literal: String) {
+    self.node.append(.text(literal))
+  }
+}
+
 extension Node: ExpressibleByStringInterpolation {
-  #if swift(>=5.0)
-  #else
+  public init(stringInterpolation: NodeStringInterpolation) {
+    self = stringInterpolation.node
+  }
+}
+#else
+extension Node: ExpressibleByStringInterpolation {
   public init(stringInterpolation strings: Node...) {
     self = .fragment(strings)
   }
@@ -112,15 +166,5 @@ extension Node: ExpressibleByStringInterpolation {
   public init<T>(stringInterpolationSegment expr: T) {
     self = .text("\(expr)")
   }
-  #endif
 }
-
-extension Node {
-  /// Default HTML DOCTYPE.
-  public static let doctype: Node = .doctype("html")
-
-  /// A root document node including the default HTML DOCTYPE.
-  public static func document(_ children: Node...) -> Node {
-    return .fragment([doctype] + children)
-  }
-}
+#endif
