@@ -557,6 +557,7 @@ final class SnapshotTestingTests: SnapshotTestCase {
           .td()
         )
       ),
+      .template(),
       .textarea(""),
       .time(),
       .u(),

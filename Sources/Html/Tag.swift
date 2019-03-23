@@ -90,6 +90,7 @@ public enum Tag {
   public enum Table {}
   public enum Tbody {}
   public enum Td {}
+  public enum Template {}
   public enum Textarea {}
   public enum Tfoot {}
   public enum Time {}
