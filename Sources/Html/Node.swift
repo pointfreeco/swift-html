@@ -135,7 +135,6 @@ extension Node: ExpressibleByStringLiteral {
   }
 }
 
-#if swift(>=5.0)
 public struct NodeStringInterpolation: StringInterpolationProtocol {
   var node: Node
 
@@ -161,14 +160,3 @@ extension Node: ExpressibleByStringInterpolation {
     self = stringInterpolation.node
   }
 }
-#else
-extension Node: ExpressibleByStringInterpolation {
-  public init(stringInterpolation strings: Node...) {
-    self = .fragment(strings)
-  }
-
-  public init<T>(stringInterpolationSegment expr: T) {
-    self = .text("\(expr)")
-  }
-}
-#endif
