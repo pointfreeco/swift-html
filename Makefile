@@ -4,7 +4,7 @@ carthage:
 	carthage update --no-build --use-submodules
 
 xcodeproj:
-	swift run xcodegen
+	PF_DEVELOP=1 swift run xcodegen
 
 test-linux:
 	docker build --tag html . \

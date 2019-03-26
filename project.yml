@@ -52,7 +52,7 @@ targets:
     sources: [Sources/HtmlSnapshotTesting]
     type: framework
   HtmlSnapshotTestingTests:
-    dependencies: [{target: 'HtmlSnapshotTesting_${platform}']
+    dependencies: [{target: 'HtmlSnapshotTesting_${platform}'}]
     deploymentTarget:
       iOS: 10.0
       macOS: '10.10'
