@@ -193,7 +193,7 @@ There are a few reasons you might want to still use a templating language:
 If you use [Carthage](https://github.com/Carthage/Carthage), you can add the following dependency to your `Cartfile`:
 
 ``` ruby
-github "pointfreeco/swift-html" ~> 0.2
+github "pointfreeco/swift-html" ~> 0.3
 ```
 
 ### CocoaPods
@@ -201,7 +201,10 @@ github "pointfreeco/swift-html" ~> 0.2
 If your project uses [CocoaPods](https://cocoapods.org), just add the following to your `Podfile`:
 
 ``` ruby
-pod 'Html', '~> 0.2'
+pod 'Html', '~> 0.3'
+
+# SnapshotTesting helpers
+pod 'HtmlSnapshotTesting', '~> 0.3'
 ```
 
 ### SwiftPM
@@ -210,7 +213,7 @@ If you want to use swift-html in a project that uses [SwiftPM](https://swift.org
 
 ``` swift
 dependencies: [
-  .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.2.0")
+  .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.3.0")
 ]
 ```
 

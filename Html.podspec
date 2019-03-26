@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "Html"
-  s.version = "0.2.0"
+  s.version = "0.3.0"
   s.summary = "A Swift DSL for type-safe, extensible, and transformable HTML documents."
 
   s.description = <<-DESC
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.swift_version = "5.0"
 
   s.ios.deployment_target = "8.0"
-  s.osx.deployment_target = "10.9"
+  s.osx.deployment_target = "10.10"
   s.tvos.deployment_target = "9.0"
   s.watchos.deployment_target = "2.0"
 
