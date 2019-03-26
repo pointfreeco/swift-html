@@ -111,6 +111,68 @@ extension ChildOf where Element == Tag.Figure {
   }
 }
 
+public enum Viewport {
+  case height(Height)
+  case initialScale(Double)
+  case maximumScale(Double)
+  case minimumScale(Double)
+  case userScalable(Bool)
+  case width(Width)
+
+  public enum Height: ExpressibleByIntegerLiteral {
+    case deviceHeight
+    case px(Int)
+
+    public var rawValue: String {
+      switch self {
+      case .deviceHeight:
+        return "device-height"
+      case let .px(px):
+        return "\(px)"
+      }
+    }
+
+    public init(integerLiteral value: Int) {
+      self = .px(value)
+    }
+  }
+
+  public enum Width {
+    case deviceWidth
+    case px(Int)
+
+    public var rawValue: String {
+      switch self {
+      case .deviceWidth:
+        return "device-width"
+      case let .px(px):
+        return "\(px)"
+      }
+    }
+
+    public init(integerLiteral value: Int) {
+      self = .px(value)
+    }
+  }
+
+  public var rawValue: String {
+    switch self {
+    case let .height(px):
+      return "height=" + px.rawValue
+    case let .initialScale(scale):
+      return "initial-scale=\(scale)"
+    case let .maximumScale(scale):
+      return "maximum-scale=\(scale)"
+    case let .minimumScale(scale):
+      return "minimum-scale=\(scale)"
+    case let .userScalable(isUserScalable):
+      return "user-scalable=\(isUserScalable ? "yes" : "no")"
+    case let .width(px):
+      return "width=" + px.rawValue
+    }
+  }
+}
+
 extension ChildOf where Element == Tag.Head {
   /// The `<base>` element allows authors to specify the document base URL for the purposes of parsing URLs, and the name of the default browsing context for the purposes of following hyperlinks. The element does not represent any content beyond this information.
   ///
@@ -170,68 +232,6 @@ extension ChildOf where Element == Tag.Head {
 
   public static func meta(property: String, content: String) -> ChildOf {
     return meta(attributes: [.init("property", property), .content(content)])
-  }
-
-  public enum Viewport {
-    case height(Height)
-    case initialScale(Double)
-    case maximumScale(Double)
-    case minimumScale(Double)
-    case userScalable(Bool)
-    case width(Width)
-
-    public enum Height: ExpressibleByIntegerLiteral {
-      case deviceHeight
-      case px(Int)
-
-      public var rawValue: String {
-        switch self {
-        case .deviceHeight:
-          return "device-height"
-        case let .px(px):
-          return "\(px)"
-        }
-      }
-
-      public init(integerLiteral value: Int) {
-        self = .px(value)
-      }
-    }
-
-    public enum Width {
-      case deviceWidth
-      case px(Int)
-
-      public var rawValue: String {
-        switch self {
-        case .deviceWidth:
-          return "device-width"
-        case let .px(px):
-          return "\(px)"
-        }
-      }
-
-      public init(integerLiteral value: Int) {
-        self = .px(value)
-      }
-    }
-
-    public var rawValue: String {
-      switch self {
-      case let .height(px):
-        return "height=" + px.rawValue
-      case let .initialScale(scale):
-        return "initial-scale=\(scale)"
-      case let .maximumScale(scale):
-        return "maximum-scale=\(scale)"
-      case let .minimumScale(scale):
-        return "minimum-scale=\(scale)"
-      case let .userScalable(isUserScalable):
-        return "user-scalable=\(isUserScalable ? "yes" : "no")"
-      case let .width(px):
-        return "width=" + px.rawValue
-      }
-    }
   }
 
   public static func meta(viewport prop: Viewport, _ props: Viewport...) -> ChildOf {

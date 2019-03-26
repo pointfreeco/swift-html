@@ -399,36 +399,36 @@ extension Attribute where Element == Tag.A {
   }
 }
 
-extension Attribute where Element == Tag.Area {
-  /// The kind of shape to be created in an image map.
-  public enum Shape: String {
-    case circle
-    //  case `default`
-    case poly
-    case rect = ""
-  }
+/// The kind of shape to be created in an image map.
+public enum AreaShape: String {
+  case circle
+  //  case `default`
+  case poly
+  case rect = ""
+}
 
+extension Attribute where Element == Tag.Area {
   /// The kind of shape to be created in an image map.
   ///
   /// - Parameter value: The kind of shape to be created in an image map.
-  public static func shape(_ value: Shape) -> Attribute {
+  public static func shape(_ value: AreaShape) -> Attribute {
     return .init("shape", value == .rect ? nil : value.rawValue)
   }
 }
 
+/// Type of button.
+public enum ButtonType: String {
+  /// Does nothing.
+  case button
+
+  /// Resets the form.
+  case reset
+
+  /// Submits the form.
+  case submit
+}
+
 extension Attribute where Element == Tag.Button {
-  /// Type of button.
-  public enum ButtonType: String {
-    /// Does nothing.
-    case button
-
-    /// Resets the form.
-    case reset
-
-    /// Submits the form.
-    case submit
-  }
-
   /// Type of button.
   ///
   /// - Parameter value: Type of button.
@@ -444,6 +444,18 @@ extension Attribute where Element == Tag.Details {
   public static func open(_ value: Bool) -> Attribute {
     return .init("open", value ? "" : nil)
   }
+}
+
+/// HTTP method to use for form submission.
+public enum FormMethod: String {
+  /// Submitting the form is intended to close the dialog box in which the form finds itself, if any, and otherwise not submit.
+  case dialog = "dialog"
+
+  /// The HTTP GET method.
+  case get = ""
+
+  /// The HTTP POST method.
+  case post = "post"
 }
 
 extension Attribute where Element == Tag.Form {
@@ -474,21 +486,9 @@ extension Attribute where Element == Tag.Form {
   }
 
   /// HTTP method to use for form submission.
-  public enum Method: String {
-    /// Submitting the form is intended to close the dialog box in which the form finds itself, if any, and otherwise not submit.
-    case dialog = "dialog"
-
-    /// The HTTP GET method.
-    case get = ""
-
-    /// The HTTP POST method.
-    case post = "post"
-  }
-
-  /// HTTP method to use for form submission.
   ///
   /// - Parameter value: HTTP method to use for form submission.
-  public static func method(_ value: Method) -> Attribute {
+  public static func method(_ value: FormMethod) -> Attribute {
     let rawValue = value.rawValue
     return .init("method", rawValue.isEmpty ? nil : rawValue)
   }
@@ -501,34 +501,34 @@ extension Attribute where Element == Tag.Form {
   }
 }
 
+public enum IframeSandbox: String {
+  /// Re-enable forms.
+  case allowForms = "allow-forms"
+
+  /// Re-enable the pointer lock API.
+  case allowPointerLock = "allow-pointer-lock"
+
+  /// Re-enable popups.
+  case allowPopups = "allow-popups"
+
+  /// Re-enable the presentation API.
+  case allowPresentation = "allow-presentation"
+
+  /// Causes the content to be treated as being from its real origin instead of forcing it into a unique origin.
+  case allowSameOrigin = "allow-same-origin"
+
+  /// Re-enable scripts.
+  case allowScripts = "allow-scripts"
+
+  /// Allows the content to navigate its top-level browsing context.
+  case allowTopNavigation = "allow-top-navigation"
+}
+
 extension Attribute where Element == Tag.Iframe {
-  public enum Sandbox: String {
-    /// Re-enable forms.
-    case allowForms = "allow-forms"
-
-    /// Re-enable the pointer lock API.
-    case allowPointerLock = "allow-pointer-lock"
-
-    /// Re-enable popups.
-    case allowPopups = "allow-popups"
-
-    /// Re-enable the presentation API.
-    case allowPresentation = "allow-presentation"
-
-    /// Causes the content to be treated as being from its real origin instead of forcing it into a unique origin.
-    case allowSameOrigin = "allow-same-origin"
-
-    /// Re-enable scripts.
-    case allowScripts = "allow-scripts"
-
-    /// Allows the content to navigate its top-level browsing context.
-    case allowTopNavigation = "allow-top-navigation"
-  }
-
   /// Enables a set of extra restrictions on any content hosted by the `<iframe>`.
   ///
   /// - Parameter value: Sandbox options.
-  public static func sandbox(_ value: [Sandbox]) -> Attribute {
+  public static func sandbox(_ value: [IframeSandbox]) -> Attribute {
     return .init("sandbox", value.map { $0.rawValue }.joined(separator: " "))
   }
 
@@ -545,6 +545,31 @@ extension Attribute where Element == Tag.Iframe {
   public static func srcdoc(_ value: Node...) -> Attribute {
     return .init("srcdoc", render(value))
   }
+}
+
+public enum InputType: String {
+  case button
+  case checkbox
+  case color
+  case date
+  case datetimeLocal = "datetime-local"
+  case email
+  case file
+  case hidden
+  case image
+  case month
+  case number
+  case password
+  case radio
+  case range
+  case reset
+  case search
+  case submit
+  case tel
+  case text
+  case time
+  case url
+  case week
 }
 
 extension Attribute where Element == Tag.Input {
@@ -569,31 +594,6 @@ extension Attribute where Element == Tag.Input {
     return .init("step", String(value))
   }
 
-  public enum InputType: String {
-    case button
-    case checkbox
-    case color
-    case date
-    case datetimeLocal = "datetime-local"
-    case email
-    case file
-    case hidden
-    case image
-    case month
-    case number
-    case password
-    case radio
-    case range
-    case reset
-    case search
-    case submit
-    case tel
-    case text
-    case time
-    case url
-    case week
-  }
-
   public static func type(_ value: InputType) -> Attribute {
     return .init("type", value.rawValue)
   }
@@ -606,6 +606,23 @@ extension Attribute where Element == Tag.Meta {
   public static func content(_ value: String) -> Attribute {
     return .init("content", value)
   }
+}
+
+public enum ListType: String {
+  /// Decimal numbers: `1.`, `2.`, `3.`...`3999.`, `4000.`, `4001.`
+  case decimal = "1"
+
+  /// Lowercase Latin alphabet: `a.`, `b.`, `c.`...`ewu.`, `ewv.`, `eww.`
+  case lowerAlpha = "a"
+
+  /// Uppercase Latin alphabet: `A.`, `B.`, `C.`...`EWU.`, `EWV.`, `EWW.`
+  case upperAlpha = "A"
+
+  /// Lowercase Roman numerals: `1.`, `2.`, `3.`...`mmmcmxcix.`, `i̅v̅.`, `i̅v̅i.`
+  case lowerRoman = "i"
+
+  /// Uppercase Roman numerals: `I.`, `II.`, `III.`...`MMMCMXCIX.`, `I̅V̅.`, `I̅V̅I.`
+  case upperRoman = "I"
 }
 
 extension Attribute where Element == Tag.Ol {
@@ -621,23 +638,6 @@ extension Attribute where Element == Tag.Ol {
   /// - Parameter value: Ordinal value of the first item.
   public static func start(_ value: Int) -> Attribute {
     return .init("start", String(value))
-  }
-
-  public enum ListType: String {
-    /// Decimal numbers: `1.`, `2.`, `3.`...`3999.`, `4000.`, `4001.`
-    case decimal = "1"
-
-    /// Lowercase Latin alphabet: `a.`, `b.`, `c.`...`ewu.`, `ewv.`, `eww.`
-    case lowerAlpha = "a"
-
-    /// Uppercase Latin alphabet: `A.`, `B.`, `C.`...`EWU.`, `EWV.`, `EWW.`
-    case upperAlpha = "A"
-
-    /// Lowercase Roman numerals: `1.`, `2.`, `3.`...`mmmcmxcix.`, `i̅v̅.`, `i̅v̅i.`
-    case lowerRoman = "i"
-
-    /// Uppercase Roman numerals: `I.`, `II.`, `III.`...`MMMCMXCIX.`, `I̅V̅.`, `I̅V̅I.`
-    case upperRoman = "I"
   }
 
   /// Kind of list marker.
@@ -696,6 +696,16 @@ extension Attribute where Element == Tag.Source {
   }
 }
 
+public enum TextareaWrap: String {
+  /// Indicates that the text in the `<textarea>` is to have newlines added by the user agent so that the text is wrapped when it is submitted.
+  ///
+  /// If the element's `wrap` attribute is in the `hard` state, the `cols` attribute must be specified.
+  case hard
+
+  /// Indicates that the text in the `<textarea>` is not to be wrapped when it is submitted (though it can still be wrapped in the rendering).
+  case soft
+}
+
 extension Attribute where Element == Tag.Textarea {
   /// Maximum number of characters per line.
   ///
@@ -711,22 +721,30 @@ extension Attribute where Element == Tag.Textarea {
     return .init("rows", String(value))
   }
 
-  public enum Wrap: String {
-    /// Indicates that the text in the `<textarea>` is to have newlines added by the user agent so that the text is wrapped when it is submitted.
-    ///
-    /// If the element's `wrap` attribute is in the `hard` state, the `cols` attribute must be specified.
-    case hard
-
-    /// Indicates that the text in the `<textarea>` is not to be wrapped when it is submitted (though it can still be wrapped in the rendering).
-    case soft
-  }
-
   /// How the value of the form control is to be wrapped for form submission.
   ///
   /// - Parameter value: How the value of the form control is to be wrapped for form submission.
-  public static func wrap(_ value: Wrap) -> Attribute {
+  public static func wrap(_ value: TextareaWrap) -> Attribute {
     return .init("wrap", value.rawValue)
   }
+}
+
+/// Specifies which cells the header cell applies to.
+public enum ThScope: String {
+  /// The **auto** state makes the header cell apply to a set of cells selected based on context.
+  case auto = ""
+
+  /// The **column** state means the header cell applies to some of the subsequent cells in the same column(s).
+  case col
+
+  /// The **col group** state means the header cell applies to all the remaining cells in the column group. A `<th>` element's `scope` attribute must not be in the column group state if the element is not anchored in a column group.
+  case colgroup
+
+  /// The **row** state means the header cell applies to some of the subsequent cells in the same row(s).
+  case row
+
+  /// The **row group** state means the header cell applies to all the remaining cells in the row group. A `<th>` element's `scope` attribute must not be in the row group state if the element is not anchored in a row group.
+  case rowgroup
 }
 
 extension Attribute where Element == Tag.Th {
@@ -738,52 +756,34 @@ extension Attribute where Element == Tag.Th {
   }
 
   /// Specifies which cells the header cell applies to.
-  public enum Scope: String {
-    /// The **auto** state makes the header cell apply to a set of cells selected based on context.
-    case auto = ""
-
-    /// The **column** state means the header cell applies to some of the subsequent cells in the same column(s).
-    case col
-
-    /// The **col group** state means the header cell applies to all the remaining cells in the column group. A `<th>` element's `scope` attribute must not be in the column group state if the element is not anchored in a column group.
-    case colgroup
-
-    /// The **row** state means the header cell applies to some of the subsequent cells in the same row(s).
-    case row
-
-    /// The **row group** state means the header cell applies to all the remaining cells in the row group. A `<th>` element's `scope` attribute must not be in the row group state if the element is not anchored in a row group.
-    case rowgroup
-  }
-
-  /// Specifies which cells the header cell applies to.
   ///
   /// - Parameter value: Specifies which cells the header cell applies to.
-  public static func scope(_ value: Scope) -> Attribute {
+  public static func scope(_ value: ThScope) -> Attribute {
     return .init("scope", value.rawValue)
   }
+}
+
+/// Kinds of text tracks for `<track>` elements.
+public enum TrackKind: String {
+  /// Transcription or translation of the dialog, sound effects, relevant musical cues, and other relevant audio information, suitable for when sound is unavailable or not clearly audible (e.g., because it is muted, drowned-out by ambient noise, or because the user is deaf). Overlaid on the video; labeled as appropriate for the hard-of-hearing.
+  case captions
+
+  /// Chapter titles, intended to be used for navigating the media resource. Displayed as an interactive (potentially nested) list in the user agent's interface.
+  case chapters
+
+  /// Textual descriptions of the video component of the media resource, intended for audio synthesis when the visual component is obscured, unavailable, or not usable (e.g., because the user is interacting with the application without a screen while driving, or because the user is blind). Synthesized as audio
+  case descriptions
+
+  /// Tracks intended for use from script. Not displayed by the user agent.
+  case metadata
+
+  /// Transcription or translation of the dialog, suitable for when the sound is available but not understood (e.g., because the user does not understand the language of the media resource's audio track). Overlaid on the video.
+  case subtitles
 }
 
 extension Attribute where Element == Tag.Track {
   public static func `default`(_ value: Bool) -> Attribute {
     return .init("default", value ? "" : nil)
-  }
-
-  /// Kinds of text tracks for `<track>` elements.
-  public enum TrackKind: String {
-    /// Transcription or translation of the dialog, sound effects, relevant musical cues, and other relevant audio information, suitable for when sound is unavailable or not clearly audible (e.g., because it is muted, drowned-out by ambient noise, or because the user is deaf). Overlaid on the video; labeled as appropriate for the hard-of-hearing.
-    case captions
-
-    /// Chapter titles, intended to be used for navigating the media resource. Displayed as an interactive (potentially nested) list in the user agent's interface.
-    case chapters
-
-    /// Textual descriptions of the video component of the media resource, intended for audio synthesis when the visual component is obscured, unavailable, or not usable (e.g., because the user is interacting with the application without a screen while driving, or because the user is blind). Synthesized as audio
-    case descriptions
-
-    /// Tracks intended for use from script. Not displayed by the user agent.
-    case metadata
-
-    /// Transcription or translation of the dialog, suitable for when the sound is available but not understood (e.g., because the user does not understand the language of the media resource's audio track). Overlaid on the video.
-    case subtitles
   }
 
   /// The type of text track.
