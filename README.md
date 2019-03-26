@@ -1,6 +1,6 @@
 # 🗺 swift-html
 
-[![Swift 4.2](https://img.shields.io/badge/swift-4.2-ED523F.svg?style=flat)](https://swift.org/download/)
+[![Swift 5](https://img.shields.io/badge/swift-5-ED523F.svg?style=flat)](https://swift.org/download/)
 [![iOS/macOS CI](https://img.shields.io/circleci/project/github/pointfreeco/swift-html/master.svg?label=ios/macos)](https://circleci.com/gh/pointfreeco/swift-html)
 [![Linux CI](https://img.shields.io/travis/pointfreeco/swift-html/master.svg?label=linux)](https://travis-ci.org/pointfreeco/swift-html)
 [![@pointfreeco](https://img.shields.io/badge/contact-@pointfreeco-5AA9E7.svg?style=flat)](https://twitter.com/pointfreeco)

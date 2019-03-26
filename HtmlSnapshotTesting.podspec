@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     :tag => s.version
   }
 
-  s.swift_version = "4.2.1"
+  s.swift_version = "5.0"
 
   s.ios.deployment_target = "10.0"
   s.osx.deployment_target = "10.10"
