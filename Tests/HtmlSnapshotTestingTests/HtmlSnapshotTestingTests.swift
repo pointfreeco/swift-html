@@ -3,11 +3,7 @@ import HtmlSnapshotTesting
 import SnapshotTesting
 import XCTest
 
-#if !os(Linux)
-typealias SnapshotTestCase = XCTestCase
-#endif
-
-final class SnapshotTestingTests: SnapshotTestCase {
+final class SnapshotTestingTests: XCTestCase {
   func testComplexHtml() {
     let doc: Node = .document(
       .html(
