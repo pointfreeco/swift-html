@@ -28,7 +28,8 @@ let package = Package(
     .testTarget(
       name: "HtmlSnapshotTestingTests",
       dependencies: ["HtmlSnapshotTesting"]),
-    ]
+    ],
+  swiftLanguageVersions: [.v4_2, .v5]
 )
 
 if ProcessInfo.processInfo.environment.keys.contains("PF_DEVELOP") {
