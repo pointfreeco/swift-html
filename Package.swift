@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:4.2
 import Foundation
 import PackageDescription
 
@@ -29,7 +29,10 @@ let package = Package(
       name: "HtmlSnapshotTestingTests",
       dependencies: ["HtmlSnapshotTesting"]),
     ],
-  swiftLanguageVersions: [.v4_2, .version("5")]
+  swiftLanguageVersions: [
+    .version("5"),
+    .v4_2,
+  ]
 )
 
 if ProcessInfo.processInfo.environment.keys.contains("PF_DEVELOP") {
