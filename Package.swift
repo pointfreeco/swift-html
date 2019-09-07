@@ -3,31 +3,31 @@ import Foundation
 import PackageDescription
 
 let package = Package(
-  name: "Html",
+  name: "HtmlUpgrade",
   products: [
     .library(
-      name: "Html",
-      targets: ["Html"]),
+      name: "HtmlUpgrade",
+      targets: ["HtmlUpgrade"]),
     .library(
-      name: "HtmlSnapshotTesting",
-      targets: ["HtmlSnapshotTesting"]),
+      name: "HtmlUpgradeSnapshotTesting",
+      targets: ["HtmlUpgradeSnapshotTesting"]),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.5.0"),
   ],
   targets: [
     .target(
-      name: "Html",
+      name: "HtmlUpgrade",
       dependencies: []),
     .testTarget(
-      name: "HtmlTests",
-      dependencies: ["Html"]),
+      name: "HtmlUpgradeTests",
+      dependencies: ["HtmlUpgrade"]),
     .target(
-      name: "HtmlSnapshotTesting",
-      dependencies: ["Html", "SnapshotTesting"]),
+      name: "HtmlUpgradeSnapshotTesting",
+      dependencies: ["HtmlUpgrade", "SnapshotTesting"]),
     .testTarget(
-      name: "HtmlSnapshotTestingTests",
-      dependencies: ["HtmlSnapshotTesting"]),
+      name: "HtmlUpgradeSnapshotTestingTests",
+      dependencies: ["HtmlUpgradeSnapshotTesting"]),
     ],
   swiftLanguageVersions: [
     .version("5"),

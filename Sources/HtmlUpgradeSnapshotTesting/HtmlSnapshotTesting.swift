@@ -1,4 +1,4 @@
-import Html
+import HtmlUpgrade
 import SnapshotTesting
 
 extension Snapshotting where Value == [Node], Format == String {
