@@ -1,10 +1,10 @@
 import XCTest
 
-import HtmlTests
 import HtmlSnapshotTestingTests
+import HtmlTests
 
 var tests = [XCTestCaseEntry]()
-tests += HtmlTests.__allTests()
 tests += HtmlSnapshotTestingTests.__allTests()
+tests += HtmlTests.__allTests()
 
 XCTMain(tests)
