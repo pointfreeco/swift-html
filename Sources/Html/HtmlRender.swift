@@ -10,7 +10,7 @@ public func render(_ nodes: [Node]) -> String {
 /// - Parameter node: A node.
 public func render(_ node: Node) -> String {
   var rendered = ""
-  render(node, into: &rendered)
+  render(node, into: &rendered, voidElements: Html.voidElements)
   return rendered
 }
 
@@ -58,7 +58,7 @@ public let voidElements: Set<String> = [
   "wbr"
 ]
 
-private func render(_ node: Node, into output: inout String) {
+func render(_ node: Node, into output: inout String, voidElements: Set<String>) {
   switch node {
   case let .comment(string):
     output.append("<!--")
@@ -88,7 +88,7 @@ private func render(_ node: Node, into output: inout String) {
   }
 }
 
-private func render(_ attribs: [(String, String?)], into output: inout String) {
+func render(_ attribs: [(String, String?)], into output: inout String) {
   attribs
     .forEach { key, value in
       guard let value = value else { return }
