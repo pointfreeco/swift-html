@@ -16,7 +16,7 @@ final class ElementsTests: XCTestCase {
       #"""
       <link href="https://www.pointfree.co"></link>
       """#,
-      xmlRender(Node.element("link", [("href", "https://www.pointfree.co")], []))
+      _xmlRender(Node.element("link", [("href", "https://www.pointfree.co")], []))
     )
   }
 }
