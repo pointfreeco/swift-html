@@ -12,11 +12,11 @@ public struct Config {
 
 public func debugRender(_ nodes: [Node], config: Config = .pretty) -> String {
   return nodes
-    .map { debugRender($0, config: config) }
+    .map { debugRender($0, config: config, voidElements: Html.voidElements) }
     .joined()
 }
 
-public func debugRender(_ node: Node, config: Config = .pretty) -> String {
+public func debugRender(_ node: Node, config: Config = .pretty, voidElements: Set<String>) -> String {
   func debugRenderHelp(_ node: Node, into output: inout String, config: Config, indentation: String) {
     func renderValues( _ values: String, into output: inout String, separator: Character?, indentBy: Int) {
       guard let separator = separator else {
