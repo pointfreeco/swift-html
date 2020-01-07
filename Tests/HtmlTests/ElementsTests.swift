@@ -10,5 +10,13 @@ final class ElementsTests: XCTestCase {
       render(.img(base64: "ZnVuY3Rpb25z", type: .image(.png), alt: "", attributes: [.class("fun")]))
     )
   }
+  
+  func testXmlRender() {
+    XCTAssertEqual(
+      #"""
+      <link href="https://www.pointfree.co"></link>
+      """#,
+      _xmlRender(Node.element("link", [("href", "https://www.pointfree.co")], []))
+    )
+  }
 }
-
