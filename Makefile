@@ -7,8 +7,12 @@ xcodeproj:
 	PF_DEVELOP=1 swift run xcodegen
 
 test-linux:
-	docker build --tag html . \
-		&& docker run --rm html
+	docker run \
+		--rm \
+		-v "$(PWD):$(PWD)" \
+		-w "$(PWD)" \
+		swift:5.1 \
+		bash -c 'make test-swift'
 
 test-macos: xcodeproj
 	set -o pipefail && \
@@ -21,14 +25,13 @@ test-ios: xcodeproj
 	set -o pipefail && \
 	xcodebuild test \
 		-scheme Html_iOS \
-		-destination platform="iOS Simulator,name=iPhone 8,OS=11.4" \
+		-destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.2.2" \
 		| xcpretty
 
-linux-main:
-	swift test --generate-linuxmain
-
 test-swift:
-	swift test --generate-linuxmain \
-	  && swift test
+	swift test \
+		--enable-pubgrub-resolver \
+		--enable-test-discovery \
+		--parallel
 
-test-all: test-linux test-mac test-ios
+test-all: test-linux test-macos test-ios test-swift
