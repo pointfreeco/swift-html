@@ -186,6 +186,8 @@ There are a few reasons you might want to still use a templating language:
 
 1. Creating _very_ large documents in a single expression can cause compile times to go up, whereas templates are not compiled by Swift and so do not influence compile times. Luckily this isn't a problem too often because it is very easy to break up a document into as many small pieces as you want, which will probably lead to more reusable code in the long run.
 
+If you do decide that a templating language better suites your needs, then you should consider [HypertextLiteral](https://github.com/NSHipster/HypertextLiteral), which gives you template-like capabilities but in a safer manner.
+
 ## Installation
 
 ### Carthage
