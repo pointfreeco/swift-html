@@ -110,8 +110,8 @@ final class AttributesTests: XCTestCase {
     )
     XCTAssertEqual(
       """
-			<input type="file" required accept=".pdf, image/*">
-			"""
+      <input type="file" required accept=".pdf, image/*">
+      """
       , render(.input(attributes: [.type(.file), .required(true), .accept(".pdf", "image/*")])))
 
     XCTAssertEqual(
@@ -317,20 +317,23 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<a draggable=\"false\"></a>", render(.a(attributes: [.draggable(false)])))
     XCTAssertEqual("<a></a>", render(.a(attributes: [.draggable(.auto)])))
 
-    XCTAssertEqual("""
+    XCTAssertEqual(
+      """
       <form enctype=\"application/x-www-form-urlencoded\"></form>
       """,
-                   render(.form(attributes: [.enctype(.applicationXWwwFormUrlencoded)]))
+      render(.form(attributes: [.enctype(.applicationXWwwFormUrlencoded)]))
     )
-    XCTAssertEqual("""
+    XCTAssertEqual(
+      """
       <form enctype=\"multipart/form-data\"></form>
       """,
-                   render(.form(attributes: [.enctype(.multipartFormData)]))
+      render(.form(attributes: [.enctype(.multipartFormData)]))
     )
-    XCTAssertEqual("""
+    XCTAssertEqual(
+      """
       <form enctype=\"text/plain\"></form>
       """,
-                   render(.form(attributes: [.enctype(.textPlain)]))
+      render(.form(attributes: [.enctype(.textPlain)]))
     )
 
     XCTAssertEqual(
