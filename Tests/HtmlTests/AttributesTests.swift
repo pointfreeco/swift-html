@@ -108,6 +108,11 @@ final class AttributesTests: XCTestCase {
       """,
       render(.input(attributes: [.autofocus(false), .checked(false), .disabled(false), .readonly(false), .required(false)]))
     )
+		XCTAssertEqual(
+			"""
+			<input type="file" required accept=".pdf, image/*">
+			"""
+			, render(.input(attributes: [.type(.file), .required(true), .accept(".pdf", "image/*")])))
 
     XCTAssertEqual(
       """
