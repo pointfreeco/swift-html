@@ -598,14 +598,14 @@ extension Attribute where Element == Tag.Input {
     return .init("type", value.rawValue)
   }
 
-	/// Pattern or file types to be selected (only for type="file")
-	///
-	/// - Parameter value:
-	/// 	The file extension or media type the user can select,
-	///   such as ".pdf" or "image/*"
-	public static func accept(_ value: String...) -> Attribute {
-		return .init("accept", value.joined(separator: ", "))
-	}
+  /// Pattern or file types to be selected (only for type="file")
+  ///
+  /// - Parameter value:
+  /// 	The file extension or media type the user can select,
+  ///   such as ".pdf" or "image/*"
+  public static func accept(_ value: String...) -> Attribute {
+    return .init("accept", value.joined(separator: ", "))
+  }
 }
 
 extension Attribute where Element == Tag.Meta {
