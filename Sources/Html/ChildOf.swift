@@ -118,6 +118,7 @@ public enum Viewport {
   case minimumScale(Double)
   case userScalable(Bool)
   case width(Width)
+  case fit(Fit)
 
   public enum Height: ExpressibleByIntegerLiteral {
     case deviceHeight
@@ -155,6 +156,11 @@ public enum Viewport {
     }
   }
 
+  public enum Fit: String {
+    case auto
+    case cover
+  }
+
   public var rawValue: String {
     switch self {
     case let .height(px):
@@ -169,6 +175,8 @@ public enum Viewport {
       return "user-scalable=\(isUserScalable ? "yes" : "no")"
     case let .width(px):
       return "width=" + px.rawValue
+    case let .fit(fit):
+      return "viewport-fit=" + fit.rawValue
     }
   }
 }
