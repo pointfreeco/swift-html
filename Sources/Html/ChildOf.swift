@@ -112,13 +112,13 @@ extension ChildOf where Element == Tag.Figure {
 }
 
 public enum Viewport {
+  case fit(Fit)
   case height(Height)
   case initialScale(Double)
   case maximumScale(Double)
   case minimumScale(Double)
   case userScalable(Bool)
   case width(Width)
-  case fit(Fit)
 
   public enum Height: ExpressibleByIntegerLiteral {
     case deviceHeight
@@ -164,6 +164,8 @@ public enum Viewport {
 
   public var rawValue: String {
     switch self {
+    case let .fit(fit):
+      return "viewport-fit=" + fit.rawValue
     case let .height(px):
       return "height=" + px.rawValue
     case let .initialScale(scale):
@@ -176,8 +178,6 @@ public enum Viewport {
       return "user-scalable=\(isUserScalable ? "yes" : "no")"
     case let .width(px):
       return "width=" + px.rawValue
-    case let .fit(fit):
-      return "viewport-fit=" + fit.rawValue
     }
   }
 }
