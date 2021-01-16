@@ -158,6 +158,7 @@ public enum Viewport {
 
   public enum Fit: String {
     case auto
+    case contain
     case cover
   }
 
