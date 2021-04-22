@@ -29,9 +29,6 @@ test-ios: xcodeproj
 		| xcpretty
 
 test-swift:
-	swift test \
-		--enable-pubgrub-resolver \
-		--enable-test-discovery \
-		--parallel
+	swift test --parallel
 
 test-all: test-linux test-macos test-ios test-swift
