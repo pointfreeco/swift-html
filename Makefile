@@ -29,6 +29,8 @@ test-ios: xcodeproj
 		| xcpretty
 
 test-swift:
-	swift test --parallel
+	swift test \
+		--parallel \
+		--enable-test-discovery
 
 test-all: test-linux test-macos test-ios test-swift
