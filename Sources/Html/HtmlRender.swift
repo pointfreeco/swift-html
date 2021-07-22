@@ -1,25 +1,25 @@
 /// Renders an array of nodes to an HTML string.
 ///
 /// - Parameter nodes: An array of nodes.
-public func render(_ nodes: [Node]) -> String {
-  return nodes.reduce(into: "") { $0.append(render($1)) }
+public func render(_ nodes: [Node], voidElements: Set<String> = Html.voidElements) -> String {
+  return nodes.reduce(into: "") { $0.append(render($1, voidElements: voidElements)) }
 }
 
 /// Renders a node to an HTML string.
 ///
 /// - Parameter node: A node.
-public func render(_ node: Node) -> String {
+public func render(_ node: Node, voidElements: Set<String> = Html.voidElements) -> String {
   var rendered = ""
-  render(node, into: &rendered, voidElements: Html.voidElements)
+  render(node, into: &rendered, voidElements: voidElements)
   return rendered
 }
 
-public func render<T>(_ children: [ChildOf<T>]) -> String {
-  return children.reduce(into: "") { $0.append(render($1)) }
+public func render<T>(_ children: [ChildOf<T>], voidElements: Set<String> = Html.voidElements) -> String {
+  return children.reduce(into: "") { $0.append(render($1, voidElements: voidElements)) }
 }
 
-public func render<T>(_ child: ChildOf<T>) -> String {
-  return render(child.rawValue)
+public func render<T>(_ child: ChildOf<T>, voidElements: Set<String> = Html.voidElements) -> String {
+  return render(child.rawValue, voidElements: voidElements)
 }
 
 public func escapeAttributeValue(_ value: String) -> String {
@@ -71,16 +71,16 @@ func render(_ node: Node, into output: inout String, voidElements: Set<String>) 
   case let .element(tag, attribs, children):
     output.append("<")
     output.append(tag)
-    render(attribs, into: &output)
+    render(attribs, into: &output, voidElements: voidElements)
     output.append(">")
     if !children.isEmpty || !voidElements.contains(tag) {
-      output.append(render(children))
+      output.append(render(children, voidElements: voidElements))
       output.append("</")
       output.append(tag)
       output.append(">")
     }
   case let .fragment(children):
-    output.append(render(children))
+    output.append(render(children, voidElements: voidElements))
   case let .text(string):
     output.append(escapeTextNode(text: string))
   case let .raw(string):
@@ -88,7 +88,7 @@ func render(_ node: Node, into output: inout String, voidElements: Set<String>) 
   }
 }
 
-func render(_ attribs: [(String, String?)], into output: inout String) {
+func render(_ attribs: [(String, String?)], into output: inout String, voidElements: Set<String> = ) {
   attribs
     .forEach { key, value in
       guard let value = value else { return }
