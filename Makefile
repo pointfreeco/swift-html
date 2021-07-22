@@ -11,7 +11,7 @@ test-linux:
 		--rm \
 		-v "$(PWD):$(PWD)" \
 		-w "$(PWD)" \
-		swift:5.1 \
+		swift:5.3 \
 		bash -c 'make test-swift'
 
 test-macos: xcodeproj
@@ -30,7 +30,6 @@ test-ios: xcodeproj
 
 test-swift:
 	swift test \
-		--enable-pubgrub-resolver \
 		--enable-test-discovery \
 		--parallel
 
