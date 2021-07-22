@@ -71,7 +71,7 @@ func render(_ node: Node, into output: inout String, voidElements: Set<String>) 
   case let .element(tag, attribs, children):
     output.append("<")
     output.append(tag)
-    render(attribs, into: &output, voidElements: voidElements)
+    render(attribs, into: &output)
     output.append(">")
     if !children.isEmpty || !voidElements.contains(tag) {
       output.append(render(children, voidElements: voidElements))
@@ -88,7 +88,7 @@ func render(_ node: Node, into output: inout String, voidElements: Set<String>) 
   }
 }
 
-func render(_ attribs: [(String, String?)], into output: inout String, voidElements: Set<String> = ) {
+func render(_ attribs: [(String, String?)], into output: inout String) {
   attribs
     .forEach { key, value in
       guard let value = value else { return }
