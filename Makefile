@@ -30,7 +30,6 @@ test-ios: xcodeproj
 
 test-swift:
 	swift test \
-		--enable-pubgrub-resolver \
 		--enable-test-discovery \
 		--parallel
 
