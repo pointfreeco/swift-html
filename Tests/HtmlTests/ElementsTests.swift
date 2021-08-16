@@ -14,9 +14,11 @@ final class ElementsTests: XCTestCase {
   func testXmlRender() {
     XCTAssertEqual(
       #"""
-      <link href="https://www.pointfree.co"></link>
+      <feed><link href="https://www.pointfree.co"></link></feed>
       """#,
-      _xmlRender(Node.element("link", [("href", "https://www.pointfree.co")], []))
+      _xmlRender(
+        .element("feed", [], .element("link", [("href", "https://www.pointfree.co")], ""))
+      )
     )
   }
 }
