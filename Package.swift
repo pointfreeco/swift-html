@@ -1,5 +1,4 @@
 // swift-tools-version:5.3
-import Foundation
 import PackageDescription
 
 let package = Package(
@@ -17,16 +16,25 @@ let package = Package(
   ],
   targets: [
     .target(
-      name: "Html",
-      dependencies: []),
+      name: "Html"
+    ),
     .testTarget(
       name: "HtmlTests",
-      dependencies: ["Html"]),
+      dependencies: ["Html"]
+    ),
     .target(
       name: "HtmlSnapshotTesting",
-      dependencies: ["Html", "SnapshotTesting"]),
+      dependencies: [
+        "Html",
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+      ]
+    ),
     .testTarget(
       name: "HtmlSnapshotTestingTests",
-      dependencies: ["HtmlSnapshotTesting"]),
+      dependencies: ["HtmlSnapshotTesting"],
+      exclude: [
+        "__Snapshots__",
+      ]
+    ),
   ]
 )
