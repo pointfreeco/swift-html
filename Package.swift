@@ -1,4 +1,4 @@
-// swift-tools-version:4.2
+// swift-tools-version:5.3
 import Foundation
 import PackageDescription
 
@@ -28,17 +28,5 @@ let package = Package(
     .testTarget(
       name: "HtmlSnapshotTestingTests",
       dependencies: ["HtmlSnapshotTesting"]),
-    ],
-  swiftLanguageVersions: [
-    .version("5"),
-    .v4_2,
   ]
 )
-
-if ProcessInfo.processInfo.environment.keys.contains("PF_DEVELOP") {
-  package.dependencies.append(
-    contentsOf: [
-      .package(url: "https://github.com/yonaskolb/XcodeGen.git", from: "2.3.0"),
-    ]
-  )
-}
