@@ -30,7 +30,7 @@ test-ios: xcodeproj
 
 test-swift:
 	swift test \
-		--parallel \
-		--enable-test-discovery
+		--enable-test-discovery \
+		--parallel
 
 test-all: test-linux test-macos test-ios test-swift
