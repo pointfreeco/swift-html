@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-  name: "Html",
+  name: "swift-html",
   products: [
     .library(
       name: "Html",
