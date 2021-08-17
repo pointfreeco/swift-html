@@ -189,40 +189,17 @@ If you do decide that a templating language better suites your needs, then you s
 
 ## Installation
 
-### Carthage
+You can add swift-html to an Xcode project by adding it as a package dependency.
 
-If you use [Carthage](https://github.com/Carthage/Carthage), you can add the following dependency to your `Cartfile`:
+> https://github.com/pointfreeco/swift-html
 
-``` ruby
-github "pointfreeco/swift-html" ~> 0.3
-```
-
-### CocoaPods
-
-If your project uses [CocoaPods](https://cocoapods.org), just add the following to your `Podfile`:
-
-``` ruby
-pod 'Html', '~> 0.3'
-
-# SnapshotTesting helpers
-pod 'HtmlSnapshotTesting', '~> 0.3'
-```
-
-### SwiftPM
-
-If you want to use swift-html in a project that uses [SwiftPM](https://swift.org/package-manager/), it's as simple as adding a `dependencies` clause to your `Package.swift`:
+If you want to use Tagged in a [SwiftPM](https://swift.org/package-manager/) project, it's as simple as adding it to a `dependencies` clause in your `Package.swift`:
 
 ``` swift
 dependencies: [
-  .package(url: "https://github.com/pointfreeco/swift-html.git", from: "0.3.0")
+  .package(url: "https://github.com/pointfreeco/swift-html", from: "0.4.0")
 ]
 ```
-
-From there you can add `Html` or `HtmlSnapshotTesting` as target dependencies.
-
-### Xcode Sub-project
-
-Submodule, clone, or download swift-html, and drag `Html.xcodeproj` into your project.
 
 ## Interested in learning more?
 
