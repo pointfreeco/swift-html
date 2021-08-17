@@ -193,7 +193,7 @@ You can add swift-html to an Xcode project by adding it as a package dependency.
 
 > https://github.com/pointfreeco/swift-html
 
-If you want to use Tagged in a [SwiftPM](https://swift.org/package-manager/) project, it's as simple as adding it to a `dependencies` clause in your `Package.swift`:
+If you want to use swift-html in a [SwiftPM](https://swift.org/package-manager/) project, it's as simple as adding it to a `dependencies` clause in your `Package.swift`:
 
 ``` swift
 dependencies: [
