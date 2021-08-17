@@ -1,11 +1,3 @@
-bootstrap: carthage xcodeproj
-
-carthage:
-	carthage update --no-build --use-submodules
-
-xcodeproj:
-	PF_DEVELOP=1 swift run xcodegen
-
 test-linux:
 	docker run \
 		--rm \

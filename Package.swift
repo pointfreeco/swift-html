@@ -1,5 +1,4 @@
-// swift-tools-version:4.2
-import Foundation
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -13,32 +12,29 @@ let package = Package(
       targets: ["HtmlSnapshotTesting"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.5.0"),
+    .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
   ],
   targets: [
     .target(
-      name: "Html",
-      dependencies: []),
+      name: "Html"
+    ),
     .testTarget(
       name: "HtmlTests",
-      dependencies: ["Html"]),
+      dependencies: ["Html"]
+    ),
     .target(
       name: "HtmlSnapshotTesting",
-      dependencies: ["Html", "SnapshotTesting"]),
+      dependencies: [
+        "Html",
+        .product(name: "SnapshotTesting", package: "SnapshotTesting"),
+      ]
+    ),
     .testTarget(
       name: "HtmlSnapshotTestingTests",
-      dependencies: ["HtmlSnapshotTesting"]),
-    ],
-  swiftLanguageVersions: [
-    .version("5"),
-    .v4_2,
+      dependencies: ["HtmlSnapshotTesting"],
+      exclude: [
+        "__Snapshots__",
+      ]
+    ),
   ]
 )
-
-if ProcessInfo.processInfo.environment.keys.contains("PF_DEVELOP") {
-  package.dependencies.append(
-    contentsOf: [
-      .package(url: "https://github.com/yonaskolb/XcodeGen.git", from: "2.3.0"),
-    ]
-  )
-}
