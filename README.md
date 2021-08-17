@@ -160,8 +160,8 @@ This makes the “Swiftification” of an HTML document looks very similar to th
 
 Yes! We even provide plug-in libraries that reduce the friction of using this library with Kitura and Vapor. Find out more information at the following repos:
 
-- [swift-html-kitura](https://github.com/pointfreeco/swift-html-kitura)
 - [swift-html-vapor](https://github.com/pointfreeco/swift-html-vapor)
+- [~~swift-html-kitura~~](https://github.com/pointfreeco/swift-html-kitura)
  
 ### Why would I use this over a templating language?
 
