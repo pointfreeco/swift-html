@@ -53,19 +53,22 @@ func unexclaim(_ node: Node) -> Node {
 
   case let .element(tag, attrs, children):
     // Recursively transform all of the children of an element
-    return .element(tag, attrs, children.map(unexclaim))
+    return .element(tag, attrs, unexclaim(children))
 
   case let .fragment(children):
     // Recursively transform all of the children of a fragment
     return .fragment(children.map(unexclaim))
 
-  case let .raw(string), .text(string):
+  case let .raw(string):
     // Transform text nodes by replacing exclamation marks with periods.
-    return string.replacingOccurrences(of: "!", with: ".")
+    return .raw(string.replacingOccurrences(of: "!", with: "."))
+  case let .text(string):
+    // Transform text nodes by replacing exclamation marks with periods.
+    return .text(string.replacingOccurrences(of: "!", with: "."))
   }
 }
 
-unexclaim(document) // Node
+unexclaim(document)
 ```
 
 Once your document is created you can render it using the `render` function:
