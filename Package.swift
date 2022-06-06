@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
@@ -12,7 +12,10 @@ let package = Package(
       targets: ["HtmlSnapshotTesting"]),
   ],
   dependencies: [
-    .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
+    .package(
+      url: "https://github.com/pimms/swift-snapshot-testing",
+      branch: "optimization"
+    ),
   ],
   targets: [
     .target(
@@ -26,7 +29,7 @@ let package = Package(
       name: "HtmlSnapshotTesting",
       dependencies: [
         "Html",
-        .product(name: "SnapshotTesting", package: "SnapshotTesting"),
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
       ]
     ),
     .testTarget(
