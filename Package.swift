@@ -26,7 +26,7 @@ let package = Package(
       name: "HtmlSnapshotTesting",
       dependencies: [
         "Html",
-        .product(name: "SnapshotTesting", package: "SnapshotTesting"),
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
       ]
     ),
     .testTarget(
