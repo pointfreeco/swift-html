@@ -68,15 +68,15 @@ extension Node {
 extension Node: Equatable {
   public static func == (lhs: Node, rhs: Node) -> Bool {
     switch (lhs, rhs) {
-    case
-    let (.comment(lhs), .comment(rhs)),
-    let (.doctype(lhs), .doctype(rhs)),
-    let (.raw(lhs), .raw(rhs)),
-    let (.text(lhs), .text(rhs)):
+    case let (.comment(lhs), .comment(rhs)),
+      let (.doctype(lhs), .doctype(rhs)),
+      let (.raw(lhs), .raw(rhs)),
+      let (.text(lhs), .text(rhs)):
       return lhs == rhs
     case let (
       .element(lhsTag, lhsAttributes, lhsChildren),
-      .element(rhsTag, rhsAttributes, rhsChildren)):
+      .element(rhsTag, rhsAttributes, rhsChildren)
+    ):
 
       return lhsTag == rhsTag
         && zip(lhsAttributes, rhsAttributes).allSatisfy { $0 == $1 }
@@ -136,29 +136,29 @@ extension Node: ExpressibleByStringLiteral {
 }
 
 #if swift(>=5.0)
-public struct NodeStringInterpolation: StringInterpolationProtocol {
-  var node: Node
+  public struct NodeStringInterpolation: StringInterpolationProtocol {
+    var node: Node
 
-  public init(literalCapacity: Int, interpolationCount: Int) {
-    self.node = .fragment([])
+    public init(literalCapacity: Int, interpolationCount: Int) {
+      self.node = .fragment([])
+    }
+
+    public mutating func appendInterpolation(_ value: Node) {
+      self.node.append(value)
+    }
+
+    public mutating func appendInterpolation(_ value: String) {
+      self.node.append(.text(value))
+    }
+
+    public mutating func appendLiteral(_ literal: String) {
+      self.node.append(.text(literal))
+    }
   }
 
-  public mutating func appendInterpolation(_ value: Node) {
-    self.node.append(value)
+  extension Node: ExpressibleByStringInterpolation {
+    public init(stringInterpolation: NodeStringInterpolation) {
+      self = stringInterpolation.node
+    }
   }
-
-  public mutating func appendInterpolation(_ value: String) {
-    self.node.append(.text(value))
-  }
-
-  public mutating func appendLiteral(_ literal: String) {
-    self.node.append(.text(literal))
-  }
-}
-
-extension Node: ExpressibleByStringInterpolation {
-  public init(stringInterpolation: NodeStringInterpolation) {
-    self = stringInterpolation.node
-  }
-}
 #endif

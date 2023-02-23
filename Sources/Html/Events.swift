@@ -746,7 +746,8 @@ public protocol HasOnerror {}
 
 extension Tag.Audio: HasOnerror {}
 extension Tag.Img: HasOnerror {}
-extension Tag.Input: HasOnerror {} // TODO: type="image"
+// TODO: type="image"
+extension Tag.Input: HasOnerror {}
 extension Tag.Object: HasOnerror {}
 extension Tag.Link: HasOnerror {}
 extension Tag.Script: HasOnerror {}
@@ -788,7 +789,8 @@ public protocol HasOnload {}
 extension Tag.Body: HasOnload {}
 extension Tag.Iframe: HasOnload {}
 extension Tag.Img: HasOnload {}
-extension Tag.Input: HasOnload {} // type="image"
+// type="image"
+extension Tag.Input: HasOnload {}
 extension Tag.Link: HasOnload {}
 extension Tag.Script: HasOnload {}
 extension Tag.Style: HasOnload {}

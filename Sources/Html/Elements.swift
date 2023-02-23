@@ -1,6 +1,9 @@
 extension Node {
-  public static func element<T>(_ name: StaticString, attributes: [Attribute<T>] = [], _ children: Node...) -> Node {
-    return .element(String(describing: name), attributes.map { ($0.key, $0.value) }, .fragment(children))
+  public static func element<T>(
+    _ name: StaticString, attributes: [Attribute<T>] = [], _ children: Node...
+  ) -> Node {
+    return .element(
+      String(describing: name), attributes.map { ($0.key, $0.value) }, .fragment(children))
   }
 
   /// The `<a>` element represents either a hyperlink (a hypertext anchor) labeled by its contents, or a placeholder for where a link might otherwise have been placed, if it had been relevant, consisting of just the element's contents.
@@ -26,7 +29,8 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func address(attributes: [Attribute<Tag.Address>] = [], _ content: Node...) -> Node {
+  public static func address(attributes: [Attribute<Tag.Address>] = [], _ content: Node...) -> Node
+  {
     return .element("address", attributes: attributes, .fragment(content))
   }
 
@@ -35,7 +39,8 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func article(attributes: [Attribute<Tag.Article>] = [], _ content: Node...) -> Node {
+  public static func article(attributes: [Attribute<Tag.Article>] = [], _ content: Node...) -> Node
+  {
     return .element("article", attributes: attributes, .fragment(content))
   }
 
@@ -57,10 +62,13 @@ extension Node {
   public static func audio(
     attributes: [Attribute<Tag.Audio>] = [],
     _ content: ChildOf<Tag.Audio>...,
-    transparent: Node = [])
-    -> Node {
+    transparent: Node = []
+  )
+    -> Node
+  {
 
-      return .element("audio", attributes: attributes, .fragment(content.map { $0.rawValue } + [transparent]))
+    return .element(
+      "audio", attributes: attributes, .fragment(content.map { $0.rawValue } + [transparent]))
   }
 
   /// The `<b>` element represents a span of text to which attention is being drawn for utilitarian purposes without conveying any extra importance and with no implication of an alternate voice or mood, such as key words in a document abstract, product names in a review, actionable words in interactive text-driven software, or an article lede.
@@ -95,9 +103,13 @@ extension Node {
   ///   - dir: The element's text directionality.
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func bdo(dir: BdoDirection, attributes: [Attribute<Tag.Bdi>] = [], _ content: Node...)
-    -> Node {
-      return .element("bdo", attributes: [.init("dir", dir.rawValue)] + attributes, .fragment(content))
+  public static func bdo(
+    dir: BdoDirection, attributes: [Attribute<Tag.Bdi>] = [], _ content: Node...
+  )
+    -> Node
+  {
+    return .element(
+      "bdo", attributes: [.init("dir", dir.rawValue)] + attributes, .fragment(content))
   }
 
   /// The `<blockquote>` element represents content that is quoted from another source, optionally with a citation which must be within a `<footer>` or `<cite>` element, and optionally with in-line changes such as annotations and abbreviations.
@@ -105,7 +117,9 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func blockquote(attributes: [Attribute<Tag.Blockquote>] = [], _ content: Node...) -> Node {
+  public static func blockquote(attributes: [Attribute<Tag.Blockquote>] = [], _ content: Node...)
+    -> Node
+  {
     return .element("blockquote", attributes: attributes, .fragment(content))
   }
 
@@ -167,10 +181,11 @@ extension Node {
     attributes: [Attribute<Tag.Details>] = [],
     _ summary: ChildOf<Tag.Details>,
     _ content: Node...
-    )
-    -> Node {
+  )
+    -> Node
+  {
 
-      return details(attributes: attributes, summary.rawValue, .fragment(content))
+    return details(attributes: attributes, summary.rawValue, .fragment(content))
   }
 
   /// The `<details>` element represents a disclosure widget from which the user can obtain additional information or controls.
@@ -181,10 +196,11 @@ extension Node {
   public static func details(
     attributes: [Attribute<Tag.Details>] = [],
     _ content: Node...
-    )
-    -> Node {
+  )
+    -> Node
+  {
 
-      return .element("details", attributes: attributes, .fragment(content))
+    return .element("details", attributes: attributes, .fragment(content))
   }
 
   /// The `<dfn>` element represents the defining instance of a term. The term-description group, `<p>`, `<li>` or `<section>` element that is the nearest ancestor of the `<dfn>` element must also contain the definition(s) for the term given by the `<dfn>` element.
@@ -210,7 +226,8 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func dl(attributes: [Attribute<Tag.Dl>] = [], _ content: ChildOf<Tag.Dl>...) -> Node {
+  public static func dl(attributes: [Attribute<Tag.Dl>] = [], _ content: ChildOf<Tag.Dl>...) -> Node
+  {
     return .element("dl", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -240,10 +257,11 @@ extension Node {
     attributes: [Attribute<Tag.Fieldset>] = [],
     _ legend: ChildOf<Tag.Fieldset>,
     _ content: Node...
-    )
-    -> Node {
+  )
+    -> Node
+  {
 
-      return .fieldset(attributes: attributes, legend.rawValue, .fragment(content))
+    return .fieldset(attributes: attributes, legend.rawValue, .fragment(content))
   }
 
   /// The `<fieldset>` element represents a set of form controls optionally grouped under a common name.
@@ -254,10 +272,11 @@ extension Node {
   public static func fieldset(
     attributes: [Attribute<Tag.Fieldset>] = [],
     _ content: Node...
-    )
-    -> Node {
+  )
+    -> Node
+  {
 
-      return .element("fieldset", attributes: attributes, .fragment(content))
+    return .element("fieldset", attributes: attributes, .fragment(content))
   }
 
   /// The `<figure>` element represents some flow content, optionally with a caption, that is self-contained (like a complete sentence) and is typically referenced as a single unit from the main flow of the document.
@@ -265,7 +284,9 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func figure(attributes: [Attribute<Tag.Figure>] = [], _ content: ChildOf<Tag.Figure>...) -> Node {
+  public static func figure(
+    attributes: [Attribute<Tag.Figure>] = [], _ content: ChildOf<Tag.Figure>...
+  ) -> Node {
     return .element("figure", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -284,7 +305,9 @@ extension Node {
   ///   - enctype: Enctype to use for form encoding.
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func form(enctype: Attribute<Tag.Form>.Enctype, attributes: [Attribute<Tag.Form>] = [], _ content: Node...) -> Node {
+  public static func form(
+    enctype: Attribute<Tag.Form>.Enctype, attributes: [Attribute<Tag.Form>] = [], _ content: Node...
+  ) -> Node {
     return form(attributes: [.method(.post), .enctype(enctype)] + attributes, .fragment(content))
   }
 
@@ -386,7 +409,9 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func html(attributes: [Attribute<Tag.Html>] = [], _ content: ChildOf<Tag.Html>...) -> Node {
+  public static func html(attributes: [Attribute<Tag.Html>] = [], _ content: ChildOf<Tag.Html>...)
+    -> Node
+  {
     return .element("html", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -432,10 +457,13 @@ extension Node {
   ///   - type: The image's content encoding.
   ///   - alt: Replacement text for use when images are not available.
   ///   - attributes: Additional attributes.
-  public static func img(base64: String, type: MediaType, alt: String, attributes: [Attribute<Tag.Img>] = [])
-    -> Node {
+  public static func img(
+    base64: String, type: MediaType, alt: String, attributes: [Attribute<Tag.Img>] = []
+  )
+    -> Node
+  {
 
-      return img(src: "data:\(type.description);base64,\(base64)", alt: alt, attributes: attributes)
+    return img(src: "data:\(type.description);base64,\(base64)", alt: alt, attributes: attributes)
   }
 
   /// The `<input>` element represents a typed data field, usually with a form control to allow the user to edit the data.
@@ -486,10 +514,14 @@ extension Node {
   ///   - name: The `name` attribute gives the map a name so that it can be referenced. The attribute must be present and must have a non-empty value with no space characters. The value of the `name` attribute must not be a compatibility caseless match for the value of the `name` attribute of another `<map>` element in the same document. If the `id` attribute is also specified, both attributes must have the same value.
   ///   - attributes: Additional attributes.
   ///   - content: Child nodes.
-  public static func map(name: String, attributes: [Attribute<Tag.Map>] = [], _ content: ChildOf<Tag.Map>...)
-    -> Node {
+  public static func map(
+    name: String, attributes: [Attribute<Tag.Map>] = [], _ content: ChildOf<Tag.Map>...
+  )
+    -> Node
+  {
 
-      return .element("map", attributes: [.name(name)] + attributes, ChildOf.fragment(content).rawValue)
+    return .element(
+      "map", attributes: [.name(name)] + attributes, ChildOf.fragment(content).rawValue)
   }
 
   /// The `<mark>` element represents a run of text in one document marked or highlighted for reference purposes, due to its relevance in another context. When used in a quotation or other block of text referred to from the prose, it indicates a highlight that was not originally present but which has been added to bring the reader's attention to a part of the text that might not have been considered important by the original author when the block was originally written, but which is now under previously unexpected scrutiny. When used in the main prose of a document, it indicates a part of the document that has been highlighted due to its likely relevance to the user's current activity.
@@ -507,7 +539,9 @@ extension Node {
   ///   - value: The `value` attribute specifies the value to have the gauge indicate as the "measured" value.
   ///   - attributes: Additional attributes.
   ///   - content: Child nodes.
-  public static func meter(value: Double, attributes: [Attribute<Tag.Meter>] = [], _ content: Node...) -> Node {
+  public static func meter(
+    value: Double, attributes: [Attribute<Tag.Meter>] = [], _ content: Node...
+  ) -> Node {
     return .element("meter", attributes: [.value(value)] + attributes, .fragment(content))
   }
 
@@ -526,7 +560,9 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func object(attributes: [Attribute<Tag.Object>] = [], _ content: ChildOf<Tag.Object>...) -> Node {
+  public static func object(
+    attributes: [Attribute<Tag.Object>] = [], _ content: ChildOf<Tag.Object>...
+  ) -> Node {
     return .element("object", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -535,7 +571,8 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func ol(attributes: [Attribute<Tag.Ol>] = [], _ content: ChildOf<Tag.Ol>...) -> Node {
+  public static func ol(attributes: [Attribute<Tag.Ol>] = [], _ content: ChildOf<Tag.Ol>...) -> Node
+  {
     return .element("ol", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -544,9 +581,12 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func optgroup(attributes: [Attribute<Tag.Optgroup>] = [], _ content: ChildOf<Tag.Optgroup>...)
-    -> Node {
-      return .element("optgroup", attributes: attributes, ChildOf.fragment(content).rawValue)
+  public static func optgroup(
+    attributes: [Attribute<Tag.Optgroup>] = [], _ content: ChildOf<Tag.Optgroup>...
+  )
+    -> Node
+  {
+    return .element("optgroup", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
   /// The `<output>` element represents the result of a calculation performed by the application, or the result
@@ -637,7 +677,9 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: JavaScript.
-  public static func script(attributes: [Attribute<Tag.Script>] = [], safe content: StaticString) -> Node {
+  public static func script(attributes: [Attribute<Tag.Script>] = [], safe content: StaticString)
+    -> Node
+  {
     return script(attributes: attributes, unsafe: String(describing: content))
   }
 
@@ -646,8 +688,11 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: JavaScript.
-  public static func script(attributes: [Attribute<Tag.Script>] = [], unsafe content: String) -> Node {
-    return .element("script", attributes: attributes, [.raw(escape(rawText: content, for: "script"))])
+  public static func script(attributes: [Attribute<Tag.Script>] = [], unsafe content: String)
+    -> Node
+  {
+    return .element(
+      "script", attributes: attributes, [.raw(escape(rawText: content, for: "script"))])
   }
 
   /// The `<section>` element represents a generic section of a document or application. A section, in this context, is a thematic grouping of content. Each `<section>` should be identified, typically by including a heading (`<h1>`-`<h6>` element) as a child of the section element.
@@ -655,7 +700,8 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func section(attributes: [Attribute<Tag.Section>] = [], _ content: Node...) -> Node {
+  public static func section(attributes: [Attribute<Tag.Section>] = [], _ content: Node...) -> Node
+  {
     return .element("section", attributes: attributes, .fragment(content))
   }
 
@@ -664,7 +710,9 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func select(attributes: [Attribute<Tag.Select>] = [], _ content: ChildOf<Tag.Select>...) -> Node {
+  public static func select(
+    attributes: [Attribute<Tag.Select>] = [], _ content: ChildOf<Tag.Select>...
+  ) -> Node {
     return .element("select", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -713,7 +761,8 @@ extension Node {
     return .element("sup", attributes: attributes, .fragment(content))
   }
 
-  public static func svg(attributes: [Attribute<Tag.Svg>] = [], safe content: StaticString) -> Node {
+  public static func svg(attributes: [Attribute<Tag.Svg>] = [], safe content: StaticString) -> Node
+  {
     return svg(attributes: attributes, unsafe: String(describing: content))
   }
 
@@ -726,11 +775,15 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func table(attributes: [Attribute<Tag.Table>] = [], _ content: ChildOf<Tag.Table>...) -> Node {
+  public static func table(
+    attributes: [Attribute<Tag.Table>] = [], _ content: ChildOf<Tag.Table>...
+  ) -> Node {
     return .element("table", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
-  public static func template(attributes: [Attribute<Tag.Template>] = [], _ content: Node...) -> Node {
+  public static func template(attributes: [Attribute<Tag.Template>] = [], _ content: Node...)
+    -> Node
+  {
     return .element("template", attributes: attributes, .fragment(content))
   }
 
@@ -739,8 +792,11 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Text content.
-  public static func textarea(attributes: [Attribute<Tag.Textarea>] = [], _ content: String = "") -> Node {
-    return .element("textarea", attributes: attributes, [.raw(escape(rawText: content, for: "textarea"))])
+  public static func textarea(attributes: [Attribute<Tag.Textarea>] = [], _ content: String = "")
+    -> Node
+  {
+    return .element(
+      "textarea", attributes: attributes, [.raw(escape(rawText: content, for: "textarea"))])
   }
 
   /// The `<time>` element represents its contents, along with a machine-readable form of those contents in the datetime attribute. The kind of content is limited to various kinds of dates, times, time-zone offsets, and durations, as described below.
@@ -768,7 +824,8 @@ extension Node {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func ul(attributes: [Attribute<Tag.Ul>] = [], _ content: ChildOf<Tag.Ul>...) -> Node {
+  public static func ul(attributes: [Attribute<Tag.Ul>] = [], _ content: ChildOf<Tag.Ul>...) -> Node
+  {
     return .element("ul", attributes: attributes, ChildOf.fragment(content).rawValue)
   }
 
@@ -790,10 +847,12 @@ extension Node {
     attributes: [Attribute<Tag.Video>] = [],
     _ content: ChildOf<Tag.Video>...,
     transparent: Node = []
-    )
-    -> Node {
+  )
+    -> Node
+  {
 
-      return .element("video", attributes: attributes, [ChildOf.fragment(content).rawValue, transparent])
+    return .element(
+      "video", attributes: attributes, [ChildOf.fragment(content).rawValue, transparent])
   }
 
   /// The `<wbr>` element represents a line break opportunity.
@@ -801,5 +860,6 @@ extension Node {
 }
 
 internal func escape(rawText: String, for tag: String) -> String {
-  return rawText.replacingOccurrences(of: "<(\\s*/\(tag)\\s*>)", with: "&lt;/$1>", options: .regularExpression)
+  return rawText.replacingOccurrences(
+    of: "<(\\s*/\(tag)\\s*>)", with: "&lt;/$1>", options: .regularExpression)
 }

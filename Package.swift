@@ -6,7 +6,7 @@ let package = Package(
   platforms: [
     .iOS(.v13),
     .macOS(.v10_15),
-    .tvOS(.v13)
+    .tvOS(.v13),
   ],
   products: [
     .library(
@@ -17,7 +17,7 @@ let package = Package(
       targets: ["HtmlSnapshotTesting"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.11.0"),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.11.0")
   ],
   targets: [
     .target(
@@ -38,7 +38,7 @@ let package = Package(
       name: "HtmlSnapshotTestingTests",
       dependencies: ["HtmlSnapshotTesting"],
       exclude: [
-        "__Snapshots__",
+        "__Snapshots__"
       ]
     ),
   ]

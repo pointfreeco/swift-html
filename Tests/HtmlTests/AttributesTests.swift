@@ -7,7 +7,8 @@ final class AttributesTests: XCTestCase {
       """
       <th abbr="blob" colspan="1" headers="blob" rowspan="1" scope></th>
       """,
-      render(.th(attributes: [.abbr("blob"), .colspan(1), .headers("blob"), .rowspan(1), .scope(.auto)]))
+      render(
+        .th(attributes: [.abbr("blob"), .colspan(1), .headers("blob"), .rowspan(1), .scope(.auto)]))
     )
     XCTAssertEqual("<th scope=\"col\"></th>", render(.th(attributes: [.scope(.col)])))
     XCTAssertEqual("<th scope=\"colgroup\"></th>", render(.th(attributes: [.scope(.colgroup)])))
@@ -39,7 +40,10 @@ final class AttributesTests: XCTestCase {
       """
       <img alt="blob" crossorigin height="42" src="src" width="43">
       """,
-      render(.img(attributes: [.alt("blob"), .crossorigin(.anonymous), .height(42), .src("src"), .width(43)]))
+      render(
+        .img(attributes: [
+          .alt("blob"), .crossorigin(.anonymous), .height(42), .src("src"), .width(43),
+        ]))
     )
     XCTAssertEqual(
       """
@@ -51,13 +55,21 @@ final class AttributesTests: XCTestCase {
       """
       <img src="src1" srcset="src1 1x, src2 2x, src3 3x" height="42" width="43">
       """,
-      render(.img(attributes: [.src("src1"), .srcset(["src3": .x(3), "src2": .x(2), "src1": .x(1)]), .height(42), .width(43)]))
+      render(
+        .img(attributes: [
+          .src("src1"), .srcset(["src3": .x(3), "src2": .x(2), "src1": .x(1)]), .height(42),
+          .width(43),
+        ]))
     )
     XCTAssertEqual(
       """
       <img src="src1" srcset="src1 42w, src2 84w, src3 126w" height="42" width="43">
       """,
-      render(.img(attributes: [.src("src1"), .srcset(["src1": .w(42), "src2": .w(84), "src3": .w(126)]), .height(42), .width(43)]))
+      render(
+        .img(attributes: [
+          .src("src1"), .srcset(["src1": .w(42), "src2": .w(84), "src3": .w(126)]), .height(42),
+          .width(43),
+        ]))
     )
 
     XCTAssertEqual(
@@ -109,7 +121,7 @@ final class AttributesTests: XCTestCase {
             .required(true),
             .src("src"),
             .step(2),
-            .width(43)
+            .width(43),
           ]
         )
       )
@@ -118,7 +130,10 @@ final class AttributesTests: XCTestCase {
       """
       <input>
       """,
-      render(.input(attributes: [.autofocus(false), .checked(false), .disabled(false), .readonly(false), .required(false)]))
+      render(
+        .input(attributes: [
+          .autofocus(false), .checked(false), .disabled(false), .readonly(false), .required(false),
+        ]))
     )
     XCTAssertEqual(
       """
@@ -130,14 +145,19 @@ final class AttributesTests: XCTestCase {
       """
       <input type="file" accept="application/javascript, text/html, .css">
       """,
-      render(.input(attributes: [.type(.file), .accept(.mime(.javascript), .mime(.html), .file(".css"))]))
+      render(
+        .input(attributes: [.type(.file), .accept(.mime(.javascript), .mime(.html), .file(".css"))])
+      )
     )
 
     XCTAssertEqual(
       """
       <script async charset="utf-8" defer nonce="blob" src="blob.js"></script>
       """,
-      render(.script(attributes: [.async(true), .charset(.utf8), .defer(true), .nonce("blob"), .src("blob.js")]))
+      render(
+        .script(attributes: [
+          .async(true), .charset(.utf8), .defer(true), .nonce("blob"), .src("blob.js"),
+        ]))
     )
     XCTAssertEqual(
       """
@@ -150,7 +170,8 @@ final class AttributesTests: XCTestCase {
       """
       <button autofocus disabled form="form" name="blob"></button>
       """,
-      render(.button(attributes: [.autofocus(true), .disabled(true), .form("form"), .name("blob")]))
+      render(
+        .button(attributes: [.autofocus(true), .disabled(true), .form("form"), .name("blob")]))
     )
     XCTAssertEqual(
       """
@@ -165,7 +186,9 @@ final class AttributesTests: XCTestCase {
       """,
       render(
         .select(
-          attributes: [.autofocus(true), .disabled(true), .form("form"), .name("blob"), .required(true)],
+          attributes: [
+            .autofocus(true), .disabled(true), .form("form"), .name("blob"), .required(true),
+          ],
           .option(attributes: [.selected(true)], "blob")
         )
       )
@@ -198,7 +221,7 @@ final class AttributesTests: XCTestCase {
             .readonly(true),
             .required(true),
             .rows(24),
-            .wrap(.hard)
+            .wrap(.hard),
           ]
         )
       )
@@ -214,7 +237,7 @@ final class AttributesTests: XCTestCase {
             .disabled(false),
             .readonly(false),
             .required(false),
-            .wrap(.soft)
+            .wrap(.soft),
           ]
         )
       )
@@ -232,8 +255,13 @@ final class AttributesTests: XCTestCase {
       """,
       render(
         .audio(
-          attributes: [.autoplay(true), .controls(true), .loop(true), .muted(true), .preload(.auto), .src("src")],
-          .track(src: "captions", attributes: [.default(true), .kind(.captions), .label("blob"), .srclang(.en)]),
+          attributes: [
+            .autoplay(true), .controls(true), .loop(true), .muted(true), .preload(.auto),
+            .src("src"),
+          ],
+          .track(
+            src: "captions",
+            attributes: [.default(true), .kind(.captions), .label("blob"), .srclang(.en)]),
           .track(src: "chapters", attributes: [.kind(.chapters)]),
           .track(src: "descriptions", attributes: [.kind(.descriptions)]),
           .track(src: "metadata", attributes: [.kind(.metadata)]),
@@ -247,7 +275,9 @@ final class AttributesTests: XCTestCase {
       """,
       render(
         .audio(
-          attributes: [.autoplay(false), .controls(false), .loop(false), .muted(false), .preload(.metadata)],
+          attributes: [
+            .autoplay(false), .controls(false), .loop(false), .muted(false), .preload(.metadata),
+          ],
           .track(src: "blob")
         )
       )
@@ -264,8 +294,13 @@ final class AttributesTests: XCTestCase {
       """,
       render(
         .video(
-          attributes: [.autoplay(true), .controls(true), .height(42), .loop(true), .muted(true), .poster("blob"), .preload(.none), .src("src"), .width(43)],
-          .track(src: "captions", attributes: [.default(true), .kind(.captions), .label("blob"), .srclang(.en)]),
+          attributes: [
+            .autoplay(true), .controls(true), .height(42), .loop(true), .muted(true),
+            .poster("blob"), .preload(.none), .src("src"), .width(43),
+          ],
+          .track(
+            src: "captions",
+            attributes: [.default(true), .kind(.captions), .label("blob"), .srclang(.en)]),
           .track(src: "chapters", attributes: [.kind(.chapters)]),
           .track(src: "descriptions", attributes: [.kind(.descriptions)]),
           .track(src: "metadata", attributes: [.kind(.metadata)]),
@@ -287,7 +322,8 @@ final class AttributesTests: XCTestCase {
 
     XCTAssertEqual("<meta charset=\"utf-8\">", render(.meta(attributes: [.charset(.utf8)])))
 
-    XCTAssertEqual("<blockquote cite=\"blob\"></blockquote>", render(.blockquote(attributes: [.cite("blob")])))
+    XCTAssertEqual(
+      "<blockquote cite=\"blob\"></blockquote>", render(.blockquote(attributes: [.cite("blob")])))
 
     let date = Date(timeIntervalSinceReferenceDate: 0)
 
@@ -310,12 +346,16 @@ final class AttributesTests: XCTestCase {
     )
 
     XCTAssertEqual("<a contenteditable></a>", render(.a(attributes: [.contenteditable(true)])))
-    XCTAssertEqual("<a contenteditable=\"false\"></a>", render(.a(attributes: [.contenteditable(false)])))
+    XCTAssertEqual(
+      "<a contenteditable=\"false\"></a>", render(.a(attributes: [.contenteditable(false)])))
     XCTAssertEqual("<a></a>", render(.a(attributes: [.contenteditable(.inherit)])))
 
-    XCTAssertEqual("<a data-blob=\"deadbeef\"></a>", render(.a(attributes: [.data("blob", "deadbeef")])))
+    XCTAssertEqual(
+      "<a data-blob=\"deadbeef\"></a>", render(.a(attributes: [.data("blob", "deadbeef")])))
 
-    XCTAssertEqual("<time datetime=\"2001-01-01T00:00:00Z\"></time>", render(.time(attributes: [.datetime(date)])))
+    XCTAssertEqual(
+      "<time datetime=\"2001-01-01T00:00:00Z\"></time>",
+      render(.time(attributes: [.datetime(date)])))
 
     XCTAssertEqual("<a dir=\"ltr\"></a>", render(.a(attributes: [.dir(.ltr)])))
     XCTAssertEqual("<a dir=\"rtl\"></a>", render(.a(attributes: [.dir(.rtl)])))
@@ -329,7 +369,8 @@ final class AttributesTests: XCTestCase {
     )
     XCTAssertEqual("<fieldset></fieldset>", render(.fieldset(attributes: [.disabled(false)])))
 
-    XCTAssertEqual("<optgroup disabled></optgroup>", render(.optgroup(attributes: [.disabled(true)])))
+    XCTAssertEqual(
+      "<optgroup disabled></optgroup>", render(.optgroup(attributes: [.disabled(true)])))
     XCTAssertEqual("<optgroup></optgroup>", render(.optgroup(attributes: [.disabled(false)])))
 
     XCTAssertEqual("<a draggable=\"true\"></a>", render(.a(attributes: [.draggable(true)])))
@@ -369,7 +410,9 @@ final class AttributesTests: XCTestCase {
       render(.output(attributes: [.for("blob"), .name("blob name")]))
     )
 
-    XCTAssertEqual("<canvas height=\"42\" width=\"43\"></canvas>", render(.canvas(attributes: [.height(42), .width(43)])))
+    XCTAssertEqual(
+      "<canvas height=\"42\" width=\"43\"></canvas>",
+      render(.canvas(attributes: [.height(42), .width(43)])))
     XCTAssertEqual(
       """
       <iframe height="42" name="blob" sandbox src="src" srcdoc="Hello, world!" width="43"></iframe>
@@ -382,7 +425,7 @@ final class AttributesTests: XCTestCase {
             .sandbox(true),
             .src("src"),
             .srcdoc(.text("Hello, world!")),
-            .width(43)
+            .width(43),
           ]
         )
       )
@@ -397,7 +440,13 @@ final class AttributesTests: XCTestCase {
       """
       <iframe sandbox="allow-forms allow-pointer-lock allow-popups allow-presentation allow-same-origin allow-scripts allow-top-navigation"></iframe>
       """,
-      render(.iframe(attributes: [.sandbox([.allowForms, .allowPointerLock, .allowPopups, .allowPresentation, .allowSameOrigin, .allowScripts, .allowTopNavigation])]))
+      render(
+        .iframe(attributes: [
+          .sandbox([
+            .allowForms, .allowPointerLock, .allowPopups, .allowPresentation, .allowSameOrigin,
+            .allowScripts, .allowTopNavigation,
+          ])
+        ]))
     )
     XCTAssertEqual(
       """
@@ -405,17 +454,27 @@ final class AttributesTests: XCTestCase {
       """,
       render(.object(attributes: [.height(42), .name("blob"), .width(43)]))
     )
-    XCTAssertEqual("<svg height=\"42\" width=\"43\"></svg>", render(.svg(attributes: [.height(42), .width(43)], safe: "")))
+    XCTAssertEqual(
+      "<svg height=\"42\" width=\"43\"></svg>",
+      render(.svg(attributes: [.height(42), .width(43)], safe: "")))
 
     XCTAssertEqual("<a hidden></a>", render(.a(attributes: [.hidden(true)])))
     XCTAssertEqual("<a></a>", render(.a(attributes: [.hidden(false)])))
 
-    XCTAssertEqual("<a href=\"blob\" rel=\"alternate\"></a>", render(.a(attributes: [.href("blob"), .rel(.alternate)])))
-    XCTAssertEqual("<area href=\"blob\" rel=\"alternate\">", render(.area(attributes: [.href("blob"), .rel(.alternate)])))
+    XCTAssertEqual(
+      "<a href=\"blob\" rel=\"alternate\"></a>",
+      render(.a(attributes: [.href("blob"), .rel(.alternate)])))
+    XCTAssertEqual(
+      "<area href=\"blob\" rel=\"alternate\">",
+      render(.area(attributes: [.href("blob"), .rel(.alternate)])))
     XCTAssertEqual("<base href=\"blob\">", render(.base(attributes: [.href("blob")])))
-    XCTAssertEqual("<link href=\"blob\" rel=\"alternate\">", render(.link(attributes: [.href("blob"), .rel(.alternate)])))
+    XCTAssertEqual(
+      "<link href=\"blob\" rel=\"alternate\">",
+      render(.link(attributes: [.href("blob"), .rel(.alternate)])))
 
-    XCTAssertEqual("<a href=\"mailto:blob@pointfree.co\"></a>", render(.a(attributes: [.mailto("blob@pointfree.co")])))
+    XCTAssertEqual(
+      "<a href=\"mailto:blob@pointfree.co\"></a>",
+      render(.a(attributes: [.mailto("blob@pointfree.co")])))
 
     XCTAssertEqual(
       """
@@ -446,7 +505,8 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<details open></details>", render(.details(attributes: [.open(true)])))
     XCTAssertEqual("<details></details>", render(.details(attributes: [.open(false)])))
 
-    XCTAssertEqual("<ol reversed start=\"1\"></ol>", render(.ol(attributes: [.reversed(true), .start(1)])))
+    XCTAssertEqual(
+      "<ol reversed start=\"1\"></ol>", render(.ol(attributes: [.reversed(true), .start(1)])))
     XCTAssertEqual("<ol></ol>", render(.ol(attributes: [.reversed(false)])))
 
     XCTAssertEqual("<area shape=\"circle\">", render(.area(attributes: [.shape(.circle)])))
@@ -461,7 +521,8 @@ final class AttributesTests: XCTestCase {
 
     XCTAssertEqual("<embed src=\"src\">", render(.embed(attributes: [.src("src")])))
 
-    XCTAssertEqual("<a style=\"display: none\"></a>", render(.a(attributes: [.style(safe: "display: none")])))
+    XCTAssertEqual(
+      "<a style=\"display: none\"></a>", render(.a(attributes: [.style(safe: "display: none")])))
 
     XCTAssertEqual("<a tabindex=\"1\"></a>", render(.a(attributes: [.tabindex(1)])))
 
@@ -469,16 +530,19 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<a></a>", render(.a(attributes: [.target(.self)])))
     XCTAssertEqual("<a target=\"_parent\"></a>", render(.a(attributes: [.target(.parent)])))
     XCTAssertEqual("<a target=\"_top\"></a>", render(.a(attributes: [.target(.top)])))
-    XCTAssertEqual("<a target=\"custom\"></a>", render(.a(attributes: [.target(.init(rawValue: "custom"))])))
+    XCTAssertEqual(
+      "<a target=\"custom\"></a>", render(.a(attributes: [.target(.init(rawValue: "custom"))])))
 
     XCTAssertEqual("<a title=\"blob\"></a>", render(.a(attributes: [.title("blob")])))
 
     XCTAssertEqual("<a translate=\"yes\"></a>", render(.a(attributes: [.translate(true)])))
     XCTAssertEqual("<a translate=\"no\"></a>", render(.a(attributes: [.translate(false)])))
 
-    XCTAssertEqual("<button type=\"button\"></button>", render(.button(attributes: [.type(.button)])))
+    XCTAssertEqual(
+      "<button type=\"button\"></button>", render(.button(attributes: [.type(.button)])))
     XCTAssertEqual("<button type=\"reset\"></button>", render(.button(attributes: [.type(.reset)])))
-    XCTAssertEqual("<button type=\"submit\"></button>", render(.button(attributes: [.type(.submit)])))
+    XCTAssertEqual(
+      "<button type=\"submit\"></button>", render(.button(attributes: [.type(.submit)])))
 
     XCTAssertEqual("<ol type=\"1\"></ol>", render(.ol(attributes: [.type(.decimal)])))
     XCTAssertEqual("<ol type=\"a\"></ol>", render(.ol(attributes: [.type(.lowerAlpha)])))
@@ -487,4 +551,3 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<ol type=\"I\"></ol>", render(.ol(attributes: [.type(.upperRoman)])))
   }
 }
-

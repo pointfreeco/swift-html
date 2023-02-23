@@ -11,7 +11,8 @@ public struct Config {
 }
 
 public func debugRender(_ nodes: [Node], config: Config = .pretty) -> String {
-  return nodes
+  return
+    nodes
     .map { debugRender($0, config: config, voidElements: Html.voidElements) }
     .joined()
 }
@@ -21,8 +22,11 @@ public func debugRender(_ node: Node, config: Config = .pretty) -> String {
 }
 
 func debugRender(_ node: Node, config: Config = .pretty, voidElements: Set<String>) -> String {
-  func debugRenderHelp(_ node: Node, into output: inout String, config: Config, indentation: String) {
-    func renderValues( _ values: String, into output: inout String, separator: Character?, indentBy: Int) {
+  func debugRenderHelp(_ node: Node, into output: inout String, config: Config, indentation: String)
+  {
+    func renderValues(
+      _ values: String, into output: inout String, separator: Character?, indentBy: Int
+    ) {
       guard let separator = separator else {
         output.append(values)
         return
@@ -90,7 +94,8 @@ func debugRender(_ node: Node, config: Config = .pretty, voidElements: Set<Strin
       output.append(">")
       output.append(config.newline)
       guard !children.isEmpty || !voidElements.contains(tag) else { return }
-      debugRenderHelp(children, into: &output, config: config, indentation: indentation + config.indentation)
+      debugRenderHelp(
+        children, into: &output, config: config, indentation: indentation + config.indentation)
       output.append(indentation)
       output.append("</")
       output.append(tag)

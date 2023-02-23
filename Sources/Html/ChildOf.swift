@@ -30,7 +30,9 @@ extension ChildOf {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: JavaScript.
-  public static func script(attributes: [Attribute<Tag.Script>] = [], safe content: StaticString) -> ChildOf {
+  public static func script(attributes: [Attribute<Tag.Script>] = [], safe content: StaticString)
+    -> ChildOf
+  {
     return .init(.script(attributes: attributes, safe: content))
   }
 
@@ -39,11 +41,15 @@ extension ChildOf {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: JavaScript.
-  public static func script(attributes: [Attribute<Tag.Script>] = [], unsafe content: String = "") -> ChildOf {
+  public static func script(attributes: [Attribute<Tag.Script>] = [], unsafe content: String = "")
+    -> ChildOf
+  {
     return .init(.script(attributes: attributes, unsafe: content))
   }
 
-  public static func template(attributes: [Attribute<Tag.Template>] = [], _ content: Node...) -> ChildOf {
+  public static func template(attributes: [Attribute<Tag.Template>] = [], _ content: Node...)
+    -> ChildOf
+  {
     return .init(.template(attributes: attributes, .fragment(content)))
   }
 }
@@ -64,7 +70,9 @@ extension ChildOf where Element == Tag.Details {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func summary(attributes: [Attribute<Tag.Summary>] = [], _ content: Node...) -> ChildOf {
+  public static func summary(attributes: [Attribute<Tag.Summary>] = [], _ content: Node...)
+    -> ChildOf
+  {
     return .init(.element("summary", attributes: attributes, .fragment(content)))
   }
 }
@@ -97,7 +105,9 @@ extension ChildOf where Element == Tag.Dl {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes (`<dl>` or `dd` elements).
-    public static func div(attributes: [Attribute<Tag.Div>] = [], _ content: ChildOf<Tag.Dl>...) -> ChildOf {
+  public static func div(attributes: [Attribute<Tag.Div>] = [], _ content: ChildOf<Tag.Dl>...)
+    -> ChildOf
+  {
     return .init(.element("div", attributes: attributes, ChildOf.fragment(content).rawValue))
   }
 }
@@ -108,7 +118,8 @@ extension ChildOf where Element == Tag.Fieldset {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func legend(attributes: [Attribute<Tag.Legend>] = [], _ content: Node...) -> ChildOf {
+  public static func legend(attributes: [Attribute<Tag.Legend>] = [], _ content: Node...) -> ChildOf
+  {
     return .init(.element("legend", attributes: attributes, .fragment(content)))
   }
 }
@@ -119,7 +130,9 @@ extension ChildOf where Element == Tag.Figure {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func figcaption(attributes: [Attribute<Tag.Figcaption>] = [], _ content: Node...) -> ChildOf {
+  public static func figcaption(attributes: [Attribute<Tag.Figcaption>] = [], _ content: Node...)
+    -> ChildOf
+  {
     return .init(.element("figcaption", attributes: attributes, .fragment(content)))
   }
 }
@@ -216,7 +229,9 @@ extension ChildOf where Element == Tag.Head {
   }
 
   public static func meta(contentType: MediaType) -> ChildOf {
-    return meta(attributes: [.init("http-equiv", "content-type"), .content(contentType.description)])
+    return meta(attributes: [
+      .init("http-equiv", "content-type"), .content(contentType.description),
+    ])
   }
 
   public static func meta(defaultStyle: String) -> ChildOf {
@@ -245,7 +260,9 @@ extension ChildOf where Element == Tag.Head {
 
   public static func meta(keywords: [String]) -> ChildOf {
     let sanitizedKeywords = keywords.map { $0.replacingOccurrences(of: ",", with: "&#44;") }
-    return meta(attributes: [.init("name", "keywords"), .content(sanitizedKeywords.joined(separator: ","))])
+    return meta(attributes: [
+      .init("name", "keywords"), .content(sanitizedKeywords.joined(separator: ",")),
+    ])
   }
 
   public static func meta(name: String, content: String) -> ChildOf {
@@ -260,7 +277,7 @@ extension ChildOf where Element == Tag.Head {
     return meta(
       attributes: [
         .init("name", "viewport"),
-        .content(([prop] + props).map { $0.rawValue }.joined(separator: ","))
+        .content(([prop] + props).map { $0.rawValue }.joined(separator: ",")),
       ]
     )
   }
@@ -270,7 +287,9 @@ extension ChildOf where Element == Tag.Head {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: A CSS string.
-  public static func style(attributes: [Attribute<Tag.Style>] = [], safe content: StaticString) -> ChildOf {
+  public static func style(attributes: [Attribute<Tag.Style>] = [], safe content: StaticString)
+    -> ChildOf
+  {
     return style(attributes: attributes, unsafe: String(describing: content))
   }
 
@@ -279,8 +298,11 @@ extension ChildOf where Element == Tag.Head {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: A CSS string.
-  public static func style(attributes: [Attribute<Tag.Style>] = [], unsafe content: String) -> ChildOf {
-    return .init(.element("style", attributes: attributes, [.raw(escape(rawText: content, for: "style"))]))
+  public static func style(attributes: [Attribute<Tag.Style>] = [], unsafe content: String)
+    -> ChildOf
+  {
+    return .init(
+      .element("style", attributes: attributes, [.raw(escape(rawText: content, for: "style"))]))
   }
 
   /// The `<title>` element represents the document's title or name. Authors should use titles that identify their documents even when they are used out of context, for example in a user's history or bookmarks, or in search results. The document's title is often different from its first heading, since the first heading does not have to stand alone when taken out of context.
@@ -342,7 +364,9 @@ extension ChildOf where Element == Tag.Table {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func caption(attributes: [Attribute<Tag.Caption>] = [], _ content: Node...) -> ChildOf {
+  public static func caption(attributes: [Attribute<Tag.Caption>] = [], _ content: Node...)
+    -> ChildOf
+  {
     return .init(.element("caption", attributes: attributes, .fragment(content)))
   }
 
@@ -351,8 +375,12 @@ extension ChildOf where Element == Tag.Table {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func colgroup(attributes: [Attribute<Tag.Colgroup>] = [], _ content: ChildOf<Tag.Colgroup>...) -> ChildOf {
-    return .init(.element("colgroup", attributes: attributes, ChildOf<Tag.Colgroup>.fragment(content).rawValue))
+  public static func colgroup(
+    attributes: [Attribute<Tag.Colgroup>] = [], _ content: ChildOf<Tag.Colgroup>...
+  ) -> ChildOf {
+    return .init(
+      .element("colgroup", attributes: attributes, ChildOf<Tag.Colgroup>.fragment(content).rawValue)
+    )
   }
 
   /// The `<tbody>` element represents a block of rows that consist of a body of data for the parent `<table>` element, if the `<tbody>` element has a parent and it is a `<table>`.
@@ -360,10 +388,12 @@ extension ChildOf where Element == Tag.Table {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func tbody(attributes: [Attribute<Tag.Tbody>] = [], _ content: ChildOf<Tag.Tbody>...) -> ChildOf {
-    return .init(.element("tbody", attributes: attributes, ChildOf<Tag.Tbody>.fragment(content).rawValue))
+  public static func tbody(
+    attributes: [Attribute<Tag.Tbody>] = [], _ content: ChildOf<Tag.Tbody>...
+  ) -> ChildOf {
+    return .init(
+      .element("tbody", attributes: attributes, ChildOf<Tag.Tbody>.fragment(content).rawValue))
   }
-
 
   /// The `<tfoot>` element represents the block of rows that consist of the column summaries (footers) for the parent `<table>` element, if the `<tfoot>` element has a parent and it is a `<table>`.
   ///
@@ -379,8 +409,11 @@ extension ChildOf where Element == Tag.Table {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func thead(attributes: [Attribute<Tag.Thead>] = [], _ content: ChildOf<Tag.Thead>...) -> ChildOf {
-    return .init(.element("thead", attributes: attributes, ChildOf<Tag.Thead>.fragment(content).rawValue))
+  public static func thead(
+    attributes: [Attribute<Tag.Thead>] = [], _ content: ChildOf<Tag.Thead>...
+  ) -> ChildOf {
+    return .init(
+      .element("thead", attributes: attributes, ChildOf<Tag.Thead>.fragment(content).rawValue))
   }
 }
 
@@ -434,7 +467,8 @@ extension ChildOf where Element: ContainsOption {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func option(attributes: [Attribute<Tag.Option>] = [], _ content: String) -> ChildOf {
+  public static func option(attributes: [Attribute<Tag.Option>] = [], _ content: String) -> ChildOf
+  {
     return .init(.element("option", attributes: attributes, [.text(content)]))
   }
 }
@@ -446,7 +480,9 @@ extension Tag.Audio: ContainsSource {}
 extension Tag.Video: ContainsSource {}
 
 extension ChildOf where Element: ContainsSource {
-  public static func source(src: String, attributes: [Attribute<Tag.Source>] = [], _ transparent: Node...) -> ChildOf {
+  public static func source(
+    src: String, attributes: [Attribute<Tag.Source>] = [], _ transparent: Node...
+  ) -> ChildOf {
     return .init(.element("source", attributes: [.src(src)] + attributes, .fragment(transparent)))
   }
 }
@@ -464,7 +500,9 @@ extension ChildOf where Element: ContainsTr {
   /// - Parameters:
   ///   - attributes: Attributes.
   ///   - content: Child nodes.
-  public static func tr(attributes: [Attribute<Tag.Tr>] = [], _ content: ChildOf<Tag.Tr>...) -> ChildOf {
+  public static func tr(attributes: [Attribute<Tag.Tr>] = [], _ content: ChildOf<Tag.Tr>...)
+    -> ChildOf
+  {
     return .init(.element("tr", attributes: attributes, ChildOf<Tag.Tr>.fragment(content).rawValue))
   }
 }
