@@ -115,28 +115,6 @@ render(unexclaim(document))
   )
 )
 
-// Based on https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
-let dl_exmaple_with_div: Node = .dl(
-    .div(
-        .dt("Last modified time"),
-        .dd("2004-12-23T23:33Z")
-    ),
-    .div(
-        .dt("Recommended update interval"),
-        .dd("60s")
-    ),
-    .div(
-        .dt("Authors"),
-        .dt("Editors"),
-        .dd("Robert Rothman"),
-        .dd("Daniel Jackson")
-    )
-)
-
-render(dl_exmaple_with_div)
-
-
-
 /// A function that "redacts" an HTML document by transforming all text nodes
 /// into █-sequences of characters.
 func redacted(node: Node) -> Node {

@@ -89,9 +89,10 @@ extension ChildOf where Element == Tag.Dl {
   }
 }
 
-// https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
 extension ChildOf where Element == Tag.Dl {
   /// The `<div>` element wraps a group, that is part of a term-description group in a description list (`<dl>` element).
+  ///
+  /// This is allowed according to the HTML spec: // https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
   ///
   /// - Parameters:
   ///   - attributes: Attributes.

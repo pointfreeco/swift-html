@@ -3,8 +3,8 @@ test-linux:
 		--rm \
 		-v "$(PWD):$(PWD)" \
 		-w "$(PWD)" \
-		swift:5.3 \
-		bash -c 'make test-swift'
+		swift:5.7-focal \
+		bash -c 'swift test'
 
 test-macos: xcodeproj
 	set -o pipefail && \

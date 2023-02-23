@@ -3,10 +3,14 @@ name: CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
       - '*'
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
