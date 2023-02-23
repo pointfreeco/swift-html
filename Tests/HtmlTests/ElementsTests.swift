@@ -21,4 +21,30 @@ final class ElementsTests: XCTestCase {
       )
     )
   }
+    
+    func testDlwithDiv() {
+        let dl_exmaple_with_div: Node = .dl(
+            .div(
+                .dt("Last modified time"),
+                .dd("2004-12-23T23:33Z")
+            ),
+            .div(
+                .dt("Recommended update interval"),
+                .dd("60s")
+            ),
+            .div(
+                .dt("Authors"),
+                .dt("Editors"),
+                .dd("Robert Rothman"),
+                .dd("Daniel Jackson")
+            )
+        )
+        
+        XCTAssertEqual(
+            """
+            <dl><div><dt>Last modified time</dt><dd>2004-12-23T23:33Z</dd></div><div><dt>Recommended update interval</dt><dd>60s</dd></div><div><dt>Authors</dt><dt>Editors</dt><dd>Robert Rothman</dd><dd>Daniel Jackson</dd></div></dl>
+            """,
+            render(dl_exmaple_with_div)
+        )
+    }
 }
