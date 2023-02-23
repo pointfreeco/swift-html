@@ -89,6 +89,18 @@ extension ChildOf where Element == Tag.Dl {
   }
 }
 
+// https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
+extension ChildOf where Element == Tag.Dl {
+  /// The `<div>` element wraps a group, that is part of a term-description group in a description list (`<dl>` element).
+  ///
+  /// - Parameters:
+  ///   - attributes: Attributes.
+  ///   - content: Child nodes (`<dl>` or `dd` elements).
+    public static func div(attributes: [Attribute<Tag.Div>] = [], _ content: ChildOf<Tag.Dl>...) -> ChildOf {
+    return .init(.element("div", attributes: attributes, ChildOf.fragment(content).rawValue))
+  }
+}
+
 extension ChildOf where Element == Tag.Fieldset {
   /// The `<legend>` element represents a caption for the rest of the contents of the `<legend>` element's parent `<fieldset>` element, if any.
   ///
