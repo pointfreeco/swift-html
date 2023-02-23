@@ -25,4 +25,11 @@ test-swift:
 		--enable-test-discovery \
 		--parallel
 
+format:
+	swift format \
+		--ignore-unparsable-files \
+		--in-place \
+		--recursive \
+		./Html.playground ./Package.swift ./Sources ./Tests
+
 test-all: test-linux test-macos test-ios test-swift
