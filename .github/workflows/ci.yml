@@ -8,6 +8,10 @@ on:
     branches:
       - '*'
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     name: MacOS
