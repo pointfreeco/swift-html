@@ -78,7 +78,7 @@ render(document)
 // <!doctype html><html><body><h1>Welcome!</h1><p>You’ve found our site!</p></body></html>
 ```
 
-And of course you can first run the document through the `unexlaim` transformation, and then render it:
+And of course you can first run the document through the `unexclaim` transformation, and then render it:
 
 ```swift
 render(unexclaim(document))
