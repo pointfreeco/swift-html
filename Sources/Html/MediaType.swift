@@ -87,12 +87,12 @@ public struct Font: RawRepresentable {
     self.rawValue = rawValue
   }
 
-  public static let collection = Audio(rawValue: "collection")
-  public static let otf = Audio(rawValue: "otf")
-  public static let sfnt = Audio(rawValue: "sfnt")
-  public static let ttf = Audio(rawValue: "ttf")
-  public static let woff = Audio(rawValue: "woff")
-  public static let woff2 = Audio(rawValue: "woff2")
+  public static let collection = Font(rawValue: "collection")
+  public static let otf = Font(rawValue: "otf")
+  public static let sfnt = Font(rawValue: "sfnt")
+  public static let ttf = Font(rawValue: "ttf")
+  public static let woff = Font(rawValue: "woff")
+  public static let woff2 = Font(rawValue: "woff2")
 }
 
 public struct Image: RawRepresentable {
