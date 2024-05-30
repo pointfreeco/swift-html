@@ -1,4 +1,4 @@
-public struct Config {
+public struct Config: Sendable {
   public let indentation: String
   public let newline: String
 
