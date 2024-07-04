@@ -1,4 +1,4 @@
-public enum MediaType: CustomStringConvertible {
+public enum MediaType: CustomStringConvertible, Sendable {
   case application(Application)
   case audio(Audio)
   case font(Font)
@@ -54,7 +54,7 @@ public enum MediaType: CustomStringConvertible {
   }
 }
 
-public struct Application: RawRepresentable {
+public struct Application: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -67,7 +67,7 @@ public struct Application: RawRepresentable {
   public static let xWwwFormUrlencoded = Application(rawValue: "x-www-form-url-encoded")
 }
 
-public struct Audio: RawRepresentable {
+public struct Audio: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -80,7 +80,7 @@ public struct Audio: RawRepresentable {
   public static let wav = Audio(rawValue: "wav")
 }
 
-public struct Font: RawRepresentable {
+public struct Font: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -95,7 +95,7 @@ public struct Font: RawRepresentable {
   public static let woff2 = Audio(rawValue: "woff2")
 }
 
-public struct Image: RawRepresentable {
+public struct Image: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -110,7 +110,7 @@ public struct Image: RawRepresentable {
   public static let tiff = Image(rawValue: "tiff")
 }
 
-public struct Multipart: RawRepresentable {
+public struct Multipart: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -124,7 +124,7 @@ public struct Multipart: RawRepresentable {
   public static let formData = Multipart(rawValue: "form-data")
 }
 
-public struct Text: RawRepresentable {
+public struct Text: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -137,7 +137,7 @@ public struct Text: RawRepresentable {
   public static let plain = Text(rawValue: "plain")
 }
 
-public struct Video: RawRepresentable {
+public struct Video: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -149,7 +149,7 @@ public struct Video: RawRepresentable {
   public static let webm = Video(rawValue: "webm")
 }
 
-public struct Charset: RawRepresentable {
+public struct Charset: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
