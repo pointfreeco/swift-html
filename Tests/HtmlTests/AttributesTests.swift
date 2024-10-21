@@ -470,7 +470,12 @@ final class AttributesTests: XCTestCase {
     XCTAssertEqual("<base href=\"blob\">", render(.base(attributes: [.href("blob")])))
     XCTAssertEqual(
       "<link href=\"blob\" rel=\"alternate\">",
-      render(.link(attributes: [.href("blob"), .rel(.alternate)])))
+      render(.link(attributes: [.href("blob"), .rel(.alternate)]))
+    )
+    XCTAssertEqual(
+      "<link href=\"blob\" rel=\"alternate\" crossorigin>",
+      render(.link(attributes: [.href("blob"), .rel(.alternate), .crossorigin(.anonymous)]))
+    )
 
     XCTAssertEqual(
       "<a href=\"mailto:blob@pointfree.co\"></a>",

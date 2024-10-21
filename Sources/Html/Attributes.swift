@@ -962,6 +962,7 @@ public protocol HasCrossorigin {}
 
 extension Tag.Img: HasCrossorigin {}
 extension Tag.Script: HasCrossorigin {}
+extension Tag.Link: HasCrossorigin {}
 
 extension Attribute where Element: HasCrossorigin {
   public enum Crossorigin: String {
