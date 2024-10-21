@@ -1,5 +1,5 @@
 import Html
-import SnapshotTesting
+@preconcurrency import SnapshotTesting
 
 extension Snapshotting where Value == [Node], Format == String {
   public static var html: Snapshotting {

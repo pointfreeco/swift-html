@@ -3,7 +3,7 @@ test-linux:
 		--rm \
 		-v "$(PWD):$(PWD)" \
 		-w "$(PWD)" \
-		swift:5.7-focal \
+		swift:6.0-focal \
 		bash -c 'swift test'
 
 test-macos: xcodeproj

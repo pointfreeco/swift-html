@@ -496,7 +496,7 @@ final class SnapshotTestingTests: XCTestCase {
       )
     )
 
-    assertSnapshot(matching: doc, as: .html)
+    assertSnapshot(of: doc, as: .html)
   }
 
   func testSnapshots() {
@@ -642,6 +642,6 @@ final class SnapshotTestingTests: XCTestCase {
       .video(.track(src: "track1"), transparent: "Fallback"),
     ]
 
-    assertSnapshot(matching: doc, as: .html)
+    assertSnapshot(of: doc, as: .html)
   }
 }
