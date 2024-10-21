@@ -216,7 +216,7 @@ The ideas for this library were explored in the following episodes:
 - [Episode 29](https://www.pointfree.co/episodes/ep29-dsls-vs-templating-languages): 🆓 DSLs vs. Templating Languages
 
 <a href="https://www.pointfree.co/episodes/ep26-domain-specific-languages-part-1">
-  <img alt="video poster image" src="https://d1hf1soyumxcgv.cloudfront.net/0026-dsl-pt1/poster.jpg" width="480">
+  <img alt="video poster image" src="https://d3rccdn33rt8ze.cloudfront.net/episodes/0026.jpeg" width="480">
 </a>
 
 ## License
