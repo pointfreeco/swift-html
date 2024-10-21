@@ -61,10 +61,10 @@ public struct Application: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let javascript = Application(rawValue: "javascript")
-  public static let json = Application(rawValue: "json")
-  public static let xml = Application(rawValue: "xml")
-  public static let xWwwFormUrlencoded = Application(rawValue: "x-www-form-url-encoded")
+  public static let javascript = Self(rawValue: "javascript")
+  public static let json = Self(rawValue: "json")
+  public static let xml = Self(rawValue: "xml")
+  public static let xWwwFormUrlencoded = Self(rawValue: "x-www-form-url-encoded")
 }
 
 public struct Audio: RawRepresentable, Sendable {
@@ -74,10 +74,10 @@ public struct Audio: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let aiff = Audio(rawValue: "aiff")
-  public static let ogg = Audio(rawValue: "ogg")
-  public static let mpeg = Audio(rawValue: "mpeg")
-  public static let wav = Audio(rawValue: "wav")
+  public static let aiff = Self(rawValue: "aiff")
+  public static let ogg = Self(rawValue: "ogg")
+  public static let mpeg = Self(rawValue: "mpeg")
+  public static let wav = Self(rawValue: "wav")
 }
 
 public struct Font: RawRepresentable, Sendable {
@@ -87,12 +87,12 @@ public struct Font: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let collection = Audio(rawValue: "collection")
-  public static let otf = Audio(rawValue: "otf")
-  public static let sfnt = Audio(rawValue: "sfnt")
-  public static let ttf = Audio(rawValue: "ttf")
-  public static let woff = Audio(rawValue: "woff")
-  public static let woff2 = Audio(rawValue: "woff2")
+  public static let collection = Self(rawValue: "collection")
+  public static let otf = Self(rawValue: "otf")
+  public static let sfnt = Self(rawValue: "sfnt")
+  public static let ttf = Self(rawValue: "ttf")
+  public static let woff = Self(rawValue: "woff")
+  public static let woff2 = Self(rawValue: "woff2")
 }
 
 public struct Image: RawRepresentable, Sendable {
@@ -102,12 +102,12 @@ public struct Image: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let bmp = Image(rawValue: "bmp")
-  public static let jpeg = Image(rawValue: "jpeg")
-  public static let gif = Image(rawValue: "gif")
-  public static let png = Image(rawValue: "png")
-  public static let svg = Image(rawValue: "svg+xml")
-  public static let tiff = Image(rawValue: "tiff")
+  public static let bmp = Self(rawValue: "bmp")
+  public static let jpeg = Self(rawValue: "jpeg")
+  public static let gif = Self(rawValue: "gif")
+  public static let png = Self(rawValue: "png")
+  public static let svg = Self(rawValue: "svg+xml")
+  public static let tiff = Self(rawValue: "tiff")
 }
 
 public struct Multipart: RawRepresentable, Sendable {
@@ -117,11 +117,11 @@ public struct Multipart: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let alternative = Multipart(rawValue: "alternative")
-  public static let digest = Multipart(rawValue: "digest")
-  public static let mixed = Multipart(rawValue: "mixed")
-  public static let parallel = Multipart(rawValue: "parallel")
-  public static let formData = Multipart(rawValue: "form-data")
+  public static let alternative = Self(rawValue: "alternative")
+  public static let digest = Self(rawValue: "digest")
+  public static let mixed = Self(rawValue: "mixed")
+  public static let parallel = Self(rawValue: "parallel")
+  public static let formData = Self(rawValue: "form-data")
 }
 
 public struct Text: RawRepresentable, Sendable {
@@ -131,10 +131,10 @@ public struct Text: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let css = Text(rawValue: "css")
-  public static let csv = Text(rawValue: "csv")
-  public static let html = Text(rawValue: "html")
-  public static let plain = Text(rawValue: "plain")
+  public static let css = Self(rawValue: "css")
+  public static let csv = Self(rawValue: "csv")
+  public static let html = Self(rawValue: "html")
+  public static let plain = Self(rawValue: "plain")
 }
 
 public struct Video: RawRepresentable, Sendable {
@@ -144,9 +144,9 @@ public struct Video: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let mp4 = Video(rawValue: "mp4")
-  public static let ogg = Video(rawValue: "ogg")
-  public static let webm = Video(rawValue: "webm")
+  public static let mp4 = Self(rawValue: "mp4")
+  public static let ogg = Self(rawValue: "ogg")
+  public static let webm = Self(rawValue: "webm")
 }
 
 public struct Charset: RawRepresentable, Sendable {
@@ -156,7 +156,7 @@ public struct Charset: RawRepresentable, Sendable {
     self.rawValue = rawValue
   }
 
-  public static let utf8: Charset = "utf-8"
+  public static let utf8: Self = "utf-8"
   // TODO: http://www.iana.org/assignments/character-sets/character-sets.xhtml
 }
 
