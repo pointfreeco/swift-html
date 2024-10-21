@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Attribute<Element> {
+public struct Attribute<Element>: Sendable {
   public let key: String
   public let value: String?
 
@@ -468,7 +468,7 @@ extension Attribute where Element == Tag.Form {
     return .init("action", value)
   }
 
-  public struct Enctype: RawRepresentable {
+  public struct Enctype: RawRepresentable, Sendable {
     public let rawValue: String
 
     public init(rawValue: String) {
@@ -575,7 +575,7 @@ public enum InputType: String {
   case week
 }
 
-public struct Accept: RawRepresentable {
+public struct Accept: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {

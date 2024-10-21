@@ -1,5 +1,5 @@
 /// The basic unit of an HTML tree.
-public enum Node {
+public enum Node: Sendable {
   /// Represents a renderable comment.
   case comment(String)
 
