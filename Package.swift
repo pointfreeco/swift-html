@@ -1,8 +1,13 @@
-// swift-tools-version:5.3
+// swift-tools-version: 5.5
 import PackageDescription
 
 let package = Package(
   name: "swift-html",
+  platforms: [
+    .iOS(.v13),
+    .macOS(.v10_15),
+    .tvOS(.v13),
+  ],
   products: [
     .library(
       name: "Html",
@@ -12,7 +17,7 @@ let package = Package(
       targets: ["HtmlSnapshotTesting"]),
   ],
   dependencies: [
-    .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.11.1")
   ],
   targets: [
     .target(
@@ -26,14 +31,14 @@ let package = Package(
       name: "HtmlSnapshotTesting",
       dependencies: [
         "Html",
-        .product(name: "SnapshotTesting", package: "SnapshotTesting"),
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
       ]
     ),
     .testTarget(
       name: "HtmlSnapshotTestingTests",
       dependencies: ["HtmlSnapshotTesting"],
       exclude: [
-        "__Snapshots__",
+        "__Snapshots__"
       ]
     ),
   ]

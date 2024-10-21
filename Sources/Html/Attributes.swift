@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Attribute<Element> {
+public struct Attribute<Element>: Sendable {
   public let key: String
   public let value: String?
 
@@ -360,10 +360,11 @@ extension Attribute where Element == Tag.A {
     bcc: [String] = [],
     subject: String = "",
     body: String = ""
-    )
-    -> Attribute {
+  )
+    -> Attribute
+  {
 
-      return .mailto(addresses, cc: cc, bcc: bcc, subject: subject, body: body)
+    return .mailto(addresses, cc: cc, bcc: bcc, subject: subject, body: body)
   }
 
   /// Email address of a hyperlink.
@@ -381,21 +382,22 @@ extension Attribute where Element == Tag.A {
     bcc: [String] = [],
     subject: String = "",
     body: String = ""
-    )
-    -> Attribute {
+  )
+    -> Attribute
+  {
 
-      var urlComponents = URLComponents()
-      urlComponents.scheme = "mailto"
-      urlComponents.path = addresses.joined(separator: ",")
-      let queryItems = [
-        cc.isEmpty ? nil : URLQueryItem(name: "cc", value: cc.joined(separator: ",")),
-        bcc.isEmpty ? nil : URLQueryItem(name: "bcc", value: bcc.joined(separator: ",")),
-        subject.isEmpty ? nil : URLQueryItem(name: "subject", value: subject),
-        body.isEmpty ? nil : URLQueryItem(name: "body", value: body)
-        ]
-        .compactMap { $0 }
-      urlComponents.queryItems = queryItems.isEmpty ? nil : queryItems
-      return href(urlComponents.string ?? "")
+    var urlComponents = URLComponents()
+    urlComponents.scheme = "mailto"
+    urlComponents.path = addresses.joined(separator: ",")
+    let queryItems = [
+      cc.isEmpty ? nil : URLQueryItem(name: "cc", value: cc.joined(separator: ",")),
+      bcc.isEmpty ? nil : URLQueryItem(name: "bcc", value: bcc.joined(separator: ",")),
+      subject.isEmpty ? nil : URLQueryItem(name: "subject", value: subject),
+      body.isEmpty ? nil : URLQueryItem(name: "body", value: body),
+    ]
+    .compactMap { $0 }
+    urlComponents.queryItems = queryItems.isEmpty ? nil : queryItems
+    return href(urlComponents.string ?? "")
   }
 }
 
@@ -466,14 +468,15 @@ extension Attribute where Element == Tag.Form {
     return .init("action", value)
   }
 
-  public struct Enctype: RawRepresentable {
+  public struct Enctype: RawRepresentable, Sendable {
     public let rawValue: String
 
     public init(rawValue: String) {
       self.rawValue = rawValue
     }
 
-    public static let applicationXWwwFormUrlencoded = Enctype(rawValue: "application/x-www-form-urlencoded")
+    public static let applicationXWwwFormUrlencoded = Enctype(
+      rawValue: "application/x-www-form-urlencoded")
     public static let multipartFormData = Enctype(rawValue: "multipart/form-data")
     public static let textPlain = Enctype(rawValue: "text/plain")
   }
@@ -572,7 +575,7 @@ public enum InputType: String {
   case week
 }
 
-public struct Accept: RawRepresentable {
+public struct Accept: RawRepresentable, Sendable {
   public let rawValue: String
 
   public init(rawValue: String) {
@@ -1432,9 +1435,11 @@ extension Attribute where Element: HasSrcset {
   /// - Parameter value: Images to use in different situations (e.g., high-resolution displays, small monitors, etc).
   public static func srcset(_ value: [String: Size]) -> Attribute {
     /// Sort by size, to aid tests with consistent output
-    return .init("srcset", value
-                  .sorted { $0.key < $1.key }
-                  .map { url, size in url + " " + size.description }.joined(separator: ", "))
+    return .init(
+      "srcset",
+      value
+        .sorted { $0.key < $1.key }
+        .map { url, size in url + " " + size.description }.joined(separator: ", "))
   }
 }
 

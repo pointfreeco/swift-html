@@ -1,6 +1,6 @@
-
 public func _debugXmlRender(_ nodes: [Node], config: Config = .pretty) -> String {
-  return nodes
+  return
+    nodes
     .map { debugRender($0, config: config, voidElements: []) }
     .joined()
 }

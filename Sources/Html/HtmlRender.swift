@@ -14,11 +14,14 @@ public func render(_ node: Node, voidElements: Set<String> = Html.voidElements) 
   return rendered
 }
 
-public func render<T>(_ children: [ChildOf<T>], voidElements: Set<String> = Html.voidElements) -> String {
+public func render<T>(_ children: [ChildOf<T>], voidElements: Set<String> = Html.voidElements)
+  -> String
+{
   return children.reduce(into: "") { $0.append(render($1, voidElements: voidElements)) }
 }
 
-public func render<T>(_ child: ChildOf<T>, voidElements: Set<String> = Html.voidElements) -> String {
+public func render<T>(_ child: ChildOf<T>, voidElements: Set<String> = Html.voidElements) -> String
+{
   return render(child.rawValue, voidElements: voidElements)
 }
 
@@ -27,7 +30,8 @@ public func escapeAttributeValue(_ value: String) -> String {
 }
 
 public func escapeTextNode(text: String) -> String {
-  return text
+  return
+    text
     .replacingOccurrences(of: "&", with: "&amp;")
     .replacingOccurrences(of: "<", with: "&lt;")
 }
@@ -55,7 +59,7 @@ public let voidElements: Set<String> = [
   "param",
   "source",
   "track",
-  "wbr"
+  "wbr",
 ]
 
 func render(_ node: Node, into output: inout String, voidElements: Set<String>) {

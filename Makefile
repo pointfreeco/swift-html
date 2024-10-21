@@ -3,8 +3,8 @@ test-linux:
 		--rm \
 		-v "$(PWD):$(PWD)" \
 		-w "$(PWD)" \
-		swift:5.3 \
-		bash -c 'make test-swift'
+		swift:6.0-focal \
+		bash -c 'swift test'
 
 test-macos: xcodeproj
 	set -o pipefail && \
@@ -24,5 +24,12 @@ test-swift:
 	swift test \
 		--enable-test-discovery \
 		--parallel
+
+format:
+	swift format \
+		--ignore-unparsable-files \
+		--in-place \
+		--recursive \
+		./Html.playground ./Package.swift ./Sources ./Tests
 
 test-all: test-linux test-macos test-ios test-swift
